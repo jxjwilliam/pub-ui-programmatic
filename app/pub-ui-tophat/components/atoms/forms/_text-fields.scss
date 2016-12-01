@@ -1,0 +1,30 @@
+/*doc
+---
+title: Text Fields
+name: text-field
+category: Atoms
+parent: forms
+---
+
+```html_example
+	<textarea placeholder="My awesome text"></textarea>
+```
+
+*/
+
+
+textarea {
+	@include border-radius($border-radius);
+	border: 4px solid $light-gray;
+	font-size: 1em;
+	padding: 10px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+textarea:hover, textarea:focus {
+	border: 4px solid $primary-color;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+
+      <title>TopHat intro</title>
+      <link rel="shortcut icon" href="static/brick.png" />
+
+      <!-- Font Awesome -->
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- Styleguide CSS -->
+      <link rel="stylesheet" href="../doc_assets/github.css">
+
+      <!-- Google Fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Lato:700' rel='stylesheet' type='text/css'>
+
+      <!-- CSS to be documented -->
+      <!-- <link rel="stylesheet" href="build/css/screen.css"> -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- <link rel="stylesheet" href="../css/hologram.css"> -->
+
+      
+
+      <!-- Main libraries -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+      <!-- component js and init scripts -->
+      <script src="build/script/components.js"></script>
+  </head>
+
+  <body>
+    <div class="body-container">
+
+
+        <header class="hologram-header" style="background:none">
+
+          <!-- <h1>PubMatic Tophat</h1> -->
+          <img src="../images/logos/pubux-logo-master.svg">
+
+          <ul class="inline">
+            <!-- Add you pages here -->
+            <li><a href="index.html">Intro</a></li>
+            <li><a href="atoms.html">Atoms</a></li>
+            <li><a href="molecules.html">Molecules</a></li>
+            <li><a href="javascript.html">Javascript</a></li>
+          </ul>
+          <!-- //header/container -->
+        </header>
+
+        <div class="content">
+          <section>
+
+            <div class="componentMenu scroll">
+              <ul class="componentList listBorderedHover">
+                 
+                  <li><a href="#intro">Intro</a></li>
+                
+              </ul>
+            </div>
+
+            <div class="mains"><h1 id="intro">Intro</h1>
+
+<p>TODO</p>
+  <footer>
+    Built and maintained by PubMatic Labs.
+  </footer>
+    </div>
+  </section>
+  
+</div>
+<script>
+$(document).ready(function() {
+
+  // build simple sidebar navigation
+  var $headers = $('.main > h1');
+  var $componentList = $('.componentList');
+
+  $headers.each(function() {
+    var headerText = $(this).text();
+    $(this).attr('id', headerText);
+
+    $componentList.append(
+      '<li><a href="#' + headerText + '">' + headerText + '</a></li>'
+    );
+  });
+
+  // set the active tab
+  var currentHref = document.location.pathname.substr(1);
+  if (currentHref)
+  {
+    $('.docNav').find('a[href^="' + currentHref + '"]').addClass('activeNavElem typeEmphasize');
+  }
+  else
+  {
+    $('.docNav').find('a').eq(0).addClass('activeNavElem typeEmphasize');
+  }
+
+
+});
+</script>
+</body>
+</html>

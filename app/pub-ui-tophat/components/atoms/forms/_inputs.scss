@@ -1,0 +1,50 @@
+@import "../global/colors";
+
+/*doc
+---
+title: Inputs
+name: inputs
+category: Atoms
+parent: forms
+---
+
+Inputs are automatically styled, no classes required.
+
+```html_example
+
+	<form>
+		<input type="text" name="inputMe" placeholder="Input me">
+	</form>
+```
+
+*/
+
+// Reset padding and margin on the input
+// Text input needs to be wrapped by a <form> or a <form> + <label>
+form input[type=text], form label input[type=text] {
+	padding: 0;
+	margin: 0;
+}
+form input[type=text], form label input[type=text] {
+	// Disable select highlighting when clicking on or around the element
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	// use Compass mixin for setting border-radius
+	@include border-radius($border-radius);
+	outline: none;
+	border: 4px solid $light-gray;
+	font-size: 1em;
+	line-height: 1em;
+	padding: 10px;
+}
+// On focus or hover, make it pop
+form input[type=text]:focus, form input[type=text]:hover, form label input[type=text]:focus, form label input[type=text]:hover {
+	border: 4px solid $primary-color;
+	outline: none;
+	transition: all 0.15s ease;
+}
+

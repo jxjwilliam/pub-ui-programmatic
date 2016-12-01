@@ -1,0 +1,116 @@
+<style>
+    [details-container] {
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #fff;
+        overflow: hidden;
+        padding-bottom: 45px;
+    }
+
+    [details-container] [filter-section] {
+        width: 50%;
+    }
+
+    [details-container] [filter-section] [filter-field] {
+        padding-top: 5px;
+    }
+</style>
+
+<div class="row">
+    <div class="small-12 columns">
+
+        <div details-container>
+            <!-- BASIC DETAILS SECTION -->
+            <div section-name>
+                <h4>Order Details</h4>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Name:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{orderDetails.name}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Description:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{orderDetails.description}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Agency:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{orderDetails.agency}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Advertiser:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{orderDetails.advertiser}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Order dates:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{normalizeDate(orderDetails.startDate)}} -
+                            {{normalizeDate(orderDetails.endDate)}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Total Value:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{orderDetails.totalCostAmount | currency}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label># Line Items:</label>
+                    </div>
+                    <div filter-field>
+                        <label><p>{{orderDetails.lineItems.length}}</p></label>
+                    </div>
+                </div>
+            </div>
+            <div filter-section>
+                <div row>
+                    <div filter-label>
+                        <label>Status:</label>
+                    </div>
+                    <div filter-field>
+                        <label>
+                            <p>{{orderDetails.status|capitalizeFirst}}
+                                <span ng-show="showOrderApproval">
+                                    <a class="button" ng-href="{{moGapUrl}}" target="_blank">Review for Approval</a>
+                                </span>
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,502 @@
+<!-- PUBUI NAVBAR -->
+        <style>
+.pubui-container, .pubui-nav-container {
+width: 1040px;
+margin: 0 auto;
+text-align: left;
+}
+
+.pubui-nav-header, .pubui-nav-footer {
+text-align: center;
+color: #fff;
+font-family: Arial;
+}
+
+.pubui-nav-header {
+// background: #454545;
+// height: 115px;
+margin: 0 0 15px;
+line-height: 14px;
+font-size: 11px;
+}
+
+.pubui-nav-header.full {
+height: 100%;
+}
+
+.pubui-nav-footer {
+margin: 40px 0 -15px;
+padding: 0 0 25px;
+color:#999;
+background: #eee;
+text-shadow: 0 1px 0 #fff;
+}
+.pubui-nav-footer a {
+text-decoration: underline;
+border:0;
+margin: 0 5px;
+}
+.pubui-footer-links {
+float:right
+}
+
+.pubui-nav-container {
+text-align: left;
+margin: 0 auto;
+}
+.pubui-nav-container.footer {
+padding: 15px 0;
+}
+
+.pubui-nav-userinfo {
+    color: #fff;
+    text-align: right;
+    padding: 5px 0 0;
+    height: 14px;
+}
+.pubui-nav-userinfo a {
+color: #fff;
+text-decoration: underline;
+border:0;
+}
+
+.pubui-separator {
+display: inline-block;
+width: 15px;
+}
+
+span.pubui-time {
+display:inline-block;
+background: url(images/icons/nav-time.png) no-repeat;
+width: 12px;
+height: 12px;
+vertical-align: text-top;
+margin-right:3px;
+}
+
+.pubui-nav-midsection {
+padding: 15px 0 0;
+margin-top: 5px;
+}
+
+.pubui-nav-logo {
+float: left;
+width: 152px;
+height: 39px;
+display: block;
+text-indent: -99999px;
+}
+
+.pubui-nav-logo img {
+text-indent: -9999px;
+display: block;
+}
+
+.pubui-nav-logo:hover {
+border:0;
+text-decoration: none;
+}
+
+.pubui-nav-primary-container {
+width: 850px;
+display: block;
+float: right;
+}
+.pubui-clear {
+clear:both;
+}
+.pubui-hidden {
+display: none;
+}
+
+.pubui-mCWrapper {
+background: #fff;
+}
+
+a.pubui-lighter {
+color: #bcbcbc;
+}
+
+/*	--------------------------------------------------
+Nav Bar with Dropdowns
+-------------------------------------------------- */
+
+.pubui-nav-primary {
+height: 38px;
+margin: 0;
+
+width: 100%;
+float: right;
+
+display: block;
+clear:both;
+
+font-weight: bold;
+font-size: 13px;
+
+background: #00a4f0; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYTRmMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDhlZDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #5f5f5f 0%, #4e4e4e 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5f5f5f), color-stop(100%,#4e4e4e)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #5f5f5f 0%,#4e4e4e 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #5f5f5f 0%,#4e4e4e 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #5f5f5f 0%,#4e4e4e 100%); /* IE10+ */
+background: linear-gradient(top, #5f5f5f 0%,#4e4e4e 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5f5f5f', endColorstr='#4e4e4e',GradientType=0 ); /* IE6-8 */
+
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+
+-webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+
+text-shadow: 0 1px 0 rgba(0,0,0,.4);
+text-align: left;
+}
+
+.pubui-nav-primary>li {
+float: left;
+display: block;
+position: relative;
+padding: 0;
+margin: 0;
+line-height: 38px;
+}
+
+.pubui-nav-primary>li.pubui-home {
+display: block;
+}
+
+/* HOME ICON */
+.pubui-nav-primary>li a.pubui-home-icon {
+text-align: center;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+.pubui-nav-primary>li.pubui-home-icon a {
+background-color: none;
+}
+
+.pubui-nav-primary>li.pubui-home a, .pubui-nav-primary>li.pubui-home.pubui-selected a {
+-webkit-border-top-left-radius: 3px;
+-webkit-border-bottom-left-radius: 3px;
+-moz-border-radius-topleft: 3px;
+-moz-border-radius-bottomleft: 3px;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+
+.pubui-nav-primary>li.pubui-home a, .pubui-nav-primary>li.pubui-home a:hover {
+background: url(images/icons/nav-home.png) no-repeat center center;
+width: 16px;
+text-indent: -9999px;
+}
+
+.pubui-nav-primary>li.pubui-home.pubui-selected a, .pubui-nav-primary>li.pubui-home.pubui-selected a:hover {
+background: #00a4f0 url(images/icons/nav-home.png) no-repeat center center;
+}
+
+.pubui-nav-primary>li.pubui-home a:hover {
+background-color: #333;
+}
+
+.pubui-nav-primary>li>a {
+position: relative;
+padding: 0 9px;
+display: block; text-decoration: none; color:#fff;
+}
+
+/* UPDATED: 25 Sep 2012 - Padding (L&R) above reduced by 1 px each to accomodate PubLink in top navigation */
+.pubui-nav-primary>li>input {
+margin: 0 16px;
+}
+.pubui-nav-primary>li ul {
+margin-bottom: 0;
+}
+
+.pubui-nav-primary>li.pubui-right { float:right }
+.pubui-nav-primary>li.pubui-right.pubui-last { border-right: 0 }
+
+/*
+.nav-primary>li.has-flyout>a { padding-right: 36px; }
+.nav-primary>li.has-flyout>a:after { content: ""; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #fff; display: block; position: absolute; right: 18px; bottom: 15px; }
+*/
+.pubui-nav-primary>li:hover>a {
+color: #fff; z-index: 2;
+border:0;
+background: #0499d3 !important;
+}
+.pubui-nav-primary>li.pubui-selected>a.active {
+    background: #0499d3;
+    border: none;
+}
+.pubui-nav-primary>li:hover>a {background: #333}
+
+.pubui-nav-primary>li.pubui-selected.pubui-has-flyout:hover>a{background: #0499d3 url(images/icons/selected.png) bottom center no-repeat;}
+.pubui-nav-primary>li.pubui-has-flyout:hover>a {background: #333 url(images/icons/selected.png) bottom center no-repeat;}
+
+.pubui-nav-primary>li:hover>a:after { border-top-color: #fff }
+.pubui-nav-primary>li.pubui-search{float: right;margin:0 -10px 0 0;}
+
+
+.pubui-flyout {
+background: #fff;
+color: #333;
+text-shadow: none ;
+line-height: 20px; margin: 0; position: absolute; top: 38px; left: 0px; z-index: 100;
+/*
+-webkit-box-shadow: 0px 5px 4px rgba(0,0,0,0.25);
+-moz-box-shadow: 0px 5px 4px rgba(0,0,0,0.25);
+box-shadow: 0px 5px 4px rgba(0,0,0,0.25);
+*/
+-webkit-box-shadow: 0px 20px 30px rgba(50, 50, 50, 0.6);
+-moz-box-shadow:    0px 20px 30px rgba(50, 50, 50, 0.6);
+box-shadow:         0px 20px 30px rgba(50, 50, 50, 0.6);
+padding: 15px;
+width: 555px;
+/* border:1px solid #cecece;border-top:0; ONLY FOR IE */
+}
+
+.pubui-flyout.pubui-small { width: 200px; }
+.pubui-flyout.pubui-large { width: 600px; }
+.pubui-flyout.pubui-right { left: auto; right: 0; }
+.pubui-flyout p:last-child { margin-bottom: 0; }
+.pubui-nav-primary>li .pubui-flyout { display: none; }
+.pubui-nav-primary>li:hover .pubui-flyout { display: block; }
+
+.pubui-flyout .pubui-padding {
+}
+
+.pubui-flyout .pubui-block {
+width: 165px;
+padding-right: 20px;
+float:left;
+}
+
+
+
+.pubui-nav-secondary-container {
+    clear:both;
+    float: right;
+    width: 850px;
+}
+
+.pubui-nav-secondary {
+list-style: none;
+margin:0 0 0 -5px;
+padding:5px 0 0 0;
+line-height: 22px;
+}
+
+.pubui-nav-secondary li {
+    display: inline-block;
+    float: left;
+    padding: 5px 9px;
+}
+
+.pubui-nav-secondary li {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    /*position: relative;*/
+}
+
+/*.active a:after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 30%;
+    border-left: solid 7px transparent;
+    border-right: solid 7px transparent;
+    border-bottom: solid 7px #ebebeb;
+    width: 0px;
+}*/
+
+.pubui-nav-secondary li.pubui-selected {
+background: url(images/icons/selected.png) bottom center no-repeat;
+}
+.pubui-nav-secondary li.pubui-selected a{
+color:#fff;
+}
+.pubui-nav-secondary li a {
+line-height: 23px;
+font-size: 12px;
+font-weight: bold;
+color: #ccc;
+text-decoration: none;
+}
+.pubui-nav-secondary li a:hover {
+border: 0;
+color: #fff;
+}
+
+ul.pubui-tertiary {
+list-style: none;
+padding:0;
+margin:0;
+font-size: 11px;
+}
+ul.pubui-tertiary li {
+display: block;
+}
+ul.pubui-tertiary li.pubui-title, ul.pubui-tertiary li.pubui-title a {
+font-size: 14px;
+font-weight: bold;
+margin: 0 0 3px;
+color: #0587C4;
+}
+ul.pubui-tertiary li {
+font-weight: normal;
+}
+ul.pubui-tertiary li a {
+border:0;
+color: #0587C4;
+text-decoration: none;
+}
+ul.pubui-tertiary li ul li a {
+border:0;
+color: #38C2FD;
+text-decoration: none;
+}
+ul.pubui-tertiary li a:hover {
+text-decoration: underline;
+}
+ul.pubui-tertiary li a.pubui-special {
+background: #dcf4ff;border-radius: 3px;
+margin-top: 5px;
+font-size: 14px;
+font-weight: bold;
+padding: 3px 10px;
+}
+ul.pubui-tertiary li a.pubui-special:hover{text-decoration: none;}
+
+ul.pubui-fourth {
+margin:0 0 0 10px;
+padding:0;
+}
+
+ul.pubui-fourth li a, ul.pubui-fourth li a:hover {
+color: #38C2FD
+}
+
+.pubui-pill {
+border-radius: 2px;
+background: #0587C4;
+color: #FFF;
+font-size: 11px;
+padding:2px 4px;
+height:18px;
+line-height: 15px;
+display: inline-block;
+margin-left: 4px;
+}
+
+
+/* Global Search Styles */
+
+input.pubui-global_search[type="text"] {
+background: url(images/ico_global_search.png) no-repeat 10px 6px #000;
+border: 0 none;
+font-weight:normal;
+font-size: 12px;
+color: #aaa;
+width: 80px;
+padding: 5px 15px 5px 28px;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+-webkit-transition: all 0.5s ease 0s;
+-moz-transition: all 0.5s ease 0s;
+-o-transition: all 0.5s ease 0s;
+transition: all 0.5s ease 0s;
+position: absolute;
+top: 7px; right: 0;
+}
+
+input.pubui-global_search[type="text"]:focus {
+width: 120px;
+color: #444;
+background: url(images/ico_global_search.png) no-repeat 10px 7px #fff;
+border: 0 none;
+}
+div.pubui-global_search_div{
+position: absolute;
+z-index: 1000;
+opacity: 0.9;
+top: 30px;
+right: 17px;
+background: transparent;
+height: 200px; width: 200px;
+-webkit-box-shadow: 0px 20px 30px rgba(50, 50, 50, 0.6);
+-moz-box-shadow:    0px 20px 30px rgba(50, 50, 50, 0.6);
+box-shadow:         0px 20px 30px rgba(50, 50, 50, 0.6);
+}
+</style>
+
+<div style="
+background-color: #454545;
+polsition:fixed;
+z-index:1100;
+transition-duration: 500ms;
+margin-right:0px;
+height: 115px;">
+<div class="pubui-nav-header">
+    <div class="pubui-nav-container pubui-container">
+
+        <!-- TOP MISC MENU -->
+        <div class="pubui-nav-userinfo">
+
+            <!--Welcome <strong>UserName</strong>
+            <span class="pubui-separator"></span>USD<span class="pubui-separator"></span><span class="pubui-time"></span><img src="images/pubui-nav/nav-time.png"> PST<span class="pubui-separator"></span>
+            <a href="#">Settings</a>
+            <span class="pubui-separator"></span>
+            <a href="#">Help</a>
+            <span class="pubui-separator"></span>-->
+            <a href="{{signOutUrl}}" class="pubui-lighter" ng-click="postLogoutActions()">Sign Out</a>
+
+        </div>
+        <!-- MAIN HEADER BODY -->
+        <div class="pubui-nav-midsection">
+            <!-- LOGO -->
+            <a class="pubui-nav-logo" href="#">
+                <img src="/images/pubui-nav/pubmatic_logo_new.png">
+            </a>
+            <!-- FULL NAV BAR -->
+            <div class="pubui-nav-primary-container">
+                <!-- MAIN NAV -->
+                <ul class="pubui-nav-primary">
+                    <!-- HOME -->
+                    <li>
+                        <a href="{{publisherHome}}" class="pubui-home-icon">
+                            <img src="images/pubui-nav/nav-home.png"/ style="display:block;padding:12px 0">
+                        </a>
+                    </li>
+                    <li ng-repeat="item in menu" class="pubui-has-flyout pubui-selected">
+                        <a href="#" class="{{item.cls}}">{{item.display}}</a>
+                        <div class="pubui-flyout pubui-small pubui-single-level">
+                            <ul class="pubui-tertiary">
+                                <li ng-repeat="subitem in item.links" class="pubui-title"><a href="{{subitem.href}}">{{subitem.display}}</a>
+                                    <!--<span class="pubui-pill"></span>-->
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- SUB-NAV -->
+                <div class="pubui-nav-secondary-container">
+                    <ul class="pubui-nav-secondary">
+                        <li ng-repeat="item in selectedMenu.links" class="{{item.cls}}"><a href="{{item.href}}" >{{item.display}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.nav-container -->
+</div><!-- /.nav-header -->
+</div>

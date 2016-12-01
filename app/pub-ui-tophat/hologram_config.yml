@@ -1,0 +1,36 @@
+# Hologram config
+
+# Relative path(s) to source files. Accepts either a single value or an array
+source: 
+  - ./components
+
+# Relative path where you want the documentation to be built
+destination: ./docs
+
+# The path that contains supporting assets for the documentation page.
+# This typically includes html fragments (header/footer, etc), style guide 
+# specific CSS, javascript and any images. Hologram specifically looks for 
+# two files: _header.html and _footer.html. These are used to start and end 
+# every html page hologram generates.
+documentation_assets: ./hologram
+
+# (optional) This is a custom markdown renderer (see Redcarpet documentation
+# for how to do this). This is the filename of a class that extends 
+# RedCarpet::Render::HTML class. Use this for when you need additional classes 
+# or html tags for different parts of the page.
+# See example_markdown_renderer.rb. example for an example of what your class 
+# can look like.
+# custom_markdown: trulia_markdown_renderer.rb
+
+# A list of relative paths to folders containing any dependencies your style 
+# guide has. These folders will be copied over into the documentation output 
+# directory. ENSURE THE CSS/JS THAT IS ACTUALLY BEING DOCUMENTED IS LISTED HERE. 
+# You will also need to ensure that they are included on your pages. A simple 
+# way to do this is to add <link> and <script src=> tags to the _header.html file.
+# dependencies:
+  # - ./build
+
+# Mark which category should be the index page
+# Alternatively, you may have an index.md in the documentation assets
+# folder instead of specifying this config.
+index: intro

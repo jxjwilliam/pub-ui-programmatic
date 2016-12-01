@@ -1,0 +1,79 @@
+/*doc
+---
+title: Data Table List
+name: data-table-list
+category: Atoms
+parent: tables
+---
+<small>
+    atoms/tables/_data-table-list.scss<br>
+    last updated 8/31/14 &ndash; 
+</small>
+
+Use a data table list when you need lists, and not tabular data. When showing large amounts of data, structure your data, and prioritize what you want the user to focus on first. Here, less important information (Date Saved) is de-emphasized through smaller header font size and grey text.
+
+On a list, we can also embed buttons on hover. Simply add a button to a cell, and the hover with automagically occur.
+
+```html_example
+		<table class="data-table list first">
+            <thead>
+                <tr>
+                    <th><h2 class="h4 flat">Your saved reports</h2></th>
+                    <th><small>Date Saved</small></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nike Revenue Report</td>
+                    <td><span class="gray flat">August 26 @ 12:46am PST</span></td>
+                    <td>
+                        <button class="button small alert-bg invisible right">
+                            <span class="fa fa-trash-o">&nbsp;&nbsp;Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revenue by Advertiser
+                    </td>
+                    <td><span class="gray flat">Revenue, impressions and eCPM shown by Advertiser</span></td>
+                    <td>
+                        <button class="button small alert-bg invisible right">
+                            <span class="fa fa-trash-o">&nbsp;&nbsp;Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revenue by DSP</td>
+                    <td><span class="gray flat">Revenue, impressions and eCPM shown by DSP</span></td>
+                    <td>
+                        <button class="button small primary-bg invisible right">
+                            <span class="fa fa-save">&nbsp;&nbsp;Save</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+```
+
+*/
+
+// A table list allows the embedding of buttons in a cell
+// which are then visible on row hover
+table.list {
+	@extend table;
+	tr td button, tr td .button {
+		visibility: hidden;
+	}
+	tr:hover td button, tr:hover td .button {
+		visibility: visible;
+	}
+}
+    
+
+
+
+
+
+
+

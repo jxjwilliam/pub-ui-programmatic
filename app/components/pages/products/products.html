@@ -1,0 +1,34 @@
+
+<div ng-controller="productCtrl">
+    <pm-application-page
+            page-title="Manage Products"
+            subtitle=""
+            description="">
+
+        <pm-id-product-create-form>
+        </pm-id-product-create-form>
+
+
+        <div pm-backplate="header">
+            <pm-button
+                    labels="{{labels}}"
+                    routes="{{routes}}">
+            </pm-button>
+            <div clearfix></div>
+        </div>
+
+        <pm-api-table
+                endpoint="/api/inventory/products?filters=name like *#SEARCH_TERM#*&filters=loggedInOwnerId eq #LOGGED_IN_PUB#&filters=loggedInOwnerTypeId eq 1&sort=-modificationTime&cacheBreak=#CACHE_BREAK#"
+                method="GET"
+                search="search products"
+                baseobject="items"
+                showlinks="true"
+                calculationfieldlabel="This product is AG compatible"
+                calculationsexpression="isProductCompatible(item)"
+                objectdisplayfields="name,description,platforms,productCategory,sites,sections,adSizes"
+                objectdisplaylabels="Name,Description,Platforms,Product Category,Sites&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,Sections,Ad Sizes"
+                pagesize="10">
+        </pm-api-table>
+
+    </pm-application-page>
+</div>

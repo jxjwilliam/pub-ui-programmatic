@@ -1,0 +1,42 @@
+/*doc
+---
+title: Button Sizes
+name: button-sizes
+category: Atoms
+parent: buttons
+---
+
+There are three button sizes: Default, small, and icon buttons. Simply apply the modifier class for the desired size.
+
+Button                                                                      | Modifier Class
+----------------------------------------------------------------------------|----------------
+<button class="button">Default</button>                                     | `.button`
+<button class="button icon"><span class="fa fa-lock"></span></button>       | `.button icon`
+<button class="button small">Small</button>                                 | `.button small`
+<button class="button small icon"><span class="fa fa-lock"></span></button> | `.button small icon`
+
+```html_example
+  <button class="button">Button</button>
+  <button class="button small">Button</button>
+  <button class="button icon"><span class="fa fa-lock"></span></button>
+  <button class="button small icon"><span class="fa fa-lock"></span></button>
+```
+
+
+*/
+
+// for regular icon only
+.button.icon, button.icon {
+  padding: 10px 15px;
+  min-width: 0;
+}
+// for small icon only
+.button.small.icon, button.small.icon {
+  padding: 4px 8px;
+}
+// for small button text + icon or text only
+.button.small, button.small {
+  padding: 2px 4px;
+  font-size: .9em;
+}
+

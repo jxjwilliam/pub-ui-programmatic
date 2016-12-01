@@ -1,0 +1,709 @@
+<!-- HTML View Template for the API enabled data block HTML element -->
+
+<style>
+[container] {
+    margin: 200px;
+    text-align: center;
+}
+.datePickerContainer {
+    position: relative;
+}
+</style>
+
+<div class="row">
+    <div class="small-12 columns">
+
+        <!-- <div id="product-definition" ng-class="{'sliding-panel off-screen' : !productOpen, 'sliding-panel open' : productOpen}">  -->
+        <div product-definition="{{panelView}}">
+            <a close-button class="fa fa-times" ng-click="cancel()"></a>
+            <div slide-header>
+                <div header-top>
+                    <div header-info="icon">
+                        <div class="panel-icon">
+                            <i class="fa fa-cube"></i>
+                        </div>
+                    </div>
+                    <div header-info="name">
+                        <h2>{{screenTitle}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div slide-container>
+                <!--product creation form-->
+                <form name="form" ng-submit="formSubmit($event)" novalidate>
+                    <div id="error-container" filter-section ng-show="hasErrors" error-container>
+                        <div row>
+                            <label>Please fix the following errors:</label>
+                        </div>
+                        <div filter-field>
+                            <label>
+                                <ul errors>
+                                    <li ng-repeat="errorMessage in serverErrors"> {{ errorMessage }}</li>
+                                </ul>
+                            </label>
+                        </div>
+                    </div>
+                    <div form-section-name>
+                        <h2>{{ (isProductSelected) ? "Selected Product" : "Select a Product" }}</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label required>Product
+                                    <i asterisk>*</i>:
+                                </label>
+                            </div>
+                            <div class="filter-field" ng-show="isProductSelected==false">
+                                <span ng-class="{'error-input': requiredFields.product}">
+                                    <multi-select max-labels="2" input-model="productList" selection-mode="single" helper-elements="FILTER" button-label="name" item-label="name" tick-property="ticked" output-model="selectedProduct" default-label="Select Product" on-open="loadProducts()" on-item-click="productItemClick(item)">
+                                    </multi-select>
+                                </span>
+                                <label ng-show="requiredFields.product" class="error-message"><i class="fa fa-warning"></i> Select a Product.</label>
+                            </div>
+                            <div class="filter-field" ng-show="isProductSelected===true">
+                                <label style="margin-top:13px;"><p>{{chosenProduct.product.name}}</p></label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div form-section-name>
+                        <h2>Enter Offer Details</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label required>Offer Name
+                                    <i asterisk>*</i>:
+                                </label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" ng-maxlength="40" placeholder="Event-Audience-Placement (maximum 40 characters)" name="pmp-name" ng-change="offerNameChange()" ng-class="{'error-input': requiredFields.name}" ng-model="pmpOffer.name" required="" ng-class="{'error-input': requiredFields.name}">
+                                <label ng-show="requiredFields.name" class="error-message"><i class="fa fa-warning"></i>Offer name should contain 1 to 40 characters & should not contain &#43;&#124;&#33;&#40;&#41;&#123;&#125;&#91;&#93;&#60;&#62;&#37;&#94;&#34;&#126;&#42;&#63;&#58;&#59;&#64; these characters</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Description:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" placeholder="Enter description" name="pmp-description" ng-model="pmpOffer.description" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Percentage Avails<span class='compHTMLElement help_IconElement' title="How much inventory do you want to make available for this offer"></span>:</label>
+                            </div>
+                            <div filter-field="half">
+                                <input pm-input-number type="text" placeholder="% of monthly Avails" name="pmp-monthly-impressions" ng-model="pmpOffer.percentageAvails" ng-value="0">
+                            </div>
+                            <div filter-label>
+
+                            </div>
+                            <div filter-field="half" class="availsContainer">
+                                <label class="availsLabel">30 day Avails:</label>
+                                <input pm-input-number type="text" placeholder="30 day Avails" name="pmp-monthly-impressions" ng-model="pmpOffer.impressions">
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>eCPM ($)
+                                    <i asterisk>*</i>:</label>
+
+                            </div>
+                            <div filter-field>
+                                <input pm-input-number type="text" placeholder="Example: $3.50" name="pmp-floor-cpm" ng-change="eCpmChange()" ng-class="{'error-input': requiredFields.eCpm}" ng-model="pmpOffer.cpm" ng-value="0" required="" ng-class="{'error-input': requiredFields.eCpm}">
+                                <label ng-show="requiredFields.eCpm" class="error-message"><i class="fa fa-warning"></i>Your eCPM should be at least 0.01 but not more than 999.99</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Minimum Spend ($):</label>
+                            </div>
+                            <div filter-field>
+                                <input pm-input-number type="text" placeholder="Example: $80" ng-model="pmpOffer.minSpend" name="pmp-min-spend" ng-value="0" format="number"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div class="multi-row">
+                            <div filter-label>
+                                <label>Transaction Dates
+                                    <i asterisk>*</i>:
+                                </label>
+                            </div>
+                            <div filter-field="half" class="datesContainer">
+                                <div class="datePickerContainer">
+                                    <input type="text" name="pmp-start-date" ng-class="{'error-input': requiredFields.transactionStartDate}" date-type="string" data-autoclose="1" class="form-control" ng-model="pmpOffer.transactionStartDate" data-min-date="{{validTodaysDateForCal}}" data-date-format="yyyy-MM-dd" placeholder="Transaction Start Date" required="" bs-datepicker>
+                                </div>
+                                <label ng-show="requiredFields.transactionStartDate" class="error-message"><i class="fa fa-warning"></i>{{txnStartDateError}}</label>
+                            </div>
+                            <div filter-field="half" class="datesContainer" ng-hide="transactionOngoing">
+                                <div class="datePickerContainer">
+                                    <input type="text" name="pmp-end-date" date-type="string" class="form-control" ng-class="{'error-input': requiredFields.transactionEndDate}" ng-model="pmpOffer.transactionEndDate" data-min-date="{{validTxnEndDate}}" data-date-format="yyyy-MM-dd" data-autoclose="1" placeholder="Transaction End Date" required="" bs-datepicker>
+                                </div>
+                                <!-- <input type="date" name="pmp-end-date"  ng-class="{'error-input': requiredFields.transactionEndDate}" ng-model="pmpOffer.transactionEndDate" required="" on-change="transactionEndDateChange(this)"> -->
+                                <label ng-show="requiredFields.transactionEndDate" class="error-message"><i class="fa fa-warning"></i> Enter a Transaction End Date.</label>
+                            </div>
+                            <div filter-field="half" class="datesContainer ongoingDiv">
+                                <span toggles>
+                                    <input type="checkbox" class="onGoingCheckbox" name="transactionOngoing" ng-model="transactionOngoing" ng-true-value="2032-12-31" /><label target="transactionOngoing">Ongoing</label>
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Search Tags:</label>
+                            </div>
+                            <div filter-field>
+                                <tags-input placeholder="Separate tags with commas" name="offer-tags" min-length="2" replace-spaces-with-dashes="false" ng-model="tagPills"></tags-input>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Auto-approved:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="pmp-one-click-buy" value="true" ng-model="pmpOffer.oneClickBuy">
+                                        <label>
+                                            <p>Yes</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="pmp-one-click-buy" value="false" ng-model="pmpOffer.oneClickBuy">
+                                        <label>
+                                            <p>No</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Preferred:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="pmp-preffered" value="true" ng-model="pmpOffer.featured">
+                                        <label>
+                                            <p>Yes</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="pmp-preffered" value="false" ng-model="pmpOffer.featured">
+                                        <label>
+                                            <p>No</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div form-section-name>
+                        <h2>Select Targets</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Geo:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                   <!-- <div toggles>
+                                        <input type="radio" name="geo-selection" value="any" ng-model="multiSelectDefaults.geoSelection">
+                                        <label>
+                                            <p>Any</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="geo-selection" value="select" ng-model="multiSelectDefaults.geoSelection">
+                                        <label>
+                                            <p>Select</p>
+                                        </label>
+                                    </div> -->
+                                    <!-- <div class="filter-field" clear ng-show="multiSelectDefaults.geoSelection==='select'"> -->
+                                    <div class="filter-field">
+                                        <multi-select max-labels="2" use-api-search="yes" input-model="geos" button-label="name" use-api-search="yes" on-search="geoSearch(searchFilter)" item-label="name" tick-property="ticked" output-model="targeting.geos" default-label="All Geos" on-open="openGeos()" edit-mode="geosEditMode">
+                                        </multi-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Audience:</label>
+                            </div>
+                            <div class="filter-field">
+                                <multi-select max-labels="2" input-model="audienceSegments" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.audienceSegments" default-label="All Audiences" on-open="openAudience()" edit-mode="audienceEditMode" use-api-search="yes" on-search="audienceSearch(searchFilter)">
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <!--<div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Matched Users:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="pmp-matched-users" value="true" ng-model="targeting.matchedUsers" checked>
+                                        <label>
+                                            <p>Yes</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="pmp-matched-users" value="false" ng-model="targeting.matchedUsers">
+                                        <label>
+                                            <p>No</p>
+                                        </label>
+                                    </div> -->
+                    <!--<div toggles>
+                                        <input type="radio" name="pmp-matched-users" value={{null}} ng-model="targeting.matchedUsers" checked>
+                                        <label>
+                                            <p>Don't Care</p>
+                                        </label>
+                                    </div>-->
+                    <!--    </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Rich Media:</label>
+                            </div>
+                            <div class="filter-field">
+                                <multi-select max-labels="2" input-model="richMediaTechnology" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.richMediaTechnologies" default-label="All Rich Media Technologies" on-open="openRichMedia()" edit-mode="richMediaEditMode">
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Days of Week:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles ng-repeat="day in dow">
+                                        <input type="checkbox" id="day.id" name="DaysOfWeek" value="{{day.id}}" ng-model="day.ticked">
+                                        <label>
+                                            <p>{{day.name}}</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Day Parting:</label>
+                            </div>
+                            <div filter-field>
+                                <div toggles class="daysParting">
+                                    <label style="width:300px">
+                                        <span style="font-size:12px;font-weight:bold;">0</span>
+                                        <span style="font-size:12px;font-weight:bold;margin-left:115px;">12</span>
+                                        <span style="font-size:12px;font-weight:bold;margin-left:115px;">24</span>
+                                    </label>
+                                    <section data-range-slider class="range-slider" ng-model="daysPartingRange" min="0" max="48"></section>
+                                    <pabel>
+                                        <p>{{ daysPartingRange.from/2}} to {{ daysPartingRange.to/2}} hours</p>
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section ng-show="showMobileTargeting">
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Lat/Long:</label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <div toggles>
+                                            <input type="radio" name="pmp-lat-long" value="true" ng-model="targeting.latLong">
+                                            <label>
+                                                <p>Yes</p>
+                                            </label>
+                                        </div>
+                                        <div toggles>
+                                            <input type="radio" name="pmp-lat-long" value="false" ng-model="targeting.latLong">
+                                            <label>
+                                                <p>No</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <!-- <div toggles>
+                                    <input type="radio" name="os-selection" value="any" ng-model="multiSelectDefaults.osSelection">
+                                    <label>
+                                        <p>Any</p>
+                                    </label>
+                                </div>
+                                <div toggles>
+                                    <input type="radio" name="os-selection" value="select" ng-model="multiSelectDefaults.osSelection">
+                                    <label>
+                                        <p>Select</p>
+                                    </label>
+                                </div> -->
+                                <div filter-label>
+                                    <label>Mobile OS:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="os" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.os" default-label="All Mobile OS" on-open="openMobileOS()" edit-mode="osEditMode" clear-selection="osClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <!-- <div toggles>
+                                    <input type="radio" name="browser-selection" value="any" ng-model="multiSelectDefaults.browserSelection">
+                                    <label>
+                                        <p>Any</p>
+                                    </label>
+                                </div>
+                                <div toggles>
+                                    <input type="radio" name="browser-selection" value="select" ng-model="multiSelectDefaults.browserSelection">
+                                    <label>
+                                        <p>Select</p>
+                                    </label>
+                                </div> -->
+                                <div filter-label>
+                                    <label>Browsers:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="browsers" button-label="name" item-label="name" tick-property="ticked" output-model="selectedBrowsers" default-label="All Browsers" on-open="openBrowsers()" edit-mode="browsersEditMode" clear-selection="browsersClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Smartphone Devices:</label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <div toggles>
+                                            <input type="radio" name="smartphone-selection" value="any" ng-model="multiSelectDefaults.smartphone">
+                                            <label>
+                                                <p>Any</p>
+                                            </label>
+                                        </div>
+                                        <div toggles>
+                                            <input type="radio" name="smartphone-selection" value="select" ng-model="multiSelectDefaults.smartphone">
+                                            <label>
+                                                <p>Select</p>
+                                            </label>
+                                        </div>
+                                        <div class="filter-field"  clear ng-show="multiSelectDefaults.smartphone==='select'">
+                                            <multi-select max-labels="2" input-model="mobileDeviceType" button-label="name" item-label="name" tick-property="ticked" output-model="selectedMobileDeviceType" default-label="Select Smartphone Devices" use-api-search="yes" on-search="mobileDeviceTypeSearch(searchFilter)" on-open="openSmartPhoneDevices()" edit-mode="smartPhonesEditMode" clear-selection="smartphonesClrSelection"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Tablet Devices:</label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <div toggles>
+                                            <input type="radio" name="tablet-selection" value="any" ng-model="multiSelectDefaults.tablet">
+                                            <label>
+                                                <p>Any</p>
+                                            </label>
+                                        </div>
+                                        <div toggles>
+                                            <input type="radio" name="tablet-selection" value="select" ng-model="multiSelectDefaults.tablet">
+                                            <label>
+                                                <p>Select</p>
+                                            </label>
+                                        </div>
+                                        <div class="filter-field" clear ng-show="multiSelectDefaults.tablet==='select'">
+                                            <multi-select max-labels="2" input-model="tabletDeviceType" button-label="name" item-label="name" tick-property="ticked" output-model="selectedTabletDeviceType" default-label="Select Tablet Devices" on-open="openTabletDevices()" edit-mode="tabletsEditMode" clear-selection="tabletsClrSelection">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <!-- <div toggles>
+                                    <input type="radio" name="tablet-selection" value="any" ng-model="multiSelectDefaults.tabletSelection">
+                                    <label>
+                                        <p>Any</p>
+                                    </label>
+                                </div>
+                                <div toggles>
+                                    <input type="radio" name="tablet-selection" value="select" ng-model="multiSelectDefaults.tabletSelection">
+                                    <label>
+                                        <p>Select</p>
+                                    </label>
+                                </div> -->
+                                <div filter-label>
+                                    <label>Carrier:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="mobileCarrier" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.carriers" default-label="All Carriers" use-api-search="yes" on-search="mobileCarrierSearch(searchFilter)" on-open="openCarrier()" edit-mode="carriersEditMode" clear-selection="carriersClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Device ID Type:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="deviceIDType" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.deviceIdType" default-label="All Device Types" on-open="openDeviceTypes()" clear-selection="deviceIdTypeClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--form row-->
+                    <section ng-show="showVideoTargeting">
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Video Ad Formats:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="videoAdFormats" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.videoAdTypes" default-label="All Video Ad Formats" on-open="openVideoAdFormats()" clear-selection="videoAdTypesClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Linear Ad Position:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="videoAdPositions" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.videoAdPositions" default-label="All Linear Ad Position" on-open="openVideoAdPositions()" clear-selection="videoAdPositionsClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Playback Method:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="videoPlaybackMethods" button-label="name" item-label="name" tick-property="ticked" output-model="targeting.videoPlaybackMethods" default-label="All Playback Method" on-open="openPlaybackMethod()" clear-selection="videoPlaybackMethodsClrSelection">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--form row-->
+                    <div form-section-name>
+                        <h2>Make Visible<span class='compHTMLElement help_IconElement' title="Make this offer visible to all buyers"></span></h2>
+
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Offer Period
+                                    <i asterisk>*</i>:
+                                </label>
+                            </div>
+                            <div filter-field="half" class="datesContainer">
+                                <!-- <input type="date" name="pmp-offer-start-date"  ng-class="{'error-input': requiredFields.offerStartDate}" ng-model="pmpOffer.offerStartDate" required="" on-change="offerStartDateChange(this)"> -->
+                                <div class="datePickerContainer">
+                                    <input type="text" name="pmp-offer-start-date" ng-class="{'error-input': requiredFields.offerStartDate}" date-type="string" data-autoclose="1" class="form-control" ng-model="pmpOffer.offerStartDate" data-min-date="{{validTodaysDateForCal}}" data-date-format="yyyy-MM-dd" required="" placeholder="Offer Start Date" bs-datepicker>
+                                </div>
+                                <label ng-show="requiredFields.offerStartDate" class="error-message"><i class="fa fa-warning"></i> Enter an Offer Start Date.</label>
+                                <label ng-show="requiredFields.validOfferStartDate" class="error-message"><i class="fa fa-warning"></i>Offer start date can not be in future than transaction start date</label>
+                            </div>
+                            <div filter-field="half" class="datesContainer" ng-hide="offerOngoing">
+                                <!-- <input type="date" name="pmp-offer-end-date"  ng-class="{'error-input': requiredFields.offerEndDate}" ng-model="pmpOffer.offerEndDate" required="" on-change="offerEndDateChange(this)"> -->
+                                <div class="datePickerContainer">
+                                    <input type="text" date-type="string" ng-class="{'error-input': requiredFields.offerEndDate}" name="pmp-offer-end-date" data-autoclose="1" class="form-control" data-min-date="{{validOfferEndDate}}" ng-model="pmpOffer.offerEndDate" data-date-format="yyyy-MM-dd" placeholder="Offer End Date" required="" bs-datepicker>
+                                </div>
+                                <label ng-show="requiredFields.offerEndDate" class="error-message"><i class="fa fa-warning"></i> Enter an Offer End Date.</label>
+                            </div>
+                            <div filter-field="half" class="ongoingDiv datesContainer">
+                                <span toggles>
+                                    <input type="checkbox" class="onGoingCheckbox" name="offerOnGoing" ng-model="offerOngoing" ng-true-value="2032-12-31"/>
+                                    <label target="offerOnGoing">Ongoing</label>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Buyers:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="buyer-selection" value="any" ng-model="multiSelectDefaults.buyers">
+                                        <label>
+                                            <p>Any</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="buyer-selection" value="select" ng-model="multiSelectDefaults.buyers">
+                                        <label>
+                                            <p>Select</p>
+                                        </label>
+                                    </div>
+                                    <div class="filter-field" clear ng-show="multiSelectDefaults.buyers==='select'">
+                                        <multi-select max-labels="2" input-model="buyers" button-label="name" use-api-search="yes" on-search="buyersSearch(searchFilter)" item-label="name" tick-property="ticked" output-model="selectedBuyers" default-label="Select Buyers" on-open="openBuyers()" edit-mode="buyersEditMode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Demand Side Platform:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="dsp-selection" value="any" ng-model="multiSelectDefaults.dsps">
+                                        <label>
+                                            <p>Any</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="dsp-selection" value="select" ng-model="multiSelectDefaults.dsps">
+                                        <label>
+                                            <p>Select</p>
+                                        </label>
+                                    </div>
+                                    <div class="filter-field"  clear ng-show="multiSelectDefaults.dsps==='select'">
+                                        <multi-select max-labels="2" input-model="dsps" button-label="name" item-label="name" tick-property="ticked" output-model="selectedDsps" default-label="Select Demand Partners" use-api-search="yes" on-search="demandSidePlatformSearch(searchFilter)" on-open="openDemandPartners()" edit-mode="dspsEditMode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Advertisers:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="advertiser-selection" value="any" ng-model="multiSelectDefaults.advertisers">
+                                        <label>
+                                            <p>Any</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="advertiser-selection" value="select" ng-model="multiSelectDefaults.advertisers">
+                                        <label>
+                                            <p>Select</p>
+                                        </label>
+                                    </div>
+                                    <div class="filter-field"  clear ng-show="multiSelectDefaults.advertisers==='select'">
+                                        <multi-select max-labels="2" input-model="advertisers" use-api-search="yes" on-search="AdvertisersSearch(searchFilter)" button-label="name" item-label="name" tick-property="ticked" output-model="selectedAdvertisers" default-label="Select Advertisers" on-open="openAdvertisers()" edit-mode="advertisersEditMode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section="last">
+                        <div row>
+                            <div filter-label>
+                                <label>Notes:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" name="pmp-notes" placeholder="Enter notes" ng-model="pmpOffer.notes">
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+
+
+                    <div filter-section finish-line>
+                        <div finish-line-button-wrapper>
+                            <input type="button" finish-line-button="primary" ng-click="createOrUpdate()" value="{{buttonTitle}}" class="createFormButton" />
+                            <input type="button" finish-line-button="secondary" ng-click="cancel()" value="Cancel" class="cancelFormButton" />
+                        </div>
+                    </div>
+                </form>
+                <!--end product creation form -->
+            </div>
+            <!--end slide container-->
+        </div>
+        <!--END PRODUCT DEFINITION SLIDER-->
+    </div>
+    <!-- end class="small-12 columns" -->
+</div>
+<!-- end <div class="row"> -->
+
+<!--
+<div ng-if="response =='error'">
+    <br/>
+    <div class="alert-box success-bg">
+        <i class="fa fa-gear"></i> Please be patient.  This information is not yet available</span>
+    </div>
+</div>
+
+<div ng-if="response =='waiting'">
+    <div class="spinner-container">
+        <span class="fa fa-gear fa-spin fa-2x"></span><p class="flat">Loading<p/>
+    </div>
+</div>
+-->

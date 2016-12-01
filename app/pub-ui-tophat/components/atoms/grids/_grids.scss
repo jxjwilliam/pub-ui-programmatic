@@ -1,0 +1,88 @@
+/*doc
+---
+title: Grids
+name: grids
+category: Atoms
+---
+<small>
+  atoms/grids/_grids.scss<br>
+  last updated 8/31/14 &ndash; 
+</small>
+
+We use Susy for flexible layout control. Susy allows us to mix and match grids, use grids in certain places or have layout control without grids at all. It's also a Compass extension, meaning it doesn't create "div soup"; instead, everything is separated from the HTML markup in a Sass file. 
+
+You can see in the example below how clean Susy allows us to keep our HTML markup. To learn more, these tutorials will get you started. [Susy](http://susy.oddbird.net/demos/)
+  
+```html_example
+  <div class="box1">
+    <h4>Box1</h4>
+    <div class="box2">
+      <h4>Box2</h4>
+      <div class="box3">
+        <h4>Box3</h4>
+      </div>
+      <div class="box4">
+        <h4>Box4</h4>
+      </div>
+    </div>
+  </div>
+```
+
+*/
+
+// TODO : Grids need overhaul on Kickstart package
+
+// body { 
+//   // @include container;
+// }
+// .box {
+//   background-color: transparentize($primary-color,0.8);
+// }
+// .box1 h4 {
+//   margin: rhythm(0, 29px) 0 rhythm(0, 29px) 0;
+// }
+// .box1 {
+//   @include container;
+//   @extend .box;
+// }
+// .box2 {
+//   @include span(12 of 12);
+//   @extend .box;
+// }
+// .box3 {
+//   @include span(3 of 12);
+//   @extend .box;
+// }
+// .box4 {
+//   @include span(9 of 12 last);
+//   @extend .box;
+// }
+
+
+
+// Defines object as 100% width
+$full-width: 100%;
+.full-width {
+  width: $full-width; 
+}
+
+
+// 
+// LAYOUT
+// 
+
+// 3-column split via CSS (not progressive)
+// .three-col {
+//    -moz-column-count: 3;
+//    -moz-column-gap: 20px;
+//    -webkit-column-count: 3;
+//    -webkit-column-gap: 20px;
+// }
+
+// Search results
+.search-results-line-item {
+  border-bottom: 1px solid #CCC;
+  color: $primary-color;
+  font-size: 1.5rem;
+  line-height:50px;
+}

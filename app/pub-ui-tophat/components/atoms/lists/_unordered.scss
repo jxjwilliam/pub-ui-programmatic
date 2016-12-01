@@ -1,0 +1,132 @@
+@import "../global/colors";
+
+/*doc
+---
+title: Unordered Lists
+name: unordered-list
+category: Atoms
+parent: lists
+---
+<small>
+    atoms/lists/_unordered.scss<br>
+    last updated 8/31/14 &ndash;
+</small>
+
+Here's a hum-dum list:
+
+```html_example
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+
+##Multi-select list
+
+Configure your multi-select list in 3 easy steps:
+
+Step                                      | Use
+------------------------------------------|------------------------------------------------
+Wrap the list in a div wrapper            | `.multi-select-list`
+Add the PubMatic scrollbar                | `.scroll`
+Configure # of default list items to show | `.show-5`, `.show-10`, `.show-15` or `.show-20`
+-
+
+```html_example
+    <div class="multi-select-list show-5 scroll">
+        <ul class="primary-stripe">
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 1</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 2</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 3</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 4</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 5</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 6</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 7</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 8</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 9</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 10</li>
+        </ul>
+    </div>
+```
+
+*/
+
+
+// BASIC SELECT LIST with checkboxes
+
+// set base list style
+.select-list {
+  line-height: 2em;
+  li {
+    word-break:break-all;
+  }
+}
+.select-list-inline {
+  @extend .select-list;
+  margin-left: 0px;
+  li {
+    display: inline-block;
+  }
+}
+
+// MULTI SELECT LIST with checkboxes
+// multi-line scrolling list inside a defined row-height container
+
+// set row height
+$multi-select-list-row-height: 2.1845em;
+
+// Main styling
+.multi-select-list {
+  // Compass mixin for border-radius
+  @include border-radius($border-radius);
+  // Disable select highlight
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // Make it scroll
+  border: $border-width solid $light-gray;
+  overflow-y: auto;
+  ul {
+    margin: 0px;
+  }
+  li {
+    // line item styling with truncation
+    border-bottom: 1px solid transparentize($black,.95);
+    padding: 3px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break:keep-all;
+    cursor: pointer;
+  }
+  li:hover {
+    color: $primary-color;
+  }
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+// Number of line items visible in the container simultaneously
+.multi-select-list.show-5 {
+  height: $multi-select-list-row-height * 5;
+}
+.multi-select-list.show-10 {
+  height: $multi-select-list-row-height * 10;
+}
+.multi-select-list.show-15 {
+  height: $multi-select-list-row-height * 15;
+}
+.multi-select-list.show-20 {
+  height: $multi-select-list-row-height * 20;
+}
+
+// On hover, pop it out
+.multi-select-list:hover {
+  border: $border-width solid $primary-color;
+  transition: all 0.15s ease;
+}

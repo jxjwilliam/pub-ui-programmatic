@@ -1,0 +1,139 @@
+<!-- HTML View Template for the API enabled data block HTML element -->
+
+<style>
+[footer] .paging-container>span {
+    padding: 0px 5px;
+}
+[footer] .paging-container>span a {
+    cursor: pointer;
+}
+[footer] .paging-container > span a.pagination-disabled {
+    opacity: 0.4;
+    cursor: default !important;
+}
+[footer] .paging-container > span a.pagination-disabled:hover {
+    color: #464646;
+    cursor: default !important;
+}
+#overlay,
+#preview-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(85, 85, 85, 0.85);
+    position: fixed;
+    left: 0;
+    z-index: 3;
+    display: none;
+    top: 0px;
+    opacity: .6;
+}
+.down {
+    z-index: 3!important;
+}
+.table-progress,
+.table-progress-message {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    margin: auto;
+    height: 100%;
+}
+.table-progress {
+    z-index: 4;
+    background-color: #ddd;
+    opacity: 0.7;
+}
+.table-progress-message {
+    z-index: 5;
+    margin-top: 100px;
+}
+</style>
+<div id="overlay" class="down" style="display:{{showOverlay}};"></div>
+
+<div style="position:relative;min-height:250px" class="row">
+    <div class="small-12 columns table-list">
+
+        <div pm-backplate="body">
+            <div pm-table-wrapper>
+                <div header>
+                    <div input-wrapper>
+                        <input type="text" placeholder="{{search}}" ng-model="searchText" ng-keypress="doSearch($event, searchText)">
+                        <i class="fa fa-times" ng-click="clearSearch()" ng-show="searchText.length"></i>
+                    </div>
+                </div>
+                <table pm-table>
+                    <thead>
+                        <tr>
+                            <th ng-repeat="label in labelList">{{label}}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody ng-if="response != 'error' && response != 'waiting' && response!='empty'">
+                        <tr ng-repeat="item in response | filter:search.name">
+                            <td ng-repeat="field in fieldList" title="">
+                                <div ng-if="field === 'name'" title="{{ item[field] }}" style="max-width:90px;white-space: nowrap;">
+                                    <span ng-show="showLinks === 'false'">
+                                        {{ formatField(item,field) }}
+                                    </span>
+                                    <span ng-show="showLinks === 'true'">
+                                        <a href="" ng-click="doAction(this)">{{ formatField(item,field) }}</a>
+                                    </span>
+                                </div>
+
+                                <div ng-if="field !== 'name'" class="truncation-container" title="">
+                                    <div class="truncation-content" title="">
+                                        <span ng-if="(field === 'priceAmount') || (field === 'price') || (field === 'cpm')" title="{{ formatField(item,field) | currency }}">{{ formatField(item,field) | currency }}</span>
+                                        <span ng-if="(field !== 'priceAmount') && (field !== 'price') && (field !== 'cpm')" title="{{ formatField(item,field) }}">{{ formatField(item,field) }}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span ng-show="calculationsExpression({item:item}) === true"><i class="fa fa-check-circle" title="{{calculationFieldLabel}}"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <div ng-if="response =='waiting'">
+                        <div class="table-progress"></div>
+                        <div class="table-progress-message">
+                            <span class="fa fa-gear fa-spin fa-2x"></span>
+                            <h2>Loading</h2>
+                        </div>
+                    </div>
+                    <div ng-if="(response =='error')">
+                        <div class="table-progress"></div>
+                        <div class="table-progress-message">
+                            <h2>No information found</h2>
+                        </div>
+                        <!--<i class="fa fa-gear"></i>Please be patient. This information is not yet available</span>-->
+                    </div>
+                    <div ng-if="(response =='empty')">
+                        <div class="table-progress-message">
+                            <h2>No records found</h2>
+                        </div>
+                    </div>
+                </table>
+                <i class="icon-step-backward"></i>
+                <div footer>
+                    <div class="paging-container" ng-show="pagingEnabled">
+                        <span><a ng-class="isFirstPage ? 'pagination-disabled' : ''" ng-click="isFirstPage ? '' : pageClick(firstPage)" title="First Page"><i class="fa fa-fast-backward"></i></a></span>
+                        <span><a ng-class="isFirstPage ? 'pagination-disabled' : ''" ng-click="isFirstPage ? '' : pageClick(previousPage)" title="Previous page"><i class="fa fa-play fa-rotate-180"></i></a></span>
+                        <span>Page <a ng-click="pageClick(currentPage)"><span style="background-color:white;padding:0px 2px;"> {{currentPage}} </span>
+                        </a> of {{ lastPage }}</span>
+                        <span><a ng-class="isLastPage ? 'pagination-disabled' : ''" ng-click="isLastPage ? '' : pageClick(nextPage)" title="Next page"><i class="fa fa-play"></i></a></span>
+                        <span><a ng-class="isLastPage ? 'pagination-disabled' : ''" ng-click="isLastPage ? '' : pageClick(lastPage)" title="Last page"><i class="fa fa-fast-forward"></i></a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--<div ng-if="response =='error'">
+    <br/>
+    <div class="alert-box success-bg">
+        <i class="fa fa-gear"></i>Please be patient. This information is not yet available</span>
+    </div>
+</div>-->

@@ -1,0 +1,191 @@
+[  
+   {  
+      "api":"analytics",
+      "description":"Historic data export",
+      "endpoint":"/export/publisher/{publisherId}",
+      "method":"GET",
+      "summary":"Export historic data to Excel file (xls) or csv"
+   },
+   {  
+      "api":"analytics",
+      "description":"historic data for DSP user",
+      "endpoint":"/data/dsp/{dspId}",
+      "method":"GET",
+      "summary":"Get historic data"
+   },
+   {  
+      "api":"analytics",
+      "description":"natural language processing",
+      "endpoint":"/data/nlp/user",
+      "method":"GET",
+      "summary":"Get parsed queries from Barser data"
+   },
+   {  
+      "api":"analytics",
+      "description":"Favorite reports",
+      "endpoint":"/saved/{id}",
+      "method":"GET",
+      "summary":"Get favorite report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Favorite reports",
+      "endpoint":"/saved/{id}",
+      "method":"DELETE",
+      "summary":"Delete favorite report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Favorite reports",
+      "endpoint":"/saved/{id}",
+      "method":"PUT",
+      "summary":"Update favorite report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Favorite reports",
+      "endpoint":"/saved",
+      "method":"GET",
+      "summary":"Get list of favorite reports"
+   },
+   {  
+      "api":"analytics",
+      "description":"Favorite reports",
+      "endpoint":"/saved",
+      "method":"POST",
+      "summary":"Update favorite report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"historic data for buyer",
+      "endpoint":"/data/buyer/{buyerId}",
+      "method":"GET",
+      "summary":"Get historic data"
+   },
+   {  
+      "api":"analytics",
+      "description":"real time operations for buyer",
+      "endpoint":"/data/rt/buyer/{buyerId}",
+      "method":"GET",
+      "summary":"Get realtime data for buyer"
+   },
+   {  
+      "api":"analytics",
+      "description":"Historic data export",
+      "endpoint":"/export/buyer/{buyerId}",
+      "method":"GET",
+      "summary":"Export historic data to Excel file (xls) or csv"
+   },
+   {  
+      "api":"analytics",
+      "description":"historic data",
+      "endpoint":"/data/publisher/{publisherId}",
+      "method":"GET",
+      "summary":"Get historic data"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/group/{id}",
+      "method":"GET",
+      "summary":"Get canned report group by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/group/{id}",
+      "method":"PUT",
+      "summary":"Update canned report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/group/{id}",
+      "method":"DELETE",
+      "summary":"Delete canned report group by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/group",
+      "method":"GET",
+      "summary":"Get list of canned reports groups"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/group",
+      "method":"POST",
+      "summary":"Creates canned report group"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/{id}",
+      "method":"GET",
+      "summary":"Get canned report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/{id}",
+      "method":"DELETE",
+      "summary":"Delete canned report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common/{id}",
+      "method":"PUT",
+      "summary":"Update canned report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common",
+      "method":"GET",
+      "summary":"Get list of common reports"
+   },
+   {  
+      "api":"analytics",
+      "description":"Common reports",
+      "endpoint":"/common",
+      "method":"POST",
+      "summary":"Update canned report by id"
+   },
+   {  
+      "api":"analytics",
+      "description":"Gets user access information.",
+      "endpoint":"/user",
+      "method":"GET",
+      "summary":"Gets information with dimensions, metrics, publisher ids or demand partner ids are available for the user."
+   },
+   {  
+      "api":"analytics",
+      "description":"Historic data export",
+      "endpoint":"/export/dsp/{dspId}",
+      "method":"GET",
+      "summary":"Export historic data to Excel file (xls) or csv"
+   },
+   {  
+      "api":"analytics",
+      "description":"Gets Dimension Values limitted to the user.",
+      "endpoint":"/metadata/value",
+      "method":"GET",
+      "summary":"Gets possible dimension values for the user."
+   },
+   {  
+      "api":"analytics",
+      "description":"real time operations for publisher",
+      "endpoint":"/data/rt/publisher/{publisherId}",
+      "method":"GET",
+      "summary":"Get realtime data"
+   },
+   {  
+      "api":"analytics",
+      "description":"real time operations for dsp",
+      "endpoint":"/data/rt/dsp/{dspId}",
+      "method":"GET",
+      "summary":"Get realtime data for dsp"
+   }
+]

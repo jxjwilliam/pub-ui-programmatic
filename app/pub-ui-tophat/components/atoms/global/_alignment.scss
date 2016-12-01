@@ -1,0 +1,54 @@
+/*doc
+---
+title: Alignment
+name: alignment
+category: Atoms
+parent: global
+---
+
+Here's some helper classes for alignment:
+
+Class			| Alignment
+----------------| --------------
+`.left`			| Floats element to the left
+`.right`		| Floats element to the right
+`.text-left`	| Aligns content within element to the left
+`.text-center`	| ...to center
+`.text-right`	| ...to the right
+
+```html_example
+	<button class="button left">Left</button>
+	<button class="button right">Right</button>
+	<div class="clearfix"></div>
+```
+
+```html_example
+    <div class="text-left">
+        <p>Lorem ipsum dolor sit amet</p>  
+    </div>
+    <div class="text-center">
+        <p>Consectetur adipisicing elit</p>
+    </div>
+    <div class="text-right">
+        <p>Accusantium veritatis voluptas</p>
+    </div>
+```
+
+*/
+
+// Floats
+.left { float: left; }
+.right { float: right; }
+
+// Text Alignment
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+.inline {
+	display: block;
+}
+
+.expand {
+	width: 100%;
+}

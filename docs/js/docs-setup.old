@@ -1,0 +1,83 @@
+NG_DOCS={
+  "sections": {
+    "api": "Docertons",
+    "tags": "Tags",
+    "templates": "Page Templates"
+  },
+  "pages": [
+    {
+      "section": "api\n\nAngular directive\n\n/**",
+      "id": "pmApiTable",
+      "shortName": "pmApiTable",
+      "type": "directive",
+      "moduleName": "pmApiTable",
+      "shortDescription": "XHR Call to any API at any endpoint.",
+      "keywords": "angular api apigee call calls directive easy endpoint future pmapitable pre-configure xhr"
+    },
+    {
+      "section": "api",
+      "id": "pmApiItemList",
+      "shortName": "pmApiItemList",
+      "type": "directive",
+      "moduleName": "pmApiItemList",
+      "shortDescription": "Call any PubMatic API and display the results in a UX compliant Item List. (originally designed for Package Screen)",
+      "keywords": "api apiendpoint call called comma commons compliant crud data delimited description designed directive display displayfields endpoint fieldlist fields google href item list method package patch pmapiitemlist populate post pubmatic returned screen table ux xyz"
+    },
+    {
+      "section": "api",
+      "id": "pmApiTable",
+      "shortName": "pmApiTable",
+      "type": "directive",
+      "moduleName": "pmApiTable",
+      "shortDescription": "Call any PubMatic API and display the results in a UX compliant HTML table.",
+      "keywords": "api apiendpoint call called comma compliant crud data delimited description directive display displayfields endpoint fieldlist fields google href html inventory list method patch pmapitable populate post pubmatic returned table ux xyz"
+    },
+    {
+      "section": "api",
+      "id": "pmApplicationPage",
+      "shortName": "pmApplicationPage",
+      "type": "directive",
+      "moduleName": "pmApplicationPage",
+      "shortDescription": "Add a CRUD (Create, Read, Update Delete) Application Page to any PubMatic REST API",
+      "keywords": "add api application brand content created crud delete description directive discovery generate html inventory main pmapplicationpage pubmatic read rest simple single sub-title subtitle tag tags title update"
+    },
+    {
+      "section": "api",
+      "id": "pmCrudPage",
+      "shortName": "pmCrudPage",
+      "type": "directive",
+      "moduleName": "pmCrudPage",
+      "shortDescription": "Add a page to your web application with a single HTML tag",
+      "keywords": "access acl acl-bulk-write-access-string acl-write-access-string add api application brand bulk castrum-product-bulk-write castrum-product-write category description determining directive discovery edit generate html inventory items listfields load main number page-size pmcrudpage position product products read restendpoint screen select single sites string sub-title subtitle tag tags title user users view web"
+    },
+    {
+      "section": "api",
+      "id": "pmPageFooter",
+      "shortName": "pmPageFooter",
+      "type": "directive",
+      "moduleName": "pmPageFooter",
+      "shortDescription": "Add PubMatic Footer to your application pages",
+      "keywords": "add api application directive footer pmpagefooter pubmatic"
+    },
+    {
+      "section": "api",
+      "id": "pmToolList",
+      "shortName": "pmToolList",
+      "type": "directive",
+      "moduleName": "pmToolList",
+      "shortDescription": "View a list of Kickstart Tools.",
+      "keywords": "api apiendpoint call called comma crud data delimited description directive display displayfields endpoint fieldlist fields google href inventory kickstart list method patch pmtoollist populate post pubmatic returned table tools view xyz"
+    }
+  ],
+  "apis": {
+    "api": true,
+    "tags": false,
+    "templates": false
+  },
+  "html5Mode": false,
+  "editExample": true,
+  "startPage": "/api",
+  "scripts": [
+    "angular.min.js"
+  ]
+};

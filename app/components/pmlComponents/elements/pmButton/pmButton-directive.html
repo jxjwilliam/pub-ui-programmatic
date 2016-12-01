@@ -1,0 +1,18 @@
+<style>
+
+button[pm-button] {
+    margin-top:10px;
+    float:right;
+}
+div.button-container {
+  width:100%;
+  background-color:white;
+  height:50px;
+}
+
+
+</style>
+
+<div class="button-container">
+  <button  pm-button ng-repeat="item in itemList" ng-click="itemClicked(item)">+ {{item.label}}</button>
+</div>

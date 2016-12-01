@@ -1,0 +1,12 @@
+# A sample Guardfile
+# More info at https://github.com/guard/guard#readme
+
+guard "hologram", config_path: "hologram_config.yml" do
+    watch(%r{templates/.*css})
+    watch(%r{templates/.*html})
+    watch(%r{components/.*scss})
+    watch(%r{doc_assets/.+})
+    watch('hologram_config.yml')
+end
+
+guard "hologram"

@@ -1,0 +1,34 @@
+/*doc
+---
+title: Truncation
+name: truncation
+category: Atoms
+parent: global
+---
+<small>
+    atoms/global/_truncation.scss<br>
+    last updated 10/03/14 &ndash; need examples TODO. 
+</small>
+
+Truncation containers, applicable to table cell content.
+
+
+*/
+
+// apply classes to block-level elements, such as a div
+// content must be duplicated: once in .truncation-content, and once in .truncation-spacer
+
+.truncation-container {
+    position: relative;
+}
+.truncation-content {
+    position: absolute;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.truncation-spacer {
+    height: 0;
+    overflow: hidden;
+}

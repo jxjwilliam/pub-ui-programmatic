@@ -1,0 +1,165 @@
+// ----
+// Sass (v3.3.0.rc.2)
+// Compass (v1.0.0.alpha.17)
+// Breakpoint (v2.4.1)
+// Susy (v2.0.0.beta.3)
+// ----
+
+@import "compass";
+@import "compass/reset";
+@import "susy";
+@import "breakpoint";
+
+// ----------
+// LAYOUT
+// ----------
+
+// Small View
+
+body {
+    font-size: 16px;
+}
+
+$susy: (
+  columns: 8,
+  column-width: 12em,
+  gutter-position: inside,
+);
+
+$medium: layout(16);
+$large: layout(24);
+
+.page-container {
+  @include container($large);
+  overflow: hidden;
+}
+
+.left-sidebar { @include span(6 at span(-6 wide) isolate); }
+.main { @include span(full at 1 isolate); }
+.right-sidebar {
+  @include span(6 at 100% isolate);
+  margin-right: -200%;
+}
+
+.show-left-sidebar {
+  &:checked {
+    ~ .left-sidebar { @include push(0); }
+    ~ .main { @include push(6); }
+  }
+}
+
+.show-right-sidebar {
+  &:checked {
+    ~ .left-sidebar { @include pull(12); }
+    ~ .main { @include pull(6); }
+    ~ .right-sidebar { @include push(2); }
+  }
+}
+
+
+// Medium View
+// 40em = 640px
+
+@include susy-breakpoint(40em, $medium) {
+  .left-sidebar { @include span(4 at 1 isolate); }
+  .main { @include span(12 at 5 isolate); }
+
+  .show-left-sidebar {
+    &:checked {
+      ~ .left-sidebar { @include push(0); }
+      ~ .main { @include push(4); }
+    }
+  }
+
+  .show-right-sidebar {
+    &:checked {
+      ~ .left-sidebar { @include pull(4); }
+      ~ .main { @include push(0); }
+      ~ .right-sidebar { @include push(12); }
+    }
+  }
+
+  [for="left-sidebar"] { display: none; }
+}
+
+
+// Large
+// Break at 80ems to ensure a full 60ems (960px) is devoted to the main view
+// 80em = 1280px
+
+@include susy-breakpoint(80em, $large) {
+  .left-sidebar { @include span(4 at 1 isolate); }
+  .main { @include span(14 at 5 isolate); }
+  .right-sidebar { @include span(6 at 19 isolate); }
+
+  .show-left-sidebar {
+    &:checked {
+      ~ .main { @include push(6); }
+    }
+  }
+
+  .show-right-sidebar {
+    &:checked {
+      ~ .left-sidebar { @include push(0); }
+      ~ .main { @include push(4); }
+      ~ .right-sidebar { @include push(18); }
+    }
+  }
+
+  [for="right-sidebar"] { display: none; }
+}
+
+// ----------
+// STYLES
+// ----------
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.toggle {
+  cursor: pointer;
+  color: blue;
+  &:hover, &:focus, &:active {
+    color: red;
+  }
+}
+
+header /*, footer*/ {
+  padding: 1em 0;
+  background-color: rgba(gray, .25);
+  text-align: center;
+}
+
+[for] {
+  position: relative;
+  z-index: 10;
+  padding: 0 1em;
+}
+
+[for="left-sidebar"] { float: left; }
+[for="right-sidebar"] { float: right; }
+
+.left-sidebar, .main, .right-sidebar {
+  @include transition(all 300ms);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  height: 12em;
+}
+
+.left-sidebar {
+  background: rgba(red, .25);
+}
+
+.main {
+    background: rgba(blue, .2);
+}
+
+.right-sidebar {
+  background: rgba(yellow, .5);
+}
+
+// footer {
+//   @include break;
+// }

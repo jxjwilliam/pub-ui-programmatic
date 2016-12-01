@@ -1,0 +1,29 @@
+<div ng-controller="pmIdViewOrderDetailsController">
+    <pm-application-page
+            page-title="Order Details"
+            subtitle=""
+            description="">
+
+        <div pm-backplate="header">
+            <pm-button
+                labels="{{labels}}"
+                routes="{{routes}}">
+            </pm-button>
+            <div clearfix></div>
+        </div>
+
+        <pm-id-view-order-details></pm-id-view-order-details>
+        
+        <pm-api-table
+                endpoint="/api/lineitems/summaries?orderId={{orderId}}&#LOGGED_IN_PUB#"
+                method="GET"
+                search="search line items"
+                baseobject="items"
+                showlinks="false"
+                objectdisplayfields="id,name,offer,{startDate-endDate},costType,quantity,priceAmount"
+                objectdisplaylabels="Id,Name &nbsp;&nbsp;&nbsp;,Offer,Dates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,Cost Type,Quantity,Cost"
+                pagesize="10">
+        </pm-api-table>
+
+    </pm-application-page>
+</div>

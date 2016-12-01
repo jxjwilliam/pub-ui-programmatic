@@ -1,0 +1,89 @@
+/*doc
+---
+title: Labels
+name: label
+category: Atoms
+---
+<small>
+	atoms/labels/_labels.scss<br>
+	last updated 8/31/14 &ndash;
+</small>
+
+Use labels as a way to call attention to a short blurb.
+
+Label											| Class				 | Description
+-----------------------------------------------	| ------------------ | ----------------------------
+<span class="primary label">Primary</span>	    | `primary label`    | Main call-to-action label
+<span class="secondary label">Secondary</span>	| `secondary label`  | Minor/trivial notification, such as fine print
+<span class="info label">Info</span>			| `info label`       | A message that provides more information
+<span class="alert label">Alert</span>			| `alert label`      | A critical blocker, such as form validation
+<span class="warning label">Warning</span>      | `warning label`    | Proceed, but please make sure you are informed
+<span class="yield label">Yield</span>          | `yield label`      | This will impact efficiency/effectiveness
+<span class="success label">Success</span>      | `success label`    | Everything is good to go
+-
+
+```html_example
+	<span class="primary label">Reggie Noble just shared this with you</span><br>
+	<span class="secondary label">Revenue shown as dollars</span><br>
+	<span class="info label">
+		<span class="fa fa-info"></span>&nbsp;&nbsp;Learn more about our powerful omnibar
+	</span><br>
+	<span class="alert label">You are about to delete all your custom reports. This action cannot be undone.</span><br>
+	<span class="warning label">Lowering your eCPM to $0.50 will reduce your revenue by ~ 84%, or ~ -$1,923,022 over the next 30 days.</span><br>
+	<span class="yield label">You haven't named this report yet. Would you like to name it before sharing?</span><br>
+	<span class="success label">Download complete</span>
+```
+*/
+
+
+// LABELS
+
+span.label {
+	@include border-radius($border-radius);
+	font-size: .8em;
+	line-height: 1.75em;
+	padding: 0px 5px;
+}
+span.primary.label {
+	background-color: $primary-color;
+	color: $inverse-color;
+}
+span.secondary.label {
+	background-color: $secondary-color;
+	color: $black;
+}
+span.info.label {
+	background-color: $info-color;
+	color: $black;
+}
+span.alert.label {
+	background-color: $alert-color;
+	color: $inverse-color;
+}
+span.warning.label {
+	background-color: $warning-color;
+	color: $inverse-color;
+}
+span.yield.label {
+	background-color: $yield-color;
+	color: #000;
+}
+span.success.label {
+	background-color: $success-color;
+	color: $inverse-color;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

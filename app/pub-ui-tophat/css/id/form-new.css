@@ -1,0 +1,190 @@
+.slide-container{
+	width: 100%;
+}
+
+.input{
+	width: 100%;
+	position: relative;
+}
+
+.toggles input[type="radio"]:focus{
+	color: #565a5c;
+}
+
+.input input, .input textarea{
+	padding: 45px 15px 25px;
+	border: 1px solid transparent;
+	font-size: 20px;
+	line-height: 100%;
+	transition: 0.3s linear all;
+	width: 98%;
+}
+
+.filter-field i{
+	display: inline-block;
+	float: right;
+	font-size: 10px;
+	background-color: red;
+	margin-top: -35px;
+	padding: 5px;
+	margin-right: 0px;
+	color: white;
+	border-bottom-left-radius: 2px;
+}
+
+.filter-field i.select{
+	float: none;
+	background-color: white;
+	color: red;
+}
+
+.sliding-panel input:focus, .sliding-panel .filter-section textarea:focus, .sliding-panel select, .sliding-panel select:focus{
+	transition: 0.3s linear all;
+}
+
+.multi-row{
+	background-color: white;
+	overflow: hidden;
+	float: left;
+	display: inline-block;
+	width: 100%
+}
+
+.multi-row .filter-field{
+	width: 30%;
+	margin-right: 35px;
+}
+
+.label{
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	text-transform: uppercase;
+	font-size: 11px;
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;;
+	font-weight: bold;
+	color: #444444;
+}
+
+input#display-radio{
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*newest form styles*/
+
+label{
+	display: block;
+	padding: 15px 15px 15px 0px;
+	text-align: right;
+	width: 25%;
+	transition: 0.3s linear all;
+	font-family: 'Open Sans', sans-serif;;
+	font-size: 13px;
+}
+
+.form-section{
+	font-family: 'Open Sans', sans-serif;;
+	font-weight: bold;
+	font-size: 13px;
+	float: left;
+}
+
+.form-section h2{
+	font-size: 13px;
+	color: white;
+	background-color: #2e353d;
+	padding: 8px;
+	border-radius: 2px;
+	margin-top: 30px;
+}
+
+.filter-field{
+	float: left;
+	width: 65%;
+	color: #565a5c;
+}
+
+.filter-field input, .filter-field textarea{
+	width: 100%;
+	max-width: 100%;
+	font-family: Arial, sans-serif;
+	height:40px;
+}
+
+.filter-field select{
+	height: 40px;
+	margin-top: 5px;
+	min-width: 150px;
+	border-radius: 2px;
+	font-size: 13px;
+	outline: none;
+	border: 1px solid #dce0e0;
+}
+.filter-field input[type="radio"] {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	background-color:white;
+}
+.filter-field input[type="radio"]:checked {
+	background-color:gray;
+}
+.toggles{
+	float: left;
+	padding: 20px 0px 0px;
+	line-height: 15px;
+}
+
+.toggles input[type="checkbox"]{
+	float: left;
+	width: 10px;
+	display: inline-block;
+	height:10px;
+}
+
+.toggles input[type="radio"] {
+	display: inline-block;
+	cursor: pointer;
+	-webkit-appearance: none;
+	padding: 25px 40px 25px;
+	height: 100%;
+	background-color: white;
+	color: #565a5c;
+	border-radius: 0px;
+	border-right: 1px solid;
+	border-left: none;
+	border-bottom: none;
+	border-top: none;
+	border-color: #dce0e0;
+	float: left;
+}
+
+.toggles label{
+	float: left;
+	display: inline-block;
+	padding: 0px 15px 0px 0px;
+	margin-top: -15px;
+	min-width: 70px;
+}
+
+.toggles label p{
+	padding: 0px;
+	margin: 0px;
+	display: block;
+	font-family: 'Open Sans', sans-serif;;
+	font-size: 13px;
+	padding-top: 13px;
+	text-align: center;
+}
+
+.filter-field .toggles label i{
+	display: block;
+	text-align: center;
+	font-size: 26px;
+	color: inherit;
+	margin: 0px;
+}

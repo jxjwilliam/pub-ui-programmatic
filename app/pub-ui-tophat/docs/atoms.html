@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+
+      <title>TopHat Atoms</title>
+      <link rel="shortcut icon" href="static/brick.png" />
+
+      <!-- Font Awesome -->
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- Styleguide CSS -->
+      <link rel="stylesheet" href="../doc_assets/github.css">
+
+      <!-- Google Fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Lato:700' rel='stylesheet' type='text/css'>
+
+      <!-- CSS to be documented -->
+      <!-- <link rel="stylesheet" href="build/css/screen.css"> -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- <link rel="stylesheet" href="../css/hologram.css"> -->
+
+      
+
+      <!-- Main libraries -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+      <!-- component js and init scripts -->
+      <script src="build/script/components.js"></script>
+  </head>
+
+  <body>
+    <div class="body-container">
+
+
+        <header class="hologram-header" style="background:none">
+
+          <!-- <h1>PubMatic Tophat</h1> -->
+          <img src="../images/logos/pubux-logo-master.svg">
+
+          <ul class="inline">
+            <!-- Add you pages here -->
+            <li><a href="index.html">Intro</a></li>
+            <li><a href="atoms.html">Atoms</a></li>
+            <li><a href="molecules.html">Molecules</a></li>
+            <li><a href="javascript.html">Javascript</a></li>
+          </ul>
+          <!-- //header/container -->
+        </header>
+
+        <div class="content">
+          <section>
+
+            <div class="componentMenu scroll">
+              <ul class="componentList listBorderedHover">
+                 
+                  <li><a href="#buttons">Buttons</a></li>
+                 
+                  <li><a href="#button-colors">Button Colors</a></li>
+                 
+                  <li><a href="#button-groups">Button Groups</a></li>
+                 
+                  <li><a href="#button-sizes">Button Sizes</a></li>
+                 
+                  <li><a href="#forms">Forms</a></li>
+                 
+                  <li><a href="#checkbox">Checkboxes</a></li>
+                 
+                  <li><a href="#form-groups">Form Groups</a></li>
+                 
+                  <li><a href="#inputs">Inputs</a></li>
+                 
+                  <li><a href="#radio-button">Radio Buttons</a></li>
+                 
+                  <li><a href="#select-menu">Select Menu</a></li>
+                 
+                  <li><a href="#text-field">Text Fields</a></li>
+                 
+                  <li><a href="#global">Global</a></li>
+                 
+                  <li><a href="#alignment">Alignment</a></li>
+                 
+                  <li><a href="#animation">Animations</a></li>
+                 
+                  <li><a href="#clearfix">Clearfix</a></li>
+                 
+                  <li><a href="#color">Colors</a></li>
+                 
+                  <li><a href="#font">Fonts</a></li>
+                 
+                  <li><a href="#scrollbar">Scrollbars</a></li>
+                 
+                  <li><a href="#truncation">Truncation</a></li>
+                 
+                  <li><a href="#grids">Grids</a></li>
+                 
+                  <li><a href="#images">Images</a></li>
+                 
+                  <li><a href="#icon">Icons</a></li>
+                 
+                  <li><a href="#loading-icon">Loading Icons</a></li>
+                 
+                  <li><a href="#logo">Logos</a></li>
+                 
+                  <li><a href="#label">Labels</a></li>
+                 
+                  <li><a href="#lists">Lists</a></li>
+                 
+                  <li><a href="#ordered-list">Ordered Lists</a></li>
+                 
+                  <li><a href="#unordered-list">Unordered Lists</a></li>
+                 
+                  <li><a href="#pill">Pills</a></li>
+                 
+                  <li><a href="#tables">Tables</a></li>
+                 
+                  <li><a href="#data-counter">Data Counter</a></li>
+                 
+                  <li><a href="#data-table">Data Tables</a></li>
+                 
+                  <li><a href="#data-table-list">Data Table List</a></li>
+                 
+                  <li><a href="#pricing-table">Pricing Tables</a></li>
+                 
+                  <li><a href="#text">Text</a></li>
+                 
+                  <li><a href="#blockquote">Blockquotes</a></li>
+                 
+                  <li><a href="#heading">Headings</a></li>
+                 
+                  <li><a href="#hr">HR</a></li>
+                 
+                  <li><a href="#inline-element">Inline Elements</a></li>
+                 
+                  <li><a href="#links">Links</a></li>
+                 
+                  <li><a href="#preformatted-text">Preformatted Text</a></li>
+                 
+                  <li><a href="#time">Time</a></li>
+                 
+                  <li><a href="#wells">Wells</a></li>
+                
+              </ul>
+            </div>
+
+            <div class="mains"><h1 id="buttons">Buttons</h1>
+
+<p>Button styles can be applied to either <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code>:</p>
+
+<table><thead>
+<tr>
+<th>To do this</th>
+<th>Use this</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Perform an action, such as submit a form or trigger a JS event</td>
+<td><code>&lt;button&gt;</code></td>
+</tr>
+<tr>
+<td>Link to another page</td>
+<td><code>&lt;a&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+<div class="codeExample"><div class="exampleOutput">  <a class="button default">Button</a>
+  <button type="button default">Button</button>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button default"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button default"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+</pre></div></div></div>
+<h2 id="button-colors">Button Colors</h2>
+
+<p>Button colors correspond to <a href="#color">status colors</a>. Use good judgement when using a colored button. Is it of importance to call attention to? We don&#39;t want the entire interface to be noisy and distract the user from the information and task at hand.</p>
+
+<table><thead>
+<tr>
+<th>Button</th>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><button class="button">Default</button></td>
+<td><code>button</code></td>
+<td>This this is the go to button style</td>
+</tr>
+<tr>
+<td><button class="button primary-bg">Primary</button></td>
+<td><code>button primary-bg</code></td>
+<td>Use this button as the primary call to action</td>
+</tr>
+<tr>
+<td><button class="button secondary-bg">Secondary</button></td>
+<td><code>button secondary-bg</code></td>
+<td>Use this as a secondary action button</td>
+</tr>
+<tr>
+<td><button class="button alert-bg">Alert</button></td>
+<td><code>button alert-bg</code></td>
+<td>Use this for alerts and critical events</td>
+</tr>
+<tr>
+<td><button class="button warning-bg">Warning</button></td>
+<td><code>button warning-bg</code></td>
+<td>Use this for warnings and major events</td>
+</tr>
+<tr>
+<td><button class="button yield-bg">Yield</button></td>
+<td><code>button yield-bg</code></td>
+<td>Use this for yields and caution</td>
+</tr>
+<tr>
+<td><button class="button success-bg">Success</button></td>
+<td><code>button success-bg</code></td>
+<td>Use this for confirmations and successful events</td>
+</tr>
+<tr>
+<td><button class="button inverse-bg">Inverse</button></td>
+<td><code>button inverse-bg</code></td>
+<td>Use this for inversion coersion</td>
+</tr>
+<tr>
+<td><button class="button disabled">Disabled</button></td>
+<td><code>button disabled</code></td>
+<td>This button is deactivated</td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+<div class="codeExample"><div class="exampleOutput">  <button class="button primary-bg">Signup now</button>
+  <button class="button secondary-bg">Cancel</button>
+  <button class="button alert-bg">Delete</button>
+  <button class="button warning-bg">Set override</button>
+  <button class="button yield-bg">Throttle</button>
+  <button class="button success-bg">Success</button>
+  <button class="button inverse-bg">Clear</button>
+  <button class="button disabled">Activate</button>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button primary-bg"</span><span class="nt">&gt;</span>Signup now<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button secondary-bg"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button alert-bg"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button warning-bg"</span><span class="nt">&gt;</span>Set override<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button yield-bg"</span><span class="nt">&gt;</span>Throttle<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button success-bg"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button inverse-bg"</span><span class="nt">&gt;</span>Clear<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button disabled"</span><span class="nt">&gt;</span>Activate<span class="nt">&lt;/button&gt;</span>
+</pre></div></div></div>
+<h2>Invisible buttons</h2>
+
+<p>There are also <em>invisible</em> buttons. Use these when you want to keep a button in view but want to deemphasize its importance.</p>
+
+<table><thead>
+<tr>
+<th>Button</th>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><button class="button invisible">Invisible</button></td>
+<td><code>button invisible</code></td>
+<td>Use this to deemphasize its&#39; importance</td>
+</tr>
+<tr>
+<td><button class="button invisible alert-bg">Invisible</button></td>
+<td><code>button invisible alert-bg</code></td>
+<td>Deemphasize its importance, but warn of its&#39; danger</td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+<div class="codeExample"><div class="exampleOutput">    <button class="button invisible">Invisible</button>
+    <button class="button invisible alert-bg">Invisible</button>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button invisible"</span><span class="nt">&gt;</span>Invisible<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button invisible alert-bg"</span><span class="nt">&gt;</span>Invisible<span class="nt">&lt;/button&gt;</span>
+</pre></div></div></div>
+<h2 id="button-groups">Button Groups</h2>
+
+<p><small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; <span class="label alert">Needs to be implemented</span>
+</small></p>
+
+<p>To make button groups, simply wrap them in a <code>.button-group</code> <code>&lt;div&gt;</code>.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="button-group">
+  <button class="button">Apples</button>
+  <button class="button">Oranges</button>
+  <button class="button">Watermelons</button>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"button-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Apples<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Oranges<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Watermelons<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="button-sizes">Button Sizes</h2>
+
+<p>There are three button sizes: Default, small, and icon buttons. Simply apply the modifier class for the desired size.</p>
+
+<table><thead>
+<tr>
+<th>Button</th>
+<th>Modifier Class</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><button class="button">Default</button></td>
+<td><code>.button</code></td>
+</tr>
+<tr>
+<td><button class="button icon"><span class="fa fa-lock"></span></button></td>
+<td><code>.button icon</code></td>
+</tr>
+<tr>
+<td><button class="button small">Small</button></td>
+<td><code>.button small</code></td>
+</tr>
+<tr>
+<td><button class="button small icon"><span class="fa fa-lock"></span></button></td>
+<td><code>.button small icon</code></td>
+</tr>
+</tbody></table>
+<div class="codeExample"><div class="exampleOutput">  <button class="button">Button</button>
+  <button class="button small">Button</button>
+  <button class="button icon"><span class="fa fa-lock"></span></button>
+  <button class="button small icon"><span class="fa fa-lock"></span></button>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button small"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button icon"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-lock"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button small icon"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-lock"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
+</pre></div></div></div>
+<h1 id="forms">Forms</h1>
+
+<h2 id="checkbox">Checkboxes</h2>
+
+<p>Use <code>&lt;form&gt;</code> to wrap an <code>&lt;input&gt;</code> and make sure the <code>id</code> and <code>for</code> match.</p>
+<div class="codeExample"><div class="exampleOutput">    <form>
+        <input type="checkbox" id="checkbox1" name="checkbox1" />
+        <label for="checkbox1"><span></span>My sick-nasty checkbox</label>
+    </form>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"checkbox1"</span> <span class="na">name=</span><span class="s">"checkbox1"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"checkbox1"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;</span>My sick-nasty checkbox<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+</pre></div></div></div>
+<h2 id="form-groups">Form Groups</h2>
+
+<p><small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; <span class="label yield">A cleaner clearfix solution should be implemented</span>
+</small></p>
+
+<p>Remember to place your form elements inside <code>&lt;form&gt;</code> to have them auto-styled, then place your form elements into a group so they become buds. Make sure you add <code>&lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;</code> after a form group to clear the float.</p>
+<div class="codeExample"><div class="exampleOutput">
+<div class="form-group left">
+    <form>
+        <input type="text" name="supBro" placeholder="Sup bro?">
+    </form>
+    <form>
+        <span class="dropdown">
+        <select>
+            <option>Just chilliiiin'</option>
+            <option>Word up</option>
+        </select>
+        </span>
+    </form>
+    <form>
+        <span class="dropdown">
+        <select>
+            <option>Just chilliiiin'</option>
+            <option>Word up</option>
+        </select>
+        </span>
+    </form>
+</div>
+<div class="clearfix"></div>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group left"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"supBro"</span> <span class="na">placeholder=</span><span class="s">"Sup bro?"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;select&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Just chilliiiin'<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Word up<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;select&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Just chilliiiin'<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Word up<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div></div></div>
+<p><br></p>
+
+<p>Add <code>.left</code> or <code>.right</code> to align the form group on either side.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="form-group right">
+    <form>
+        <span class="dropdown">
+            <select>
+                <option value='' disabled selected >5 Rappers</option>
+                <option value='0'>Immortal Technique</option>
+                <option value='1'>Black Thought</option>
+                <option value='2'>Big K.R.I.T.</option>
+                <option value='3'>Black Milk</option>
+                <option value='4'>Jeru Tha Damaja</option>
+            </select>
+        </span>
+    </form>
+    <form>
+        <span class="dropdown">
+            <select>
+                <option value='' disabled selected >5 Things</option>
+                <option value='0'>Vegetables</option>
+                <option value='1'>Congregations</option>
+                <option value='1'>Waiting Rooms</option>
+                <option value='1'>Terra Cotta Pots</option>
+                <option value='1'>El Caminos</option>
+            </select>
+        </span>
+    </form>
+    <form>
+        <input type="text" name="placeholder" placeholder="Type something">
+    </form>
+</div>
+<div class="clearfix"></div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group right"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;select&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">''</span> <span class="na">disabled</span> <span class="na">selected</span> <span class="nt">&gt;</span>5 Rappers<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'0'</span><span class="nt">&gt;</span>Immortal Technique<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'1'</span><span class="nt">&gt;</span>Black Thought<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'2'</span><span class="nt">&gt;</span>Big K.R.I.T.<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'3'</span><span class="nt">&gt;</span>Black Milk<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'4'</span><span class="nt">&gt;</span>Jeru Tha Damaja<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;select&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">''</span> <span class="na">disabled</span> <span class="na">selected</span> <span class="nt">&gt;</span>5 Things<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'0'</span><span class="nt">&gt;</span>Vegetables<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'1'</span><span class="nt">&gt;</span>Congregations<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'1'</span><span class="nt">&gt;</span>Waiting Rooms<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'1'</span><span class="nt">&gt;</span>Terra Cotta Pots<span class="nt">&lt;/option&gt;</span>
+                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">'1'</span><span class="nt">&gt;</span>El Caminos<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"placeholder"</span> <span class="na">placeholder=</span><span class="s">"Type something"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="inputs">Inputs</h2>
+
+<p>Inputs are automatically styled, no classes required.</p>
+<div class="codeExample"><div class="exampleOutput">
+    <form>
+        <input type="text" name="inputMe" placeholder="Input me">
+    </form>
+</div><div class="codeBlock"><div class="highlight"><pre>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"inputMe"</span> <span class="na">placeholder=</span><span class="s">"Input me"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+</pre></div></div></div>
+<h2 id="radio-button">Radio Buttons</h2>
+
+<p>Use <code>&lt;form&gt;</code> to wrap your <code>&lt;input&gt;</code>. Make sure <code>id</code> and <code>for</code> match. To link radio buttons together in a toggle set, give them all the same <code>name</code>.</p>
+<div class="codeExample"><div class="exampleOutput">    <form>
+        <input type="radio" id="radio1" name="radio-buttons" />
+        <label for="radio1"><span></span>My sick-nasty radio button</label>
+        <br>
+        <input type="radio" id="radio2" name="radio-buttons" />
+        <label for="radio2"><span></span>My sick-sick-nasty radio button</label>
+    </form>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"radio1"</span> <span class="na">name=</span><span class="s">"radio-buttons"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"radio1"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;</span>My sick-nasty radio button<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;br&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"radio2"</span> <span class="na">name=</span><span class="s">"radio-buttons"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"radio2"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;</span>My sick-sick-nasty radio button<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+</pre></div></div></div>
+<h2 id="select-menu">Select Menu</h2>
+
+<p><small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; <span class="label alert">Need to fix .expand</span>
+</small></p>
+
+<p>Below snippet is for a simple dropdown.</p>
+<div class="codeExample"><div class="exampleOutput">  <form>
+    <span class="dropdown">
+        <select>
+            <option>Rabbit-out-of-hat-trick</option>
+            <option>I-know-your-card-trick</option>
+            <option>Get-sawed-in-half-trick</option>
+            <option>Something-big-disappears-trick</option>
+            <option>My-thumb-in-two-parts-trick</option>
+        </select>
+    </span>
+  </form>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;select&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Rabbit-out-of-hat-trick<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option&gt;</span>I-know-your-card-trick<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Get-sawed-in-half-trick<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option&gt;</span>Something-big-disappears-trick<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option&gt;</span>My-thumb-in-two-parts-trick<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/select&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+</pre></div></div></div><div class="codeExample"><div class="exampleOutput">  <form>
+    <label>
+      Top 5 magic tricks
+      <span class="dropdown label-left">
+          <select>
+              <option>Rabbit-out-of-hat-trick</option>
+              <option>I-know-your-card-trick</option>
+              <option>Get-sawed-in-half-trick</option>
+              <option>Something-big-disappears-trick</option>
+              <option>My-thumb-in-two-parts-trick</option>
+          </select>
+      </span>
+    </label>
+
+    <br><br>
+
+    <label>
+      <span class="dropdown label-right">
+          <select>
+              <option>Rabbit-out-of-hat-trick</option>
+              <option>I-know-your-card-trick</option>
+              <option>Get-sawed-in-half-trick</option>
+              <option>Something-big-disappears-trick</option>
+              <option>My-thumb-in-two-parts-trick</option>
+          </select>
+      </span>
+      Top 5 magic tricks
+    </label>
+
+    <br><br>
+
+    <label>
+      Top 5 magic tricks
+      <span class="dropdown label-right expand">
+          <select>
+              <option>Rabbit-out-of-hat-trick</option>
+              <option>I-know-your-card-trick</option>
+              <option>Get-sawed-in-half-trick</option>
+              <option>Something-big-disappears-trick</option>
+              <option>My-thumb-in-two-parts-trick</option>
+          </select>
+      </span>
+    </label>
+  </form>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      Top 5 magic tricks
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown label-left"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;select&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Rabbit-out-of-hat-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>I-know-your-card-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Get-sawed-in-half-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Something-big-disappears-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>My-thumb-in-two-parts-trick<span class="nt">&lt;/option&gt;</span>
+          <span class="nt">&lt;/select&gt;</span>
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+
+    <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown label-right"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;select&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Rabbit-out-of-hat-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>I-know-your-card-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Get-sawed-in-half-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Something-big-disappears-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>My-thumb-in-two-parts-trick<span class="nt">&lt;/option&gt;</span>
+          <span class="nt">&lt;/select&gt;</span>
+      <span class="nt">&lt;/span&gt;</span>
+      Top 5 magic tricks
+    <span class="nt">&lt;/label&gt;</span>
+
+    <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+
+    <span class="nt">&lt;label&gt;</span>
+      Top 5 magic tricks
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown label-right expand"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;select&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Rabbit-out-of-hat-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>I-know-your-card-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Get-sawed-in-half-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>Something-big-disappears-trick<span class="nt">&lt;/option&gt;</span>
+              <span class="nt">&lt;option&gt;</span>My-thumb-in-two-parts-trick<span class="nt">&lt;/option&gt;</span>
+          <span class="nt">&lt;/select&gt;</span>
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+</pre></div></div></div>
+<h2 id="text-field">Text Fields</h2>
+<div class="codeExample"><div class="exampleOutput">    <textarea placeholder="My awesome text"></textarea>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;textarea</span> <span class="na">placeholder=</span><span class="s">"My awesome text"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+</pre></div></div></div>
+<h1 id="global">Global</h1>
+
+<p>Global helper classes can be applied to almost any element.</p>
+
+<h2 id="alignment">Alignment</h2>
+
+<p>Here&#39;s some helper classes for alignment:</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Alignment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.left</code></td>
+<td>Floats element to the left</td>
+</tr>
+<tr>
+<td><code>.right</code></td>
+<td>Floats element to the right</td>
+</tr>
+<tr>
+<td><code>.text-left</code></td>
+<td>Aligns content within element to the left</td>
+</tr>
+<tr>
+<td><code>.text-center</code></td>
+<td>...to center</td>
+</tr>
+<tr>
+<td><code>.text-right</code></td>
+<td>...to the right</td>
+</tr>
+</tbody></table>
+<div class="codeExample"><div class="exampleOutput">    <button class="button left">Left</button>
+    <button class="button right">Right</button>
+    <div class="clearfix"></div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button left"</span><span class="nt">&gt;</span>Left<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button right"</span><span class="nt">&gt;</span>Right<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div></div></div><div class="codeExample"><div class="exampleOutput">    <div class="text-left">
+        <p>Lorem ipsum dolor sit amet</p>  
+    </div>
+    <div class="text-center">
+        <p>Consectetur adipisicing elit</p>
+    </div>
+    <div class="text-right">
+        <p>Accusantium veritatis voluptas</p>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-left"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet<span class="nt">&lt;/p&gt;</span>  
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Consectetur adipisicing elit<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-right"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Accusantium veritatis voluptas<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="animation">Animations</h2>
+
+<p>Add <code>.fa-spin</code> to any class to spin it (one of Doug-3&#39;s favs).</p>
+<div class="codeExample"><div class="exampleOutput">  <span class="fa fa-cog fa-3x fa-spin"></span>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-cog fa-3x fa-spin"</span><span class="nt">&gt;&lt;/span&gt;</span>
+</pre></div></div></div>
+<p><span class="label info-bg">
+  <span class="fa fa-info"></span>&nbsp;&nbsp;
+  Animations will be extended in the near future to support interface transitions</span></p>
+
+<h2 id="clearfix">Clearfix</h2>
+
+<p><small>
+    atoms/global/_clearfix.scss<br>
+    updated 8/31/14 &ndash; Better implementation for clearfix coming soon
+</small></p>
+
+<p>Use clearfix to clear floats by adding <code>.clearfix</code> to an empty block element.</p>
+<div class="codeExample"><div class="exampleOutput">    <div class="swatch only">
+        <div class="swatch-color primary-bg"></div>    
+    </div>
+    <div class="swatch only">
+        <div class="swatch-color primary-bg"></div>    
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="swatch only">
+        <div class="swatch-color primary-bg"></div>    
+    </div>
+
+    <div class="clearfix"></div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swatch only"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swatch-color primary-bg"</span><span class="nt">&gt;&lt;/div&gt;</span>    
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swatch only"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swatch-color primary-bg"</span><span class="nt">&gt;&lt;/div&gt;</span>    
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swatch only"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swatch-color primary-bg"</span><span class="nt">&gt;&lt;/div&gt;</span>    
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="color">Colors</h2>
+
+<p><small>
+    atoms/global/_colors.scss<br>
+    last updated 8/31/14 &ndash; need to include chart and heatmap colors, update swatch class info
+</small></p>
+
+<p>Each swatch comes with four pieces of info. Here&#39;s an example of how to use&#39;em, using the primary color (PubMatic blue) as an example:</p>
+
+<table><thead>
+<tr>
+<th>What</th>
+<th>When</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Hex such as <code>#0196D8</code></td>
+<td>when you need an actual web value</td>
+</tr>
+<tr>
+<td>Variable such as <code>$primary-color</code></td>
+<td>when you need to call this color while writing SASS</td>
+</tr>
+<tr>
+<td>Class such as <code>.primary</code></td>
+<td>applies the color to text</td>
+</tr>
+<tr>
+<td>Class such as <code>.primary-bg</code></td>
+<td>applies the color to the background of an element</td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+
+<p>To use our Sass variables, import the _colors partial into your own sass file:<br>
+<code>@import &quot;tophat/components/global/colors&quot;;</code></p>
+
+<div class="swatch">
+    <div class="swatch-color primary-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;0196D8</b></p>
+        <p>$primary-color</p>
+        <p class="bold">.primary<br>.primary-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color secondary-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;E7E7E7</b></p>
+        <p>$secondary-color</p>
+        <p class="bold">.secondary<br>.secondary-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color alert-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;F04124</b></p>
+        <p>$alert-color</p>
+        <p class="bold">.alert<br>.alert-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color warning-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;F08A24</b></p>
+        <p>$warning-color</p>
+        <p class="bold">.warning<br>.warning-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color yield-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;FFC20F</b></p>
+        <p>$yield-color</p>
+        <p class="bold">.yield<br>.yield-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color success-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;43AC6A</b></p>
+        <p>$success-color</p>
+        <p class="bold">.success<br>.success-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color info-bg"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;EEFAFF</b></p>
+        <p>$info-color</p>
+        <p class="bold">.info<br>.info-bg</p>
+    </div>
+</div>
+
+<p><br><br><br></p>
+
+<div class="swatch">
+    <div class="swatch-color alert-bg-light"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;FDF0ED</b></p>
+        <p>$alert-color-light</p>
+        <p class="bold">.alert-color-light<br>.alert-bg-light</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color warning-bg-light"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;FEF6ED</b></p>
+        <p>$warning-color-light</p>
+        <p class="bold">.warning-color-light<br>.warning-bg-light</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color yield-bg-light"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;FFFAEB</b></p>
+        <p>$yield-color-light</p>
+        <p class="bold">.yield-color-light<br>.yield-bg-light</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color success-bg-light"></div>    
+    <div class="swatch-info">
+        <p><b>&#35;F0FAF4</b></p>
+        <p>$success-color-light</p>
+        <p class="bold">.success-color-light<br>.success-bg-light</p>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h2 id="font">Fonts</h2>
+
+<p><small>
+    atoms/global/_fonts.scss<br>
+    last updated 8/31/14
+</small></p>
+
+<p>The official brand font is Helvetica Neue LT, which works well in print. However, for on screen and in our app, we use Open Sans as the system font for it&#39;s more humanistic feel. Designed specifically for screens and interfaces, it&#39;s open letterforms allow for better readability. We use Lato for numeric values for it&#39;s high contrast and fresh, modern and timeless feel. This gives our data a distinct and strong voice.</p>
+
+<p>There are two ways to use call our typefaces: CSS classes and Sass variables.</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CSS class</td>
+<td><code>.primary-font</code>, <code>.data-font</code></td>
+</tr>
+<tr>
+<td>Sass variable</td>
+<td><code>$primary-font</code>, <code>$data-font</code></td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+<div class="codeExample"><div class="exampleOutput">    <h1>Every ad. Every sales channel. Every screen. One platform.</h1>
+    <h1 class="data-font">845,349.00</h1>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;h1&gt;</span>Every ad. Every sales channel. Every screen. One platform.<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"data-font"</span><span class="nt">&gt;</span>845,349.00<span class="nt">&lt;/h1&gt;</span>
+</pre></div></div></div>
+<p><span class="fa fa-info"></span>&nbsp;&nbsp;For type scale and text styling, see <a href="#text">text</a>.</p>
+
+<h2 id="scrollbar">Scrollbars</h2>
+
+<p><small>
+    atoms/global/_scrollbars.scss<br>
+    last updated: 8/31/14
+</small></p>
+
+<p>To add Pubalicious scrollbars, simply define <code>.scroll</code> on a container <code>&lt;div&gt;</code>. The container should have a fixed dimension, and overflow set to <code>auto</code> or <code>scroll</code> for that axis. For instance, set a fixed height and <code>overflow-y</code> to <code>scroll</code> or <code>auto</code>. Lastly, place an object in the container that is larger.</p>
+<div class="codeExample"><div class="exampleOutput">    <div class="scroll" style="height:200px;width:262px;overflow-y:scroll;overflow-x:hidden">
+        <div>
+            <img src="http://bit.ly/1iBLqvd" />
+        </div>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"scroll"</span> <span class="na">style=</span><span class="s">"height:200px;width:262px;overflow-y:scroll;overflow-x:hidden"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://bit.ly/1iBLqvd"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="truncation">Truncation</h2>
+
+<p><small>
+    atoms/global/_truncation.scss<br>
+    last updated 10/03/14 &ndash; need examples TODO. 
+</small></p>
+
+<p>Truncation containers, applicable to table cell content.</p>
+
+<h1 id="grids">Grids</h1>
+
+<p><small>
+  atoms/grids/_grids.scss<br>
+  last updated 8/31/14 &ndash; 
+</small></p>
+
+<p>We use Susy for flexible layout control. Susy allows us to mix and match grids, use grids in certain places or have layout control without grids at all. It&#39;s also a Compass extension, meaning it doesn&#39;t create &quot;div soup&quot;; instead, everything is separated from the HTML markup in a Sass file. </p>
+
+<p>You can see in the example below how clean Susy allows us to keep our HTML markup. To learn more, these tutorials will get you started. <a href="http://susy.oddbird.net/demos/">Susy</a></p>
+<div class="codeExample"><div class="exampleOutput">  <div class="box1">
+    <h4>Box1</h4>
+    <div class="box2">
+      <h4>Box2</h4>
+      <div class="box3">
+        <h4>Box3</h4>
+      </div>
+      <div class="box4">
+        <h4>Box4</h4>
+      </div>
+    </div>
+  </div>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4&gt;</span>Box1<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box2"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h4&gt;</span>Box2<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box3"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>Box3<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box4"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4&gt;</span>Box4<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h1 id="images">Images</h1>
+
+<h2 id="icon">Icons</h2>
+
+<p><small>
+    atoms/images/_icons.scss<br>
+    last updated 8/31/14 &ndash; will need a better way to catalog our icons
+</small></p>
+
+<p>Icons show with a prefix of <code>th-</code> come from our custom IcoMoon generated icon font. These were picked to fulfill specific use cases not covered by Font Awesome.</p>
+
+<p>Font Awesome library is integrated and available. See the last example: change <code>.fa-gear</code> to define a new icon. See <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> for the complete library.</p>
+
+<table><thead>
+<tr>
+<th>Icon</th>
+<th>Class</th>
+<th>Unicode</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="th-docker"></span></td>
+<td>th-docker</td>
+<td>\e61e</td>
+</tr>
+<tr>
+<td><span class="th-pulse"></span></td>
+<td>th-pulse</td>
+<td>\f085</td>
+</tr>
+<tr>
+<td><span class="th-pencil"></span></td>
+<td>th-pencil</td>
+<td>\e61f</td>
+</tr>
+<tr>
+<td><span class="th-books"></span></td>
+<td>th-books</td>
+<td>\e61a</td>
+</tr>
+<tr>
+<td><span class="th-copy"></span></td>
+<td>th-copy</td>
+<td>\e614</td>
+</tr>
+<tr>
+<td><span class="th-user"></span></td>
+<td>th-user</td>
+<td>\e619</td>
+</tr>
+<tr>
+<td><span class="th-zoom-in"></span></td>
+<td>th-zoom-in</td>
+<td>\e611</td>
+</tr>
+<tr>
+<td><span class="th-bars"></span></td>
+<td>th-bars</td>
+<td>\e618</td>
+</tr>
+<tr>
+<td><span class="th-fire"></span></td>
+<td>th-fire</td>
+<td>\e604</td>
+</tr>
+<tr>
+<td><span class="th-trash"></span></td>
+<td>th-trash</td>
+<td>\e60e</td>
+</tr>
+<tr>
+<td><span class="th-happy"></span></td>
+<td>th-happy</td>
+<td>\e605</td>
+</tr>
+<tr>
+<td><span class="th-wondering"></span></td>
+<td>th-wondering</td>
+<td>\e606</td>
+</tr>
+<tr>
+<td><span class="th-create-report"></span></td>
+<td>th-create-report</td>
+<td>\e60a</td>
+</tr>
+<tr>
+<td><span class="th-open"></span></td>
+<td>th-open</td>
+<td>\e60f</td>
+</tr>
+<tr>
+<td><span class="th-sale"></span></td>
+<td>th-sale</td>
+<td>\e612</td>
+</tr>
+<tr>
+<td><span class="th-spaceinvader"></span></td>
+<td>th-spaceinvader</td>
+<td>\e610</td>
+</tr>
+<tr>
+<td><span class="th-download"></span></td>
+<td>th-download</td>
+<td>\e60b</td>
+</tr>
+<tr>
+<td><span class="th-calendar"></span></td>
+<td>th-calendar</td>
+<td>\f073</td>
+</tr>
+<tr>
+<td><span class="th-folder"></span></td>
+<td>th-folder</td>
+<td>\f07b</td>
+</tr>
+<tr>
+<td><span class="th-folder-open"></span></td>
+<td>th-folder-open</td>
+<td>\f07c</td>
+</tr>
+<tr>
+<td><span class="th-folder-o"></span></td>
+<td>th-folder-o</td>
+<td>\f114</td>
+</tr>
+<tr>
+<td><span class="th-folder-open-o"></span></td>
+<td>th-folder-open-o</td>
+<td>\f115</td>
+</tr>
+<tr>
+<td><span class="th-export"></span></td>
+<td>th-export</td>
+<td>\e607</td>
+</tr>
+<tr>
+<td><span class="th-share"></span></td>
+<td>th-share</td>
+<td>\e615</td>
+</tr>
+<tr>
+<td><span class="th-tag"></span></td>
+<td>th-tag</td>
+<td>\e613</td>
+</tr>
+<tr>
+<td><span class="th-lifebuoy"></span></td>
+<td>th-lifebuoy</td>
+<td>\e608</td>
+</tr>
+<tr>
+<td><span class="th-earth"></span></td>
+<td>th-earth</td>
+<td>\e61b</td>
+</tr>
+<tr>
+<td><span class="th-cart"></span></td>
+<td>th-cart</td>
+<td>\e61c</td>
+</tr>
+<tr>
+<td><span class="th-line-chart"></span></td>
+<td>th-line-chart</td>
+<td>\e600</td>
+</tr>
+<tr>
+<td><span class="th-pie-chart"></span></td>
+<td>th-pie-chart</td>
+<td>\e601</td>
+</tr>
+<tr>
+<td><span class="th-bar-chart"></span></td>
+<td>th-bar-chart</td>
+<td>\e602</td>
+</tr>
+<tr>
+<td><span class="th-area-chart"></span></td>
+<td>th-area-chart</td>
+<td>\e603</td>
+</tr>
+<tr>
+<td><span class="th-logout"></span></td>
+<td>th-logout</td>
+<td>\e60c</td>
+</tr>
+<tr>
+<td><span class="th-login"></span></td>
+<td>th-login</td>
+<td>\e616</td>
+</tr>
+<tr>
+<td><span class="th-close"></span></td>
+<td>th-close</td>
+<td>\e60d</td>
+</tr>
+<tr>
+<td><span class="th-info"></span></td>
+<td>th-info</td>
+<td>\e617</td>
+</tr>
+<tr>
+<td><span class="th-add-to-list"></span></td>
+<td>th-add-to-list</td>
+<td>\e609</td>
+</tr>
+<tr>
+<td><span class="th-disk"></span></td>
+<td>th-disk</td>
+<td>\e61d</td>
+</tr>
+<tr>
+<td><span class="fa fa-gear"></span></td>
+<td>fa-gear</td>
+<td>\f013</td>
+</tr>
+</tbody></table>
+<div class="codeExample"><div class="exampleOutput">    <a class="button icon">
+        <span class="th-area-chart"></span>
+    </a>
+    <a class="button icon small">
+        <span class="th-area-chart"></span>
+    </a>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button icon"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"th-area-chart"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button icon small"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"th-area-chart"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+</pre></div></div></div>
+<h2 id="loading-icon">Loading Icons</h2>
+
+<p><small>
+  atoms/images/_loading-icon.scss<br>
+  last updated 8/31/14 &ndash;
+</small></p>
+
+<p>Default loading spinner:</p>
+<div class="codeExample"><div class="exampleOutput">    <div class="spinner-container">
+        <span class="fa fa-gear fa-spin fa-2x"></span><p class="flat">Hang tight! We're crunching your data...<p/>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-container"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-gear fa-spin fa-2x"</span><span class="nt">&gt;&lt;/span&gt;&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>Hang tight! We're crunching your data...<span class="nt">&lt;p/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="logo">Logos</h2>
+
+<p><small>
+    atoms/images/_logo.scss<br>
+    last updated 8/31/14 &ndash;
+</small></p>
+
+<p>For logos, we use SVG images with a fallback to PNG. Ensure that your SVG and PNG are the same dimensions.</p>
+<div class="codeExample"><div class="exampleOutput">    <div class="logo-on-black">
+        <img src="../images/logos/pubmatic-logo-inverse-blackbg.svg" onerror="this.src=../images/logos/pubmatic-logo-inverse-blackbg.png"/>
+    </div>
+    <div class="logo-on-blue">
+        <img src="../images/logos/pubmatic-logo-inverse-bluebg.svg" onerror="this.src=../images/logos/pubmatic-logo-inverse-bluebg.png"/>
+    </div>
+    <div class="logo-on-white">
+        <img src="../images/logos/pubmatic-logo-master.svg" onerror="this.src=../images/logos/pubmatic-logo-master.png"/>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"logo-on-black"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/logos/pubmatic-logo-inverse-blackbg.svg"</span> <span class="na">onerror=</span><span class="s">"this.src=../images/logos/pubmatic-logo-inverse-blackbg.png"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"logo-on-blue"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/logos/pubmatic-logo-inverse-bluebg.svg"</span> <span class="na">onerror=</span><span class="s">"this.src=../images/logos/pubmatic-logo-inverse-bluebg.png"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"logo-on-white"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/logos/pubmatic-logo-master.svg"</span> <span class="na">onerror=</span><span class="s">"this.src=../images/logos/pubmatic-logo-master.png"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2>Resizing Logos</h2>
+
+<p>Since SVG files are vector, you can resize them without any degradation. For production, ensure you are also creating same-sized fallback PNGs.</p>
+<div class="codeExample"><div class="exampleOutput">    <img src="../images/logos/pubmatic-logo-master.svg" />
+    <br><br>
+    <img src="../images/logos/pubmatic-logo-master.svg" style="width:250px" />
+    <br><br>
+    <img src="../images/logos/pubmatic-logo-master.svg" style="width:400px" />
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/logos/pubmatic-logo-master.svg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/logos/pubmatic-logo-master.svg"</span> <span class="na">style=</span><span class="s">"width:250px"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/logos/pubmatic-logo-master.svg"</span> <span class="na">style=</span><span class="s">"width:400px"</span> <span class="nt">/&gt;</span>
+</pre></div></div></div>
+<h1 id="label">Labels</h1>
+
+<p><small>
+    atoms/labels/_labels.scss<br>
+    last updated 8/31/14 &ndash;
+</small></p>
+
+<p>Use labels as a way to call attention to a short blurb.</p>
+
+<table><thead>
+<tr>
+<th>Label</th>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="primary label">Primary</span></td>
+<td><code>primary label</code></td>
+<td>Main call-to-action label</td>
+</tr>
+<tr>
+<td><span class="secondary label">Secondary</span></td>
+<td><code>secondary label</code></td>
+<td>Minor/trivial notification, such as fine print</td>
+</tr>
+<tr>
+<td><span class="info label">Info</span></td>
+<td><code>info label</code></td>
+<td>A message that provides more information</td>
+</tr>
+<tr>
+<td><span class="alert label">Alert</span></td>
+<td><code>alert label</code></td>
+<td>A critical blocker, such as form validation</td>
+</tr>
+<tr>
+<td><span class="warning label">Warning</span></td>
+<td><code>warning label</code></td>
+<td>Proceed, but please make sure you are informed</td>
+</tr>
+<tr>
+<td><span class="yield label">Yield</span></td>
+<td><code>yield label</code></td>
+<td>This will impact efficiency/effectiveness</td>
+</tr>
+<tr>
+<td><span class="success label">Success</span></td>
+<td><code>success label</code></td>
+<td>Everything is good to go</td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+<div class="codeExample"><div class="exampleOutput">    <span class="primary label">Reggie Noble just shared this with you</span><br>
+    <span class="secondary label">Revenue shown as dollars</span><br>
+    <span class="info label">
+        <span class="fa fa-info"></span>&nbsp;&nbsp;Learn more about our powerful omnibar
+    </span><br>
+    <span class="alert label">You are about to delete all your custom reports. This action cannot be undone.</span><br>
+    <span class="warning label">Lowering your eCPM to $0.50 will reduce your revenue by ~ 84%, or ~ -$1,923,022 over the next 30 days.</span><br>
+    <span class="yield label">You haven't named this report yet. Would you like to name it before sharing?</span><br>
+    <span class="success label">Download complete</span>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"primary label"</span><span class="nt">&gt;</span>Reggie Noble just shared this with you<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"secondary label"</span><span class="nt">&gt;</span>Revenue shown as dollars<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"info label"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-info"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span>Learn more about our powerful omnibar
+    <span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"alert label"</span><span class="nt">&gt;</span>You are about to delete all your custom reports. This action cannot be undone.<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"warning label"</span><span class="nt">&gt;</span>Lowering your eCPM to $0.50 will reduce your revenue by ~ 84%, or ~ -$1,923,022 over the next 30 days.<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"yield label"</span><span class="nt">&gt;</span>You haven't named this report yet. Would you like to name it before sharing?<span class="nt">&lt;/span&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"success label"</span><span class="nt">&gt;</span>Download complete<span class="nt">&lt;/span&gt;</span>
+</pre></div></div></div>
+<h1 id="lists">Lists</h1>
+
+<h2 id="ordered-list">Ordered Lists</h2>
+
+<p><small>
+    atoms/lists/_ordered.scss<br>
+    last updated 8/31/14 &ndash; <span class="alert label">Broken - list doesn&#39;t show order numbers</span>
+</small></p>
+<div class="codeExample"><div class="exampleOutput">    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;ol&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Item 1<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Item 2<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Item 3<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Item 4<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;</span>Item 5<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ol&gt;</span>
+</pre></div></div></div>
+<h2 id="unordered-list">Unordered Lists</h2>
+
+<p><small>
+    atoms/lists/_unordered.scss<br>
+    last updated 8/31/14 &ndash;
+</small></p>
+
+<p>Here&#39;s a hum-dum list:</p>
+<div class="codeExample"><div class="exampleOutput"><ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item 1<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item 2<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item 3<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div></div></div>
+<h2>Multi-select list</h2>
+
+<p>Configure your multi-select list in 3 easy steps:</p>
+
+<table><thead>
+<tr>
+<th>Step</th>
+<th>Use</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Wrap the list in a div wrapper</td>
+<td><code>.multi-select-list</code></td>
+</tr>
+<tr>
+<td>Add the PubMatic scrollbar</td>
+<td><code>.scroll</code></td>
+</tr>
+<tr>
+<td>Configure # of default list items to show</td>
+<td><code>.show-5</code>, <code>.show-10</code>, <code>.show-15</code> or <code>.show-20</code></td>
+</tr>
+</tbody></table>
+
+<h2></h2>
+<div class="codeExample"><div class="exampleOutput">    <div class="multi-select-list show-5 scroll">
+        <ul class="primary-stripe">
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 1</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 2</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 3</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 4</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 5</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 6</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 7</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 8</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 9</li>
+            <li><i class="fa fa-square-o gray">&nbsp;&nbsp;</i>Item 10</li>
+        </ul>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"multi-select-list show-5 scroll"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"primary-stripe"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 1<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 2<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 3<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 4<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 5<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 6<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 7<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 8<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 9<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square-o gray"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;/i&gt;</span>Item 10<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h1 id="pill">Pills</h1>
+
+<p><small>
+    atoms/pills/_pills.scss<br>
+    last updated 8/31/14 &ndash; need to work on hover state to be more obvious
+</small></p>
+
+<p>NLP &quot;invisible&quot; pills for text highlighting.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="nlp-example">
+    <div style="border-bottom:4px solid #0196D8;padding-bottom:5px;">
+        <span class="nlp-pill command">command</span>
+        <a class="nlp-pill dimension">dimension</a>
+        <a class="nlp-pill dimension-hidden">hidden dimension</a>
+        <a class="nlp-pill metric">metric</a>
+        <a class="nlp-pill date">date</a>
+    </div>
+</div>
+<div class="nlp-example">
+    <div style="border-bottom:4px solid #0196D8;padding-bottom:5px;">
+        <span class="nlp-pill command">slice</span>
+        <a class="nlp-pill dimension">Site</a>
+        <a class="nlp-pill dimension">DSP</a>
+        <a class="nlp-pill dimension-hidden">Country</a>
+        <a class="nlp-pill metric">Revenue</a>
+        <a class="nlp-pill metric">Blocked Bids</a>
+        <a class="nlp-pill date">Last 30d</a>
+    </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nlp-example"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"border-bottom:4px solid #0196D8;padding-bottom:5px;"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nlp-pill command"</span><span class="nt">&gt;</span>command<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill dimension"</span><span class="nt">&gt;</span>dimension<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill dimension-hidden"</span><span class="nt">&gt;</span>hidden dimension<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill metric"</span><span class="nt">&gt;</span>metric<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill date"</span><span class="nt">&gt;</span>date<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nlp-example"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"border-bottom:4px solid #0196D8;padding-bottom:5px;"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nlp-pill command"</span><span class="nt">&gt;</span>slice<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill dimension"</span><span class="nt">&gt;</span>Site<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill dimension"</span><span class="nt">&gt;</span>DSP<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill dimension-hidden"</span><span class="nt">&gt;</span>Country<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill metric"</span><span class="nt">&gt;</span>Revenue<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill metric"</span><span class="nt">&gt;</span>Blocked Bids<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nlp-pill date"</span><span class="nt">&gt;</span>Last 30d<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h1 id="tables">Tables</h1>
+
+<h2 id="data-counter">Data Counter</h2>
+
+<p><small>
+    atoms/tables/_data-counter.scss<br>
+    last updated 8/31/14 &ndash; 
+</small></p>
+
+<p>When you need a headline counter, this is the jam to use. Add <code>.alert</code> to a <code>&lt;td&gt;</code> to make it red for negative values.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="data-counter-group">
+  <div class="data-counter">
+    <table>
+      <tbody>
+        <tr>
+          <td>Remaining<br>Dimensions</td>
+          <td class="alert">-2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-counter">
+    <table>
+      <tbody>
+        <tr>
+          <td>Remaining<br>Dimensions</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="clearfix"></div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-counter-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-counter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+      <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Remaining<span class="nt">&lt;br&gt;</span>Dimensions<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"alert"</span><span class="nt">&gt;</span>-2<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-counter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+      <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Remaining<span class="nt">&lt;br&gt;</span>Dimensions<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="data-table">Data Tables</h2>
+
+<p><small>
+    atoms/tables/_data-table.scss<br>
+    last updated 8/31/14 &ndash; 
+</small></p>
+
+<p>Tables automagically inherit base styles, and assume 100% width of the container they are placed in. Use <code>.primary-stripe</code> or <code>.secondary-stripe</code> for zebra striping options.</p>
+
+<h2>Primary stripes</h2>
+<div class="codeExample"><div class="exampleOutput">  <table class="primary-stripe">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"primary-stripe"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Column 1<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Column 2<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Secondary stripes</h2>
+
+<p>With <code>.secondary-stripe</code>:</p>
+<div class="codeExample"><div class="exampleOutput">  <table class="secondary-stripe">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"secondary-stripe"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Column 1<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Row hover</h2>
+
+<p>If you want selection hovers, add <code>.hover</code>:</p>
+<div class="codeExample"><div class="exampleOutput">  <table class="secondary-stripe hover">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"secondary-stripe hover"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Column 1<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Primary selection</h2>
+
+<p>Show a primary selection with <code>.selected</code> (goes great with <code>.primary-stripe</code>):</p>
+<div class="codeExample"><div class="exampleOutput">  <table class="primary-stripe">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="selected">Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"primary-stripe"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Column 1<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"selected"</span><span class="nt">&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Secondary selection</h2>
+
+<p>Show a secondary selection with <code>.active</code> (looks amazing with <code>.secondary-stripe</code>):</p>
+<div class="codeExample"><div class="exampleOutput">  <table class="secondary-stripe">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="active">Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"secondary-stripe"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Column 1<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Cell 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Table under header</h2>
+
+<p>If you have a table that will be directly under a header or <code>&lt;hr&gt;</code>, add <code>.first</code> to the table to remove the table&#39;s top border.</p>
+<div class="codeExample"><div class="exampleOutput">  <h1 class="flat">One Thing</h1>
+  <hr>
+  <table class="data-table secondary-stripe first">
+    <thead>
+      <tr>
+        <th>One Table</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>One Item</td>
+      </tr>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>One Thing<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;hr&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"data-table secondary-stripe first"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>One Table<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>One Item<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Empty tables</h2>
+
+<p><small>
+    last updated: 8/31/14 &ndash;
+    <span class="label alert">Not working</span>
+</small></p>
+
+<p>When tables are devoid of data (such as offline connection, zero state), they can show this through <code>.empty</code>.</p>
+<div class="codeExample"><div class="exampleOutput">  <table class="empty">
+    <thead>
+      <tr>
+        <th>Dimensions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>None selected</td>
+    </tbody>
+  </table>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"empty"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Dimensions<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;td&gt;</span>None selected<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2>Top 10 Tables</h2>
+
+<p><small>
+  last updated 8/31/14 &ndash;
+  <span class="label yield">move this to separate partial _data-table-top-10.scss</span>
+</small></p>
+
+<p>Tables for a Top 10 list have special styling to further emphasize the Top 3. It&#39;s got bigger numbers using Lato, a focused highlight on the Top 3 with a hover highlight for the full list. Just tell it, hey man, you&#39;re <code>.top-10</code>. This currently only supports 3 columns in this specific format. More flexible configurations coming soon.</p>
+<div class="codeExample"><div class="exampleOutput">
+  <table class="top-10">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Buyer</th>
+        <th>Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1.</td>
+        <td>ESPN</td>
+        <td>$257</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td>AOL</td>
+        <td>$42</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td>ADS</td>
+        <td>$31</td>
+      </tr>
+      <tr>
+        <td>4.</td>
+        <td>Netmining</td>
+        <td>$21</td>
+      </tr>
+      <tr>
+        <td>5.</td>
+        <td>Allstate Life Insurance</td>
+        <td>$19</td>
+      </tr>
+      <tr>
+        <td>6.</td>
+        <td>Geico</td>
+        <td>$15</td>
+      </tr>
+      <tr>
+        <td>7.</td>
+        <td>Conversant</td>
+        <td>$15</td>
+      </tr>
+      <tr>
+        <td>8.</td>
+        <td>Amnet</td>
+        <td>$13</td>
+      </tr>
+      <tr>
+        <td>9.</td>
+        <td>Accuen</td>
+        <td>$10</td>
+      </tr>
+      <tr>
+        <td>10.</td>
+        <td>Xaxis</td>
+        <td>$10</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="clearfix"></div>
+</div><div class="codeBlock"><div class="highlight"><pre>
+  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"top-10"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Rank<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Buyer<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Revenue<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>1.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>ESPN<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$257<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>2.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>AOL<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$42<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>3.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>ADS<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$31<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>4.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Netmining<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$21<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>5.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Allstate Life Insurance<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$19<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>6.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Geico<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$15<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>7.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Conversant<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$15<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>8.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Amnet<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$13<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>9.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Accuen<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$10<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>10.<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Xaxis<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>$10<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2>Drag &amp; Drops</h2>
+
+<p>If you want to do dynamic drag-and-drops from a data-table, add <code>.drag-and-drop-move</code> to the <code>&lt;tr&gt;</code> being dragged.</p>
+<div class="codeExample"><div class="exampleOutput"><table>
+  <tbody>
+    <tr class="drag-and-drop-move">
+      <td>Draaaaaagg me</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"drag-and-drop-move"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Draaaaaagg me<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2 id="data-table-list">Data Table List</h2>
+
+<p><small>
+    atoms/tables/_data-table-list.scss<br>
+    last updated 8/31/14 &ndash; 
+</small></p>
+
+<p>Use a data table list when you need lists, and not tabular data. When showing large amounts of data, structure your data, and prioritize what you want the user to focus on first. Here, less important information (Date Saved) is de-emphasized through smaller header font size and grey text.</p>
+
+<p>On a list, we can also embed buttons on hover. Simply add a button to a cell, and the hover with automagically occur.</p>
+<div class="codeExample"><div class="exampleOutput">        <table class="data-table list first">
+            <thead>
+                <tr>
+                    <th><h2 class="h4 flat">Your saved reports</h2></th>
+                    <th><small>Date Saved</small></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nike Revenue Report</td>
+                    <td><span class="gray flat">August 26 @ 12:46am PST</span></td>
+                    <td>
+                        <button class="button small alert-bg invisible right">
+                            <span class="fa fa-trash-o">&nbsp;&nbsp;Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revenue by Advertiser
+                    </td>
+                    <td><span class="gray flat">Revenue, impressions and eCPM shown by Advertiser</span></td>
+                    <td>
+                        <button class="button small alert-bg invisible right">
+                            <span class="fa fa-trash-o">&nbsp;&nbsp;Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Revenue by DSP</td>
+                    <td><span class="gray flat">Revenue, impressions and eCPM shown by DSP</span></td>
+                    <td>
+                        <button class="button small primary-bg invisible right">
+                            <span class="fa fa-save">&nbsp;&nbsp;Save</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div><div class="codeBlock"><div class="highlight"><pre>        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"data-table list first"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;thead&gt;</span>
+                <span class="nt">&lt;tr&gt;</span>
+                    <span class="nt">&lt;th&gt;&lt;h2</span> <span class="na">class=</span><span class="s">"h4 flat"</span><span class="nt">&gt;</span>Your saved reports<span class="nt">&lt;/h2&gt;&lt;/th&gt;</span>
+                    <span class="nt">&lt;th&gt;&lt;small&gt;</span>Date Saved<span class="nt">&lt;/small&gt;&lt;/th&gt;</span>
+                    <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
+                <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;/thead&gt;</span>
+            <span class="nt">&lt;tbody&gt;</span>
+                <span class="nt">&lt;tr&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>Nike Revenue Report<span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">"gray flat"</span><span class="nt">&gt;</span>August 26 @ 12:46am PST<span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>
+                        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button small alert-bg invisible right"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-trash-o"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span>Delete<span class="nt">&lt;/span&gt;</span>
+                        <span class="nt">&lt;/button&gt;</span>
+                    <span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;/tr&gt;</span>
+                <span class="nt">&lt;tr&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>Revenue by Advertiser
+                    <span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">"gray flat"</span><span class="nt">&gt;</span>Revenue, impressions and eCPM shown by Advertiser<span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>
+                        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button small alert-bg invisible right"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-trash-o"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span>Delete<span class="nt">&lt;/span&gt;</span>
+                        <span class="nt">&lt;/button&gt;</span>
+                    <span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;/tr&gt;</span>
+                <span class="nt">&lt;tr&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>Revenue by DSP<span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">class=</span><span class="s">"gray flat"</span><span class="nt">&gt;</span>Revenue, impressions and eCPM shown by DSP<span class="nt">&lt;/span&gt;&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>
+                        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button small primary-bg invisible right"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-save"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;&amp;nbsp;</span>Save<span class="nt">&lt;/span&gt;</span>
+                        <span class="nt">&lt;/button&gt;</span>
+                    <span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;/tbody&gt;</span>
+        <span class="nt">&lt;/table&gt;</span>
+</pre></div></div></div>
+<h2 id="pricing-table">Pricing Tables</h2>
+
+<p>These are Pricing Tables.</p>
+
+<h1 id="text">Text</h1>
+
+<p><small>
+    atoms/text/_text.scss<br>
+    last updated 8/31/14 &ndash; 
+</small></p>
+
+<h2>Base text</h2>
+
+<p>For on screen text, we use Open Sans. This is the default body font. See more on <a href="#font">fonts</a>.</p>
+<div class="codeExample"><div class="exampleOutput">  <p>In vel sem sit amet tortor lobortis fermentum nec in turpis.</p>
+  <p>Curabitur nec erat scelerisque, luctus mi eleifend, venenatis leo.</p>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;p&gt;</span>In vel sem sit amet tortor lobortis fermentum nec in turpis.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Curabitur nec erat scelerisque, luctus mi eleifend, venenatis leo.<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div>
+<h2>Type scale</h2>
+
+<p>We use a major second scale for our type (1.125), with a 16px baseline text size.</p>
+
+<table><thead>
+<tr>
+<th>em</th>
+<th>px</th>
+<th>tag</th>
+<th>render</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1.602em</td>
+<td>26px</td>
+<td>h1</td>
+<td><h1 class="flat">Every ad. Every sales channel. Every screen. One platform.</h1></td>
+</tr>
+<tr>
+<td>1.424em</td>
+<td>23px</td>
+<td>h2</td>
+<td><h2 class="flat">Every ad. Every sales channel. Every screen. One platform.</h2></td>
+</tr>
+<tr>
+<td>1.266em</td>
+<td>20px</td>
+<td>h3</td>
+<td><h3 class="flat">Every ad. Every sales channel. Every screen. One platform.</h3></td>
+</tr>
+<tr>
+<td>1.125em</td>
+<td>18px</td>
+<td>h4</td>
+<td><h4 class="flat">Every ad. Every sales channel. Every screen. One platform.</h4></td>
+</tr>
+<tr>
+<td>1em</td>
+<td>16px</td>
+<td>p</td>
+<td><p class="flat">Every ad. Every sales channel. Every screen. One platform.</p></td>
+</tr>
+<tr>
+<td>0.889em</td>
+<td>14px</td>
+<td>small</td>
+<td><small>Every ad. Every sales channel. Every screen. One platform.</small></td>
+</tr>
+</tbody></table>
+
+<h2>Data values</h2>
+
+<p>For numbers, we use Lato for its&#39; compactness and strong contrast. It works better at larger sizes. This is the default data font. See more on <a href="#font">fonts</a>.</p>
+<div class="codeExample"><div class="exampleOutput">  <span class="data-font">
+    <h1>845,349.00</h1>
+    <h2>$1,492,944</h2>
+    <h3>650k</h3>
+    <h4>4.28</h4>
+    <p>394,949,140</p>
+  </span>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"data-font"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>845,349.00<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>$1,492,944<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>650k<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;h4&gt;</span>4.28<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;p&gt;</span>394,949,140<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/span&gt;</span>
+</pre></div></div></div>
+<h2>Going flat</h2>
+
+<p>Spacing before and after headers are built in, but just in case you need things to get compact, add <code>.flat</code> to your header to remove the extra spacing:</p>
+<div class="codeExample"><div class="exampleOutput">  <h1>My awesome header</h1>
+  <p>Hello world!</p>
+  <br><br>
+  <h1 class="flat">My awesome flat header</h1>
+  <p>Hello flat world!</p>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">&lt;h1&gt;</span>My awesome header<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Hello world!<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>My awesome flat header<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Hello flat world!<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div>
+<h2 id="blockquote">Blockquotes</h2>
+
+<p>These are Blockquotes.</p>
+
+<h2 id="heading">Headings</h2>
+
+<p>These are Headings.</p>
+
+<h2 id="hr">HR</h2>
+
+<p>These are HR.</p>
+
+<h2 id="inline-element">Inline Elements</h2>
+
+<p>These are Inline Elements.</p>
+
+<h2 id="links">Links</h2>
+
+<p><small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; 
+</small></p>
+<div class="codeExample"><div class="exampleOutput">    <a href="#">I am an awesome link</a>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>I am an awesome link<span class="nt">&lt;/a&gt;</span>
+</pre></div></div></div>
+<h2 id="preformatted-text">Preformatted Text</h2>
+
+<p>These are Preformatted Text.</p>
+
+<h2 id="time">Time</h2>
+
+<p>These are Time.</p>
+
+<h1 id="wells">Wells</h1>
+
+<p><small>
+    atoms/wells/_wells.scss<br>
+    last updated 9/11/14 &ndash; 
+</small></p>
+<div class="codeExample"><div class="exampleOutput">    <div class="inset primary-border">
+        <p class="flat">I am a well into which swells fell at the reckon of the bell, what a story to tell! Oh well.</p>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"inset primary-border"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>I am a well into which swells fell at the reckon of the bell, what a story to tell! Oh well.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>  <footer>
+    Built and maintained by PubMatic Labs.
+  </footer>
+    </div>
+  </section>
+  
+</div>
+<script>
+$(document).ready(function() {
+
+  // build simple sidebar navigation
+  var $headers = $('.main > h1');
+  var $componentList = $('.componentList');
+
+  $headers.each(function() {
+    var headerText = $(this).text();
+    $(this).attr('id', headerText);
+
+    $componentList.append(
+      '<li><a href="#' + headerText + '">' + headerText + '</a></li>'
+    );
+  });
+
+  // set the active tab
+  var currentHref = document.location.pathname.substr(1);
+  if (currentHref)
+  {
+    $('.docNav').find('a[href^="' + currentHref + '"]').addClass('activeNavElem typeEmphasize');
+  }
+  else
+  {
+    $('.docNav').find('a').eq(0).addClass('activeNavElem typeEmphasize');
+  }
+
+
+});
+</script>
+</body>
+</html>

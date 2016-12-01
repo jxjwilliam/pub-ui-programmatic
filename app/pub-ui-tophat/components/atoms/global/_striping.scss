@@ -1,0 +1,11 @@
+// Style guide page not needed
+// Examples are shown through tables, lists and multi-select lists
+
+
+// Stripe styles - pick one
+table.primary-stripe tr:nth-child(2n), ul.primary-stripe li:nth-child(2n) {
+  background-color: transparentize(#C3DBF3,.90);
+}
+table.secondary-stripe tr:nth-child(2n), ul.secondary-stripe li:nth-child(2n) {
+  background-color: transparentize($black,.99);
+}

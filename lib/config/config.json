@@ -1,0 +1,78 @@
+{
+  "env": "development",
+  "port": 7070,
+  "middlewareURL": "http://107.23.152.230:8080/v1",
+  "buildDate": "{{{BUILD_DATE}}}",
+  "version": "0.1.{{{BUILD_NUMBER}}}",
+  "gitCommit": "{{{GIT-COMMIT_SHA}}}",
+  "development": {
+    "login_url": "http://54.164.157.178:7070/AdGainMgmt/publisher/",
+    "server": "54.164.157.178",
+    "ag_server": "54.164.157.178",
+    "orders": {
+      "port": 9090,
+      "api": "/ag-api/agorders"
+    },
+    "lineitems": {
+      "port": 9090,
+      "api": "/ag-api/aglineitems"
+    },
+    "agoffers": {
+      "port": 9090,
+      "api": "/ag-api/agoffers"
+    },
+    "alloffers": {
+      "port": 9090,
+      "api": "/ag-api/alloffers"
+    },
+    "audience": {
+      "port": 7070,
+      "api": "/audience/"
+    },
+    "audienceDoc": {
+      "url": "/audienceDoc"
+    },
+    "brandcontrol": {
+      "port": 7070,
+      "api": "/inventory/"
+    },
+    "castrum": {
+      "port": 7070,
+      "api": "/castrum/",
+      "userFeatures": "/userFeatures/"
+    },
+    "inventory": {
+      "port": 7070,
+      "api": "/inventory/"
+    },
+    "common": {
+      "port": 7070,
+      "api": "/common/"
+    },
+    "mediaocean": {
+      "port": 9090,
+      "api": "/mediaocean-hub/mappings/vendors",
+      "positions": "/mediaocean-hub/mappings/positions",
+      "adSizes": "/mediaocean-hub/mappings/adSizes",
+      "categories": "/mediaocean-hub/mappings/categories",
+      "orderMappings": "/mediaocean-hub/avails/orderMappings"
+    },
+    "programmatic": {
+      "port": 8888,
+      "api": "/inventory/"
+    },
+    "analytics": {
+      "url": "http://107.23.152.230:8080/v1/analytics/",
+      "token": "1cf5c868411041a2b7d3e868624951d2"
+    },
+    "analyticsDoc": {
+      "url": "http://107.23.152.230:8080/v1/analytics/api-docs"
+    }
+  },
+  "qa": {
+  },
+  "demo": {
+  },
+  "production": {
+  }
+}

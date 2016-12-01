@@ -1,0 +1,19 @@
+
+// #pubNlpResult-body {
+//   margin-bottom:40px;
+//   // position:relative;
+//   // position:relative;
+//   // z-index: 999;top: 83px;
+//   // transition-duration:500ms;
+//   // margin-left: 330px;
+//   // margin-right: 30px;
+//   // font-weight: 300;
+//   // font-size: 14px;
+//   // text-decoration: none;
+// }
+
+// Search results
+nlp-result {
+  border: $border-width solid $light-gray;
+  @include border-radius($border-radius);
+}

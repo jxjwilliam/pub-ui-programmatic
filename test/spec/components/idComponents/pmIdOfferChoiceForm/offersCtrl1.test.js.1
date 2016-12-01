@@ -1,0 +1,22 @@
+"use strict";
+
+describe("Controller: offersCtrl", function() {
+
+    beforeEach(module("pubApplication"));
+
+    var $controller;
+
+    beforeEach(inject(function(_$controller_) {
+        $controller = _$controller_;
+    }));
+
+    describe("offersCtrl", function() {
+        it("should have initial values regardless PM or PMAG permission.", function() {
+            var $scope = {};
+            var controller = $controller('offersController', {$scope: $scope});
+
+            expect($scope.panelView).toBeDefined();
+        })
+    });
+
+});

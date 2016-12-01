@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+
+      <title>TopHat Molecules</title>
+      <link rel="shortcut icon" href="static/brick.png" />
+
+      <!-- Font Awesome -->
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- Styleguide CSS -->
+      <link rel="stylesheet" href="../doc_assets/github.css">
+
+      <!-- Google Fonts -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Lato:700' rel='stylesheet' type='text/css'>
+
+      <!-- CSS to be documented -->
+      <!-- <link rel="stylesheet" href="build/css/screen.css"> -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- <link rel="stylesheet" href="../css/hologram.css"> -->
+
+      
+
+      <!-- Main libraries -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+      <!-- component js and init scripts -->
+      <script src="build/script/components.js"></script>
+  </head>
+
+  <body>
+    <div class="body-container">
+
+
+        <header class="hologram-header" style="background:none">
+
+          <!-- <h1>PubMatic Tophat</h1> -->
+          <img src="../images/logos/pubux-logo-master.svg">
+
+          <ul class="inline">
+            <!-- Add you pages here -->
+            <li><a href="index.html">Intro</a></li>
+            <li><a href="atoms.html">Atoms</a></li>
+            <li><a href="molecules.html">Molecules</a></li>
+            <li><a href="javascript.html">Javascript</a></li>
+          </ul>
+          <!-- //header/container -->
+        </header>
+
+        <div class="content">
+          <section>
+
+            <div class="componentMenu scroll">
+              <ul class="componentList listBorderedHover">
+                 
+                  <li><a href="#conversation-bar">Conversation Bar</a></li>
+                 
+                  <li><a href="#footer">Footer</a></li>
+                 
+                  <li><a href="#messaging">Messaging</a></li>
+                 
+                  <li><a href="#alerts">Alerts</a></li>
+                 
+                  <li><a href="#omnibar">Omnibar</a></li>
+                
+              </ul>
+            </div>
+
+            <div class="mains"><h1 id="conversation-bar">Conversation Bar</h1>
+
+<p>These are Conversation Bar.</p>
+
+<h1 id="footer">Footer</h1>
+<div class="codeExample"><div class="exampleOutput"><footer>
+    <div class="row">
+        <div class="small-7 columns">
+            <small class="blurb left">
+                <span class="copyright">
+                    &#169; 2014 PubMatic, All Rights Reserved.
+                </span>
+                <span class="tagline">
+                    Every ad. Every sales channel. Every screen. One platform.
+                </span>
+            </small>
+        </div>
+        <div class="small-5 columns">
+            <span class="buttons right">
+                <span class="button small feedback-button">Give us feedback</span>
+            </span>
+            <small class="links right">
+                <a href="#">Need help?</a> <span class="bullet"></span> <a href="#">Support</a>
+            </small>
+
+        </div>
+        <div class="clearfix"></div>
+</footer>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;footer&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-7 columns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"blurb left"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"copyright"</span><span class="nt">&gt;</span>
+                    <span class="ni">&amp;#169;</span> 2014 PubMatic, All Rights Reserved.
+                <span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tagline"</span><span class="nt">&gt;</span>
+                    Every ad. Every sales channel. Every screen. One platform.
+                <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/small&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"small-5 columns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"buttons right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"button small feedback-button"</span><span class="nt">&gt;</span>Give us feedback<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"links right"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Need help?<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"bullet"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Support<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/small&gt;</span>
+
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/footer&gt;</span>
+</pre></div></div></div>
+<h1 id="messaging">Messaging</h1>
+
+<p>Messaging.</p>
+
+<h2 id="alerts">Alerts</h2>
+<div class="codeExample"><div class="exampleOutput">    <div class="alert-box">
+        <p class="flat">
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        </p>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert-box"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<p>You can color-code the alert boxes by adding classes for background color and text color.</p>
+<div class="codeExample"><div class="exampleOutput">    <div class="alert-box info-bg">
+        <p class="flat"><span class="h4 primary title"><i class="fa fa-info-circle"></i> Pro tip</span> Drag and drop dimensions in the same list to <a>reorder nesting</a> of tabular data or between <a>visible and invisible buckets</a>.
+        </p>
+    </div>
+
+    <div class="alert-box alert-bg">
+        <p class="flat">
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        </p>
+    </div>
+
+    <div class="alert-box warning-bg">
+        <p class="flat">
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        </p>
+    </div>
+
+    <div class="alert-box yield-bg">
+        <p class="flat">
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        </p>
+    </div>
+
+    <div class="alert-box success-bg">
+        <p class="flat">
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        </p>
+    </div>
+</div><div class="codeBlock"><div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert-box info-bg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"h4 primary title"</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-info-circle"</span><span class="nt">&gt;&lt;/i&gt;</span> Pro tip<span class="nt">&lt;/span&gt;</span> Drag and drop dimensions in the same list to <span class="nt">&lt;a&gt;</span>reorder nesting<span class="nt">&lt;/a&gt;</span> of tabular data or between <span class="nt">&lt;a&gt;</span>visible and invisible buckets<span class="nt">&lt;/a&gt;</span>.
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert-box alert-bg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert-box warning-bg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert-box yield-bg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert-box success-bg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"flat"</span><span class="nt">&gt;</span>
+            Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h1 id="omnibar">Omnibar</h1>
+
+<p>These are Omnibar.</p>
+  <footer>
+    Built and maintained by PubMatic Labs.
+  </footer>
+    </div>
+  </section>
+  
+</div>
+<script>
+$(document).ready(function() {
+
+  // build simple sidebar navigation
+  var $headers = $('.main > h1');
+  var $componentList = $('.componentList');
+
+  $headers.each(function() {
+    var headerText = $(this).text();
+    $(this).attr('id', headerText);
+
+    $componentList.append(
+      '<li><a href="#' + headerText + '">' + headerText + '</a></li>'
+    );
+  });
+
+  // set the active tab
+  var currentHref = document.location.pathname.substr(1);
+  if (currentHref)
+  {
+    $('.docNav').find('a[href^="' + currentHref + '"]').addClass('activeNavElem typeEmphasize');
+  }
+  else
+  {
+    $('.docNav').find('a').eq(0).addClass('activeNavElem typeEmphasize');
+  }
+
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/*doc
+---
+title: Variables
+name: variable
+# category: Atoms
+# parent: global
+---
+
+Variable              | Value
+----------------------|-------------
+$border-radius        | 5px
+$border-width         | 4px
+
+
+Using a Compass mixin for cross-browser compatibility:
+
+```html_example
+	.myBorder {
+		@include border-radius($border-radius);
+	}
+```
+*/
+
+// Some defaults
+
+$border-radius: 5px;
+$border-width: 4px;

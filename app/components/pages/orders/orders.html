@@ -1,0 +1,27 @@
+<div ng-controller="productCtrl">
+    <pm-application-page
+            page-title="Orders"
+            subtitle=""
+            description="">
+
+        <div pm-backplate="header">
+            <pm-button
+                labels="{{labels}}"
+                routes="{{routes}}">
+            </pm-button>
+            <div clearfix></div>
+        </div>
+        
+        <pm-api-table
+                endpoint="/api/orders/summaries?#LOGGED_IN_PUB#"
+                method="GET"
+                search="search orders"
+                baseobject="items"
+                showlinks="true"
+                objectdisplayfields="name,description,agency,advertiser,{startDate-endDate},totalValue,lineItemCount,status"
+                objectdisplaylabels="Name &nbsp;&nbsp;&nbsp;,Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,Agency &nbsp;&nbsp;&nbsp;&nbsp;,Advertiser,Dates &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;Total Value,# Line Items,Status"
+                pagesize="10">
+        </pm-api-table>
+
+    </pm-application-page>
+</div>

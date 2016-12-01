@@ -1,0 +1,33 @@
+.base-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.65);
+}
+.base-note-overlay {
+    font-size: 1.25em;
+    position: absolute;
+    color: #FFF;
+    font-weight: $light;
+    letter-spacing: .5em;
+
+}
+.statbar-overlay {
+    @extend .base-note-overlay;
+    z-index:100;
+    left: -170px;
+    top: -60px;
+    width: 550px;
+    :after {
+        background: url('../../images/arrows/angle-down-02.svg');
+    }
+}
+.live-data-button-overlay {
+    @extend .base-note-overlay;
+    z-index:100;
+    width: 350px;
+    left: -200px;
+    top: 115px;
+}

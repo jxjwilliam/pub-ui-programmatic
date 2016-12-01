@@ -1,0 +1,193 @@
+@import "clearfix";
+
+/*doc
+---
+title: Colors
+name: color
+category: Atoms
+parent: global
+---
+<small>
+    atoms/global/_colors.scss<br>
+    last updated 8/31/14 &ndash; need to include chart and heatmap colors, update swatch class info
+</small>
+
+Each swatch comes with four pieces of info. Here's an example of how to use'em, using the primary color (PubMatic blue) as an example:
+
+What                              | When
+----------------------------------|----------------------------------
+Hex such as `#0196D8`             | when you need an actual web value
+Variable such as `$primary-color` | when you need to call this color while writing SASS
+Class such as `.primary`          | applies the color to text
+Class such as `.primary-bg`       | applies the color to the background of an element
+-
+To use our Sass variables, import the _colors partial into your own sass file:<br>
+`@import "tophat/components/global/colors";`
+
+<div class="swatch">
+    <div class="swatch-color primary-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;0196D8</b></p>
+        <p>$primary-color</p>
+        <p class="bold">.primary<br>.primary-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color secondary-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;E7E7E7</b></p>
+        <p>$secondary-color</p>
+        <p class="bold">.secondary<br>.secondary-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color alert-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;F04124</b></p>
+        <p>$alert-color</p>
+        <p class="bold">.alert<br>.alert-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color warning-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;F08A24</b></p>
+        <p>$warning-color</p>
+        <p class="bold">.warning<br>.warning-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color yield-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;FFC20F</b></p>
+        <p>$yield-color</p>
+        <p class="bold">.yield<br>.yield-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color success-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;43AC6A</b></p>
+        <p>$success-color</p>
+        <p class="bold">.success<br>.success-bg</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color info-bg"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;EEFAFF</b></p>
+        <p>$info-color</p>
+        <p class="bold">.info<br>.info-bg</p>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="swatch">
+    <div class="swatch-color alert-bg-light"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;FDF0ED</b></p>
+        <p>$alert-color-light</p>
+        <p class="bold">.alert-color-light<br>.alert-bg-light</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color warning-bg-light"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;FEF6ED</b></p>
+        <p>$warning-color-light</p>
+        <p class="bold">.warning-color-light<br>.warning-bg-light</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color yield-bg-light"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;FFFAEB</b></p>
+        <p>$yield-color-light</p>
+        <p class="bold">.yield-color-light<br>.yield-bg-light</p>
+    </div>
+</div>
+
+<div class="swatch">
+    <div class="swatch-color success-bg-light"></div>    
+    <div class="swatch-info">
+    	<p><b>&#35;F0FAF4</b></p>
+        <p>$success-color-light</p>
+        <p class="bold">.success-color-light<br>.success-bg-light</p>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+*/
+
+
+
+// COLORS
+
+// Core colors
+$primary-color: #0196D8;	/* PubMatic Blue */
+$secondary-color: #E7E7E7;  /* De-emphasis, disabled */
+$alert-color: #F04124;		
+$warning-color: #F08A24;
+$yield-color: #FFC20F;		
+$success-color: #43AC6A;
+$info-color: #FBFEFF;
+$inverse-color: #FFFFFF;
+$inverse-bg-color: #000;
+$black: #222;
+$gray: #9C9C9C;
+$light-gray: #F3F3F3;
+$white: #FFF;
+$default-color: $white;
+
+// Core text colors
+.primary { color: $primary-color; }
+.secondary { color: $secondary-color; }
+.alert { color: $alert-color; }
+.warning { color: $warning-color; }
+.yield { color: $yield-color; }
+.success { color: $success-color; }
+.info { color: $info-color; }
+.inverse { color: $inverse-color; }
+.black { color: $black; }
+.gray { color: $gray; }
+.light-gray { color: $light-gray; }
+
+// Core background colors
+.primary-bg { background-color: $primary-color; }
+.secondary-bg { background-color: $secondary-color; }
+.alert-bg { background-color: $alert-color; }
+.warning-bg { background-color: $warning-color; }
+.yield-bg { background-color: $yield-color; }
+.success-bg { background-color: $success-color; }
+.info-bg { background-color: $info-color; }
+.inverse-bg { background-color: $inverse-bg-color; }
+.black-bg { background-color: $black; }
+.gray-bg { background-color: $gray; }
+.light-gray-bg { background-color: $light-gray; }
+
+// Light colors
+$alert-color-light: lighten($alert-color,40%);
+$warning-color-light: lighten($warning-color,43%);
+$yield-color-light: lighten($yield-color,44%);
+$success-color-light: lighten($success-color,50%);
+
+// Light background colors
+.alert-bg-light { background-color: $alert-color-light; }
+.warning-bg-light { background-color: $warning-color-light; }
+.yield-bg-light { background-color: $yield-color-light; }
+.success-bg-light { background-color: $success-color-light; }
+
+
+
+
+

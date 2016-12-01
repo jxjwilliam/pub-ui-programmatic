@@ -1,0 +1,45 @@
+/*global describe, beforeEach, it, expect, inject*/
+(function () {
+    "use strict";
+
+    describe("Config: config", function () {
+
+
+        // load the module
+        beforeEach(function () {
+            module("pubApplicationConfig");
+        });
+
+        beforeEach(function () {
+            inject(function(config) {
+                this.config = config;
+            });
+        });
+
+        it("should be a object", function () {
+            expect(this.config).to.be.an("object");
+        });
+
+       describe("version", function () {
+           it("should be equal to '0.1.*'", function () {
+                var expr = /0\.1\..*/;
+                expect(expr.test(this.config.version)).to.equal(true);
+           });
+       });
+
+        describe("middlewareVersion", function () {
+            it("should be equal to 'v1'", function () {
+                expect(this.config.middlewareVersion).to.equal("v1");
+            });
+        });
+
+        describe("middlewarePrefix", function () {
+            it("should be empty", function () {
+                expect(this.config.middlewarePrefix).to.equal("");
+            });
+        });
+
+
+    });
+
+}).call(this);

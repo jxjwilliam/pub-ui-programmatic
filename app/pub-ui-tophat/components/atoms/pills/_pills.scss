@@ -1,0 +1,135 @@
+@import "../global/colors";
+
+/*doc
+---
+title: Pills
+name: pill
+category: Atoms
+---
+<small>
+    atoms/pills/_pills.scss<br>
+    last updated 8/31/14 &ndash; need to work on hover state to be more obvious
+</small>
+
+
+NLP "invisible" pills for text highlighting.
+
+```html_example
+<div class="nlp-example">
+	<div style="border-bottom:4px solid #0196D8;padding-bottom:5px;">
+		<span class="nlp-pill command">command</span>
+		<a class="nlp-pill dimension">dimension</a>
+		<a class="nlp-pill dimension-hidden">hidden dimension</a>
+		<a class="nlp-pill metric">metric</a>
+		<a class="nlp-pill date">date</a>
+	</div>
+</div>
+<div class="nlp-example">
+	<div style="border-bottom:4px solid #0196D8;padding-bottom:5px;">
+		<span class="nlp-pill command">slice</span>
+		<a class="nlp-pill dimension">Site</a>
+		<a class="nlp-pill dimension">DSP</a>
+		<a class="nlp-pill dimension-hidden">Country</a>
+		<a class="nlp-pill metric">Revenue</a>
+		<a class="nlp-pill metric">Blocked Bids</a>
+		<a class="nlp-pill date">Last 30d</a>
+	</div>
+</div>
+```
+
+*/
+
+// For documentation example only
+.nlp-example {
+	width: 500px;
+	height: 40px;
+	background-color: #000;
+	padding: 20px;
+}
+
+// Set pill colors
+$command-color: #FFF;
+$dimension-color: #4CC0FF;
+$dimension-hidden-color: #6888B5;
+$metric-color: #ADC4EB;
+$date-color: #A51587;
+$something-color: #FEC333;
+// 58E4A9
+
+// Base pill styling
+a.nlp-pill {
+	font-size: 1em;
+	padding: 0 0px;
+	cursor: pointer;
+	text-decoration: none;
+}
+.nlp-pill a:hover {
+	color: $white;
+}
+// Add bullet point seperator after each pill
+.nlp-pill:after {
+	content: '\00a0 \2022';
+	color: transparentize($gray,.5);
+}
+// Clear the bullet point for last pill
+.nlp-pill:last-child:after {
+	content: '';
+}
+// Classes to tag the pill with
+.command {
+	color: $command-color;
+}
+.dimension {
+	color: $dimension-color;
+}
+.dimension-hidden {
+	color: $dimension-hidden-color;
+}
+.metric {
+	color: $metric-color;
+}
+.date {
+	color: $date-color;
+}
+.something {
+	color: $something-color;
+}
+
+// extra color code
+// #676972
+
+
+
+
+
+
+// .pill {
+// 	// border-radius: 50px;
+// 	padding: 0px 10px;
+// }
+// .pill.selected {
+// 	@extend .pill;
+// 	background-color: none;
+//   // background-color: $primary-color;
+//   // border: 2px solid $primary-color;
+//   // color: $inverse-color;
+//   	text-decoration: underline;
+// }
+// .pill.unselected {
+// 	@extend .pill;
+
+// 	// border: 2px solid $white;
+// }
+
+// a.pill {
+// 	text-decoration: none;
+// }
+// a:hover.pill {
+// 	// border: 2px solid $primary-color;
+// 	text-decoration: underline;
+// }
+// a:hover.pill.selected {
+// 	// background-color: darken($primary-color,10%);
+// 	// border: 2px solid darken($primary-color,10%);
+// 	text-decoration: underline;
+// }

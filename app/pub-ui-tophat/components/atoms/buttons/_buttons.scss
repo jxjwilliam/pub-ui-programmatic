@@ -1,0 +1,76 @@
+/*doc
+---
+title: Buttons
+name: buttons
+category: Atoms
+---
+
+Button styles can be applied to either `<button>` or `<a>`:
+
+To do this                                                      | Use this
+----------------------------------------------------------------|---------------------
+Perform an action, such as submit a form or trigger a JS event  | `<button>`
+Link to another page                                            | `<a>`
+-
+
+```html_example
+  <a class="button default">Button</a>
+  <button type="button default">Button</button>
+```
+
+*/
+
+// Standard buttons
+.button, button {
+  // use compass mixin for border-radius to get cross-browser results without the prefixes
+  @include border-radius($border-radius);
+  // ensures double clicks on or around the button element do not show the selection highlighting
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	background-color: none; 
+  border: 2px solid $light-gray;
+  color: $black;
+  font-family: $primary-font;
+  font-size: 1em;
+  // resets line-height for both .button and <button>
+  line-height: 0;
+  text-align: center;
+	margin: 0px;
+  padding: 10px 20px;
+  display: inline-block;
+  cursor: pointer;
+  // sets it at appropriate height after reset
+  line-height: 1;
+}
+// default <button> element bg is grey; sets bg to white
+button {
+  background-color: $white;
+}
+// removes link underline from <a> element buttons
+a.button {
+  text-decoration: none;
+}
+// default hover to PubMatic blue bg
+a:hover.button, button:hover  {
+  color: $inverse-color;
+  border: 2px dotted $primary-color;
+  background-color: $primary-color;
+  transition: all 0.15s ease;
+}
+// active class for buttons, whether momentary or toggled, mid grey
+a:active.button, button:active, .active {
+  background-color: $secondary-color;
+  border: 2px solid $secondary-color;
+  color: $black;
+}
+
+// container for toggle caret (tabular drilldowns)
+.toggle-sprite {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+}

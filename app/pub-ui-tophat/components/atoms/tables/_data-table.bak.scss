@@ -1,0 +1,305 @@
+/*doc
+---
+title: Data Tables
+name: data-table
+category: Atoms
+parent: tables
+---
+
+Define Data Tables with `.data-table`. Tables assume 100% width of the container they are placed in. Use `.primary-stripe` and `.secondary-stripe` for zebra striping options.
+
+```html_example
+  <table class="data-table primary-stripe">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+        <td>Cell 3</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+        <td>Cell 3</td>
+      </tr>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+        <td class="selected">Cell 3</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
+Tables for a Top 10 list have special styling to further emphasize the Top 3.
+
+```html_example
+  <table class="data-table top-10 left">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Buyer</th>
+        <th>Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1.</td>
+        <td>ESPNaskdjasldkjfalsdkjfbasldjkfblsadjbflsdjbfasldjsdcasdasdfasdfasdfasdcasdfasdfasdfcbfsaldjbfalsdjbfalsdbjfaljksbsdl</td>
+        <td>$257</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td>AOL</td>
+        <td>$42</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td>ADS</td>
+        <td>$31</td>
+      </tr>
+      <tr>
+        <td>4.</td>
+        <td>Netmining</td>
+        <td>$21</td>
+      </tr>
+      <tr>
+        <td>5.</td>
+        <td>Allstate Life Insurance</td>
+        <td>$19</td>
+      </tr>
+      <tr>
+        <td>6.</td>
+        <td>Geico</td>
+        <td>$15</td>
+      </tr>
+      <tr>
+        <td>7.</td>
+        <td>Conversant</td>
+        <td>$15</td>
+      </tr>
+      <tr>
+        <td>8.</td>
+        <td>Amnet</td>
+        <td>$13</td>
+      </tr>
+      <tr>
+        <td>9.</td>
+        <td>Accuen</td>
+        <td>$10</td>
+      </tr>
+      <tr>
+        <td>10.</td>
+        <td>Xaxis</td>
+        <td>$10</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="clearfix"></div>
+```
+
+If you have a table that will be directly under a header or `<hr>`, add `.first` to the table to remove the table's top border.
+
+```html_example
+  <h1 class="flat">Teenage Mutant Ninja Turtles</h1>
+  <hr>
+  <table class="data-table secondary-stripe first">
+    <thead>
+      <tr>
+        <th>The Ninjas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Raphael<br>Sais</td>
+      </tr>
+      <tr>
+        <td>Michaelangelo<br>Nunchucks</td>
+      </tr>
+      <tr>
+        <td>Donatello<br>Bo Staff</td>
+      </tr>
+      <tr>
+        <td>Leonardo<br>Sword</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
+When tables are devoid of data (such as offline connection, zero state), they can show this through `.data-table-empty`.
+
+```html_example
+  <table class="data-table-empty">
+    <thead>
+      <tr>
+        <th>Dimensions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>None selected</td>
+    </tbody>
+  </table>
+```
+
+If you want to do dynamic drag-and-drops from a data-table, add `.drag-and-drop-move` to the `<tr>` being dragged.
+
+```html_example
+<table>
+  <tbody>
+    <tr class="drag-and-drop-move">
+      <td>Draaaaaagg me</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+.data-text {
+    text-align: right;
+    font-family: $data-font;
+}
+.data-text-large {
+  @extend .data-text;
+  font-size: 1.5em;
+}
+.data-text-small {
+  @extend .data-text;
+  font-size: 1em;
+}
+
+// DATA TABLE
+// Makes tabular view fill width of widget window
+.data-table {
+  // border: $border-width solid $white;
+  width: $full-width;
+  border-spacing: 0 0;
+  margin-bottom: 50px;
+  table, td {
+    border-left: none;
+    border-right: none;
+    vertical-align: top;
+  }
+  th {
+    background-color: #FEFEFE;
+    text-align: left;
+    border-top: 1px solid $light-gray;
+    border-bottom: 2px solid $black;
+    letter-spacing: -.03em;
+    padding: 10px 10px;
+    font-size: 1em;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  tr {
+    border-bottom: 1px solid transparentize($black,.95);
+  }
+  td {
+    padding: 3px 10px;
+  }
+}
+  
+.data-table:hover {
+  // border: $border-width solid $primary-color;
+}
+
+.data-table.primary-stripe tr:nth-child(2n) {
+  background-color: transparentize(#C3DBF3,.90);
+}
+.data-table.secondary-stripe tr:nth-child(2n) {
+  background-color: transparentize($black,.99);
+}
+
+.data-table td.selected {
+  background-color: $primary-color;
+  color: $white;
+}
+.data-table.first th {
+  border-top: 0;
+}
+
+.data-table.top-10 {
+  @extend .data-table;
+  th:nth-child(1) {
+    width: 10%;
+    font-size: .8em;
+    vertical-align: middle;
+  }
+  th:nth-child(2) {
+    text-align: center;
+  }
+  th:nth-child(3) {
+    @extend th:nth-child(1);
+    width: 12%;
+  }
+  tr:nth-child(-n+3) {
+    // background-color: lighten($info-color,2%);
+    background-color: transparentize(#C3DBF3,.90);
+  }
+  tr:nth-child(2n+4) {
+    background-color: transparentize($black,.99);
+  }
+  tr:nth-child(3) {
+    border-bottom: 1px solid $black;
+  }
+  tr:nth-child(n+4) {
+    color: transparentize($black,.60);
+  }
+  td:first-child {
+    text-align: center;
+  }
+  // td:nth-child(2) {
+  //   // white-space: nowrap;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  // }
+  td:nth-child(3) {
+    @extend .data-text-large;
+  }
+  td:nth-child(3):first-letter {
+    font-family: $primary-font;
+    font-size: 1em;
+    color: transparentize($gray,.4);
+  }
+}
+
+.data-table.top-10:hover tr {
+  color: $black;
+}
+
+.data-table-empty {
+  @extend .data-table;
+  table, th, td {  
+  }
+  th { 
+    border-bottom: 2px solid $light-gray;
+  }
+  tr:nth-child(2n) {
+    background-color: transparentize($black,.99);
+  }
+  border-bottom: 0px;
+  color: $gray;
+}
+
+.data-table.hover {
+  tbody tr:hover {
+    cursor: pointer;
+        background-color: $primary-color;
+        color: $white;
+  }
+}
+.data-table i[class^="th-bars"]:hover {
+  color: $primary-color;
+  cursor: pointer;
+}
+
+.drag-and-drop-move {
+  opacity: .3;
+  border: $border-width dotted $primary-color;
+}

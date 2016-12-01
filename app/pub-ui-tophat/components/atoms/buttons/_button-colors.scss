@@ -1,0 +1,178 @@
+/*doc
+---
+title: Button Colors
+name: button-colors
+category: Atoms
+parent: buttons
+---
+
+Button colors correspond to [status colors](#color). Use good judgement when using a colored button. Is it of importance to call attention to? We don't want the entire interface to be noisy and distract the user from the information and task at hand.
+
+
+Button                                                  | Class                 | Description
+------------------------------------------------------- | --------------------- | -----------
+<button class="button">Default</button>                 | `button`              | This this is the go to button style
+<button class="button primary-bg">Primary</button>      | `button primary-bg`   | Use this button as the primary call to action
+<button class="button secondary-bg">Secondary</button>  | `button secondary-bg` | Use this as a secondary action button 
+<button class="button alert-bg">Alert</button>          | `button alert-bg`     | Use this for alerts and critical events
+<button class="button warning-bg">Warning</button>      | `button warning-bg`   | Use this for warnings and major events
+<button class="button yield-bg">Yield</button>          | `button yield-bg`     | Use this for yields and caution
+<button class="button success-bg">Success</button>      | `button success-bg`   | Use this for confirmations and successful events
+<button class="button inverse-bg">Inverse</button>      | `button inverse-bg`   | Use this for inversion coersion
+<button class="button disabled">Disabled</button>       | `button disabled`     | This button is deactivated
+-
+
+```html_example
+  <button class="button primary-bg">Signup now</button>
+  <button class="button secondary-bg">Cancel</button>
+  <button class="button alert-bg">Delete</button>
+  <button class="button warning-bg">Set override</button>
+  <button class="button yield-bg">Throttle</button>
+  <button class="button success-bg">Success</button>
+  <button class="button inverse-bg">Clear</button>
+  <button class="button disabled">Activate</button>
+```
+
+
+## Invisible buttons
+
+There are also _invisible_ buttons. Use these when you want to keep a button in view but want to deemphasize its importance.
+
+
+Button                                                  | Class                 | Description
+------------------------------------------------------- | --------------------- | -----------
+<button class="button invisible">Invisible</button>     | `button invisible`    | Use this to deemphasize its' importance
+<button class="button invisible alert-bg">Invisible</button>     | `button invisible alert-bg`    | Deemphasize its importance, but warn of its' danger
+-
+
+```html_example
+    <button class="button invisible">Invisible</button>
+    <button class="button invisible alert-bg">Invisible</button>
+```
+
+*/
+
+
+// COLOR MODIFIERS
+// Append a color modifier class to any .button or <button> 
+// to instantly get the relevant color and hover state
+
+// default-bg
+.button.default-bg, button.default-bg {                         /* white background */
+  background-color: $white;
+  border: 2px solid darken($default-color,30%);
+  color: $black;
+}
+a:hover.default-bg, button:hover.default-bg {                   /* PubMatic blue hover */
+  background-color: $primary-color;
+  border: 2px solid $primary-color;
+  color: $inverse-color;
+}
+// primary-bg
+.button.primary-bg, button.primary-bg {                         /* tinted PubMatic blue background */
+  background-color: lighten($primary-color,52%);
+  border: 2px solid lighten($primary-color,30%);
+  color: $black;
+}
+a:hover.primary-bg, button:hover.primary-bg {                   /* PubMatic blue hover */
+  background-color: $primary-color;
+  border: 2px solid $primary-color;
+  color: $inverse-color;
+}
+// secondary-bg
+.button.secondary-bg, button.secondary-bg {                     /* light grey background */
+  background-color: lighten($secondary-color,7%);
+  border: 2px solid $secondary-color;
+  color: $black;
+}
+a:hover.secondary-bg, button:hover.secondary-bg {               /* mid grey hover */
+  background-color: $secondary-color;
+  border: 2px solid $secondary-color;
+  color: $black;
+}
+// alert-bg
+.button.alert-bg, button.alert-bg {                             /* red tint background */
+  // background-color: lighten($alert-color,43%);
+  background-color: $alert-color-light;
+  border: 2px solid lighten($alert-color,25%);
+  color: $black;
+}
+a:hover.alert-bg, button:hover.alert-bg {                       /* red hover */
+  background-color: $alert-color;
+  border: 2px solid $alert-color;
+  color: $inverse-color;
+}
+// warning-bg
+.button.warning-bg, button.warning-bg {                         /* orange tint background */
+  background-color: $warning-color-light;
+  border: 2px solid lighten($warning-color,22%);
+  color: $black;
+}
+a:hover.warning-bg, button:hover.warning-bg {                   /* orange hover */
+  background-color: $warning-color;
+  border: 2px solid $warning-color;
+  color: $inverse-color;
+}
+// yield-bg
+.button.yield-bg, button.yield-bg {                             /* yellow tint background */
+  background-color: $yield-color-light;
+  border: 2px solid lighten($yield-color,22%);
+  color: $black;
+}
+a:hover.yield-bg, button:hover.yield-bg {                       /* yellow hover */
+  background-color: $yield-color;
+  border: 2px solid $yield-color;
+  color: $black;
+}
+// success-bg
+.button.success-bg, button.success-bg {                         /* green tint background */
+  background-color: $success-color-light;
+  border: 2px solid lighten($success-color,30%);
+  color: $black;
+}
+a:hover.success-bg, button:hover.success-bg {                   /* green hover */
+  background-color: $success-color;
+  border: 2px solid $success-color;
+  color: $inverse-color;
+}
+
+// inverse-bg
+.button.inverse-bg, button.inverse-bg {                         /* black background */
+  background-color: transparentize($black,0);
+  border: 2px solid #111;
+  color: $gray;
+}
+a:hover.inverse-bg, button:hover.inverse-bg {                   /* blue PubMatic blue */
+  background-color: $primary-color;
+  border: 2px solid $primary-color;
+  color: $inverse-color;
+}
+
+// disabled                                                     /* light grey background */
+// use .disabled when a button should not be clicked, but stay visible
+.button.disabled, button.disabled, a:hover.disabled, button:hover.disabled {
+  color: lighten($black,75%);
+  background-color: lighten($secondary-color,7%);
+  border: 2px solid lighten($secondary-color,5%);
+  cursor: not-allowed;
+}
+
+// invisible
+// use .invisible when you want plain text that turns into a button on hover
+// default is primary color
+.invisible {
+  background-color: rgba($white,0);
+  border: 2px solid rgba($white,0);
+}
+// alert-bg invisible
+// to deemphasize importance but warn of dangerous action
+.button.alert-bg.invisible, button.alert-bg.invisible {
+  @extend .invisible;
+}
+a:hover.alert-bg.invisible, button:hover.alert-bg.invisible {
+  background-color: $alert-color;
+  border: 2px solid $alert-color;
+  color: $inverse-color;
+}
+
+

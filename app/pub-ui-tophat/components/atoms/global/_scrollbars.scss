@@ -1,0 +1,45 @@
+@import "colors";
+
+/*doc
+---
+title: Scrollbars
+name: scrollbar
+category: Atoms
+parent: global
+---
+<small>
+    atoms/global/_scrollbars.scss<br>
+    last updated: 8/31/14
+</small>
+
+To add Pubalicious scrollbars, simply define `.scroll` on a container `<div>`. The container should have a fixed dimension, and overflow set to `auto` or `scroll` for that axis. For instance, set a fixed height and `overflow-y` to `scroll` or `auto`. Lastly, place an object in the container that is larger.
+
+```html_example
+	<div class="scroll" style="height:200px;width:262px;overflow-y:scroll;overflow-x:hidden">
+		<div>
+			<img src="http://bit.ly/1iBLqvd" />
+		</div>
+	</div>
+```
+
+
+*/
+
+$scrollbar-hover: darken($primary-color, 10%);
+
+.scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #FFF;
+  border-left: 1px solid #EEE;
+}
+.scroll::-webkit-scrollbar-thumb{
+background-color: $secondary-color;
+@include border-radius(10px);
+}
+.scroll::-webkit-scrollbar-thumb:hover{
+background-color: $primary-color;
+}
+.scroll::-webkit-scrollbar-thumb:active{
+background-color: $primary-color;
+}

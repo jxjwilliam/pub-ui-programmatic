@@ -1,0 +1,17 @@
+/*doc
+---
+title: Lists
+name: lists
+category: Atoms
+---
+
+*/
+
+
+// remove bullets
+ul { 
+    list-style-type: none; 
+}
+ol {
+    list-style-type: decimal inside none;
+}

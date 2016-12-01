@@ -1,0 +1,35 @@
+[
+{
+  "api": "analytics",
+  "description": "Analytics API"
+},
+{
+  "api": "audience",
+  "description": "Audience API"
+},
+{
+  "api": "brandcontrol",
+  "description": "Brand Control API"
+},
+{
+  "api": "common",
+  "description": "Common API"
+},
+{
+  "api": "inventory",
+  "description": "Inventory API"
+},
+{
+  "api": "ag",
+  "description": "Automated Guaranteed API"
+},
+{
+  "api": "kickstart",
+  "description": "Kickstart Internal Tools API"
+},
+{
+  "api": "castrum",
+  "description": "Castrum API"
+}
+
+]

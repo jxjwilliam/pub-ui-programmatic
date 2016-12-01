@@ -1,0 +1,25 @@
+/*doc
+---
+title: Links
+name: links
+category: Atoms
+parent: text
+---
+<small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; 
+</small>
+
+```html_example
+    <a href="#">I am an awesome link</a>
+```
+
+*/
+
+a {
+    color: $gray;
+    text-decoration: underline;
+}
+a:hover {
+    color: $primary-color;
+}

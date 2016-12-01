@@ -1,0 +1,431 @@
+<style>
+    [container] {
+        margin: 200px;
+        text-align: center;
+    }
+
+    [row~="half"] {
+        width: 48%;
+        float: left;
+    }
+
+    [row~="half"]:last-child {
+        padding-right: 0;
+        float: right;
+    }
+
+    [row~="half"]::after {
+        clear: both;
+    }
+
+    [row~="column3"] {
+        width: 30%;
+        float: left;
+    }
+
+    [row~="column3"]:last-child {
+        padding-right: 0;
+        float: right;
+    }
+
+    [row~="column3"]::after {
+        clear: both;
+    }
+
+    [asterisk] {
+        font-weight: bold;
+        color: #d7494e;
+        font-size: 1.25em;
+    }
+
+    .required {
+        color: #d7494e;
+    }
+</style>
+
+<div row>
+    <div class="small-12 columns">
+        <div product-definition="{{panelView}}">
+            <a close-button class="fa fa-times" ng-click="cancel()"></a>
+
+            <div slide-header>
+                <div header-top>
+                    <div header-info="icon">
+                        <div class="panel-icon">
+                            <i class="fa fa-cube"></i>
+                        </div>
+                    </div>
+                    <div header-info="name">
+                        <h2>{{screenTitle}}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div slide-container>
+                <!-- valid-submit="sendForm()" -->
+                <form name="form" ng-disabled="true" novalidate ng-submit="createOrUpdate()">
+
+                    <div filter-section>
+                        <div row="column3" style="margin-top: 18px;">
+                            <h2>Selected Product</h2>
+                        </div>
+                        <div row="column3">
+                            <div filter-field>
+                                <div toggles>
+                                    <label>
+                                        <!--<img ng-src="images/kantar_media.png" width="200px" height="60px">-->
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div row="column3">
+                            <div filter-field ng-if="showPartnerShip">
+                                <div toggles>
+                                    <label>
+                                        <img ng-src="images/media_ocean.png" width="200px" height="60px">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div filter-section>
+                        <div row="column3">
+                            <label bold>Name: </label><br>
+
+                            <p>{{agProduct.name||amg.name}}</p>
+                            <br><br>
+
+                            <label bold>Description: </label><br>
+
+                            <p>{{agProduct.description||amg.description}}</p>
+                        </div>
+                        <div row="column3">
+                            <label bold>Size(s):</label><br>
+
+                            <p><span
+                                    ng-repeat="sn in media_ocean.sizes">{{sn.name}}{{{true: '', false: ', '}[$last]}}</span>
+                            </p>                            <br><br>
+
+                            <label bold>Position(s):</label><br>
+
+                            <p><span ng-repeat="pm in media_ocean.positions">{{pm.name}}{{{true: '', false: ', '}[$last]}}</span>
+                            </p>
+                            <br><br>
+
+                            <label bold>Category(s):</label><br>
+
+                            <p><span ng-repeat="cs in media_ocean.categories">{{cs.name}}{{{true: '', false: ', '}[$last]}}</span>
+                            </p>
+                        </div>
+                        <div row="column3" ng-if="showPartnerShip">
+                            <div ng-switch on="media_ocean.sizes.length">
+                                <div ng-switch-when="1">
+                                    <label bold>Size</label><br>
+
+                                    <p>
+                                        <span>{{media_ocean.size.name}}</span>
+                                    </p>                            <br><br>
+                                </div>
+                                <div ng-switch-default>
+                                    <label bold>Size
+                                <span pm-select class="expand">
+                                    <select ng-model="media_ocean.size"
+                                            ng-options="size as size.name for size in media_ocean.sizes">
+                                    </select>
+                                </span>
+                                    </label>
+                                    <br><br>
+                                </div>
+                            </div>
+
+                            <div ng-switch on="media_ocean.positions.length">
+                                <div ng-switch-when="1">
+                                    <label bold>Position</label><br>
+
+                                    <p><span>{{media_ocean.position.name}}</span>
+                                    </p><br><br>
+                                </div>
+                                <div ng-switch-default>
+                                    <label bold>Position
+                                <span pm-select class="expand">
+                                    <select ng-model="media_ocean.position"
+                                            ng-options="pos as pos.name for pos in media_ocean.positions">
+                                    </select>
+                                </span>
+                                    </label>
+                                    <br><br>
+                                </div>
+                            </div>
+
+                            <div ng-switch on="media_ocean.categories.length">
+                                <div ng-switch-when="1">
+                                    <label bold>Category</label><br>
+
+                                    <p><span>{{media_ocean.category.name}}</span>
+                                    </p><br><br>
+                                </div>
+                                <div ng-switch-default>
+                                    <label bold>Category
+                                <span pm-select class="expand">
+                                    <select ng-model="media_ocean.category"
+                                            ng-options="cat as cat.name for cat in media_ocean.categories">
+                                    </select>
+                                </span>
+                                    </label>
+                                    <br><br>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div row="column3" ng-if="!showPartnerShip"></div>
+                    </div>
+
+
+                    <div form-section-name>
+                        <h2>Basic Offer Details</h2>
+                    </div>
+
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Offer Name<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" placeholder="Enter your offer name"
+                                       id="agOfferName" name="agOfferName"
+                                       ng-init="amg.name=agProduct.name"
+                                       ng-model="amg.name" required/>
+                                <span ng-show="form.agOfferName.$dirty && form.agOfferName.$error.required"
+                                      class="required">Required!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Offer Description<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" placeholder="Enter offer description"
+                                       id="agOfferDescription" name="agOfferDescription"
+                                       ng-init="amg.description=agProduct.description"
+                                       ng-model="amg.description" required/>
+                                <!--<span ng-show="form.agOfferDescription.$invalid"><i class="fa fa-asterisk"></i></span>-->
+                                <span ng-show="form.agOfferDescription.$dirty && form.agOfferDescription.$error.required"
+                                      class="required">Required!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>URL<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" placeholder="URL that ad is displayed"
+                                       name="agOfferUrl"
+                                       ng-model="amg.url" required
+                                       ng-pattern="/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/"/>
+                                <!--<span ng-show="form.agOfferUrl.$invalid"><i class="fa fa-asterisk"></i></span>-->
+                                <span ng-show="form.agOfferUrl.$dirty && form.agOfferUrl.$error.required"
+                                      class="required">Required!</span>
+                                <span ng-show="form.agOfferUrl.$dirty && form.agOfferUrl.$error.pattern"
+                                      class="required">Not a valid URL.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Tags:</label>
+                            </div>
+                            <div filter-field>
+                                <tags-input name="agTags" placeholder="Type text and hit ENTER"
+                                            ng-model="amg.tags"></tags-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>User Generated Content:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" id="agOfferUGC" name="ugc" ng-value="true"
+                                               ng-model="amg.user_generated_content"
+                                               ng-init="amg.user_generated_content=true">
+                                        <label><p>Yes</p></label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="ugc" ng-value="false"
+                                               ng-model="amg.user_generated_content">
+                                        <label><p>No</p></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div form-section-name>
+                        <h2>Pricing & Availability</h2>
+                    </div>
+
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Price (CPM)<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <!--<i class="fa fa-usd" style="float: left;"></i>-->
+                                <input type="number" min="0" placeholder="dollar amount in USD" id="agOfferPrice"
+                                       name="agOfferPrice"
+                                       ng-model="amg.price" required>
+                                <!--<span ng-show="form.agOfferPrice.$invalid"><i class="fa fa-asterisk"></i></span>-->
+                                <!-- use ng-message object -->
+                                <span ng-show="form.agOfferPrice.$dirty && form.agOfferPrice.$error.required"
+                                      class="required">Must be a number!</span>
+                                <span ng-show="form.agOfferPrice.$dirty && form.agOfferPrice.$error.min"
+                                      class="required">Must be a positive number!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Public Rate Card (CPM)<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <!--<i class="fa fa-usd"></i>-->
+                                <input type="number" min="0" placeholder="dollar amount in USD" id="agOfferPRC"
+                                       name="agOfferPRC"
+                                       ng-model="amg.public_rate_card" required>
+                                <span ng-show="form.agOfferPRC.$dirty && form.agOfferPRC.$error.required"
+                                      class="required">Must be a number!</span>
+                                <span ng-show="form.agOfferPRC.$dirty && form.agOfferPRC.$error.min" class="required">Must be a positive number!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Max Daily Impressions<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="number" min="0" placeholder="Number of available daily impressions"
+                                       id="agOfferMDI"
+                                       name="agOfferMDI"
+                                       ng-model="amg.max_daily_impressions" required>
+                                <span ng-show="form.agOfferMDI.$dirty && form.agOfferMDI.$error.required"
+                                      class="required">Must be a number!</span>
+                                <span ng-show="form.agOfferMDI.$dirty && form.agOfferMDI.$error.min" class="required">Must be a positive number!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Minimum Amount ($)<i asterisk>*</i>:</label>
+                            </div>
+                            <div filter-field>
+                                <!--<i class="fa fa-usd"></i>-->
+                                <input type="number" min="0" placeholder="Minimum accepted for the order" id="agOfferMA"
+                                       name="agOfferMA"
+                                       ng-model="amg.minimum_amount" required>
+                                <span ng-show="form.agOfferMA.$dirty && form.agOfferMA.$error.required"
+                                      class="required">Must be a number!</span>
+                                <span ng-show="form.agOfferMA.$dirty && form.agOfferMA.$error.min" class="required">Must be a positive number!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div form-section-name>
+                        <h2>Creative Requirements</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Accepted Creative Types:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="checkbox" id="agOfferGif" name="agOfferImg" ng-model="amg.gif"
+                                               value="GIF" ng-init="amg.gif=true">
+                                        <label for="agOfferGif"><p>GIF</p></label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="checkbox" id="agOfferJpg" name="agOfferImg" ng-model="amg.jpg"
+                                               value="JPG" ng-init="amg.jpg=true">
+                                        <label for="agOfferJpg"><p>JPG</p></label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="checkbox" id="agOfferSwf" name="agOfferImg" ng-model="amg.swf"
+                                               value="SWF" ng-init="amg.swf=true">
+                                        <label for="agOfferSwf"><p>SWF</p></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div form-section-name>
+                        <h2>Publisher Notes</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Publisher Notes:</label>
+                            </div>
+                            <div filter-field>
+                                <textarea rows="8" cols="50" name="agOfferNotes"
+                                          ng-model="amg.publisher_notes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div form-section-name>
+                        <h2>Offer Status</h2>
+                    </div>
+                    <div filter-section="last">
+                        <div row>
+                            <div filter-label>
+                                <label>Offer Status:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" id="agOfferStatus" name="agOfferStatus" value="INACTIVE"
+                                               ng-model="amg.offer_status">
+                                        <label><p>Paused</p></label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="agOfferStatus" value="ACTIVE"
+                                               ng-model="amg.offer_status"
+                                               ng-init="amg.offer_status='ACTIVE'">
+                                        <label><p>Active</p></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div filter-section finish-line>
+                        <div finish-line-button-wrapper>
+                            <button type="submit" finish-line-button="primary" class="create"
+                                    ng-disabled="form.$invalid">{{submit_button_content}} Offer
+                            </button>
+                            <button type="button" finish-line-button="secondary" class="cancel" ng-click="cancel()">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

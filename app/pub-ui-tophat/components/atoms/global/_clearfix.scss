@@ -1,0 +1,44 @@
+/*doc
+---
+title: Clearfix
+name: clearfix
+category: Atoms
+parent: global
+---
+<small>
+	atoms/global/_clearfix.scss<br>
+	updated 8/31/14 &ndash; Better implementation for clearfix coming soon
+</small>
+
+
+Use clearfix to clear floats by adding `.clearfix` to an empty block element.
+
+```html_example
+	<div class="swatch only">
+		<div class="swatch-color primary-bg"></div>    
+	</div>
+	<div class="swatch only">
+		<div class="swatch-color primary-bg"></div>    
+	</div>
+
+	<div class="clearfix"></div>
+
+	<div class="swatch only">
+		<div class="swatch-color primary-bg"></div>    
+	</div>
+
+	<div class="clearfix"></div>
+```
+
+*/
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: ".";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

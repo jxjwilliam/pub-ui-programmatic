@@ -1,0 +1,179 @@
+
+@include establish-baseline; /* "This is where the magic happens" —Everyone on MTV Cribs. */
+@import "../global/colors";
+
+/*doc
+---
+title: Text
+name: text
+category: Atoms
+---
+<small>
+    atoms/text/_text.scss<br>
+    last updated 8/31/14 &ndash; 
+</small>
+
+##Base text
+
+For on screen text, we use Open Sans. This is the default body font. See more on [fonts](#font).
+
+```html_example
+  <p>In vel sem sit amet tortor lobortis fermentum nec in turpis.</p>
+  <p>Curabitur nec erat scelerisque, luctus mi eleifend, venenatis leo.</p>
+```
+
+##Type scale
+
+We use a major second scale for our type (1.125), with a 16px baseline text size.
+
+em      | px    | tag   | render
+--------|-------|-------|---------------------------------------------------------------------------
+1.602em | 26px  | h1    | <h1 class="flat">Every ad. Every sales channel. Every screen. One platform.</h1>
+1.424em | 23px  | h2    | <h2 class="flat">Every ad. Every sales channel. Every screen. One platform.</h2>
+1.266em | 20px  | h3    | <h3 class="flat">Every ad. Every sales channel. Every screen. One platform.</h3>
+1.125em | 18px  | h4    | <h4 class="flat">Every ad. Every sales channel. Every screen. One platform.</h4>
+1em     | 16px  | p     | <p class="flat">Every ad. Every sales channel. Every screen. One platform.</p>
+0.889em | 14px  | small | <small>Every ad. Every sales channel. Every screen. One platform.</small>
+
+##Data values
+
+For numbers, we use Lato for its' compactness and strong contrast. It works better at larger sizes. This is the default data font. See more on [fonts](#font).
+
+```html_example
+  <span class="data-font">
+    <h1>845,349.00</h1>
+    <h2>$1,492,944</h2>
+    <h3>650k</h3>
+    <h4>4.28</h4>
+    <p>394,949,140</p>
+  </span>
+```
+
+##Going flat
+
+Spacing before and after headers are built in, but just in case you need things to get compact, add `.flat` to your header to remove the extra spacing:
+
+```html_example
+  <h1>My awesome header</h1>
+  <p>Hello world!</p>
+  <br><br>
+  <h1 class="flat">My awesome flat header</h1>
+  <p>Hello flat world!</p>
+```
+
+*/
+
+// Major Second scale 1.125
+// For reference, mixin does not accept em
+// 1.602em  =  26px
+// 1.424em  =  23px
+// 1.266em  =  20px
+// 1.125em  =  18px
+// 1em      =  16px
+// 0.889em  =  14px
+
+$h1: 1.602em;
+$h2: 1.424em;
+$h3: 1.266em;
+$h4: 1.125em;
+$p: 1em;
+$small: 0.889em;
+
+
+h1, h2.h1, h3.h1, h4.h1, p.h1, div.h1, span.h1 {
+  @include adjust-font-size-to(26px);
+  margin: rhythm(0,41px) 0 rhythm(1, 41px) 0;
+  letter-spacing:-0.05em;
+  font-color: #FFF;
+}
+
+h2, h1.h2, h3.h2, h4.h2, p.h2, div.h2, span.h2 {
+  @include adjust-font-size-to(23px);
+  margin: rhythm(1, 35px) 0 rhythm(1, 35px) 0;
+  letter-spacing:-0.04em;
+}
+
+h3, h1.h3, h2.h3, h4.h3, p.h3, div.h3, span.h3 {
+  @include adjust-font-size-to(20px);
+  margin: rhythm(1, 29px) 0 rhythm(1, 29px) 0;
+  letter-spacing:-0.03em;
+}
+
+h4, h1.h4, h2.h4, h3.h4, p.h4, div.h4, span.h4 {
+  @include adjust-font-size-to(18px);
+  margin: rhythm(1, 24px) 0 rhythm(1, 24px) 0;
+  letter-spacing:-0.02em;
+}
+
+p, h1.p, h2.p, h3.p, h4.p, div.p, span.p {
+  margin: rhythm(1, 16px) 0 rhythm(1, 16px) 0;
+  letter-spacing:-0.01em;
+}
+
+small, h1 small, h2 small, h3 small, h4 small, p small, div small, span small {
+  @include adjust-font-size-to(14px);
+  margin: rhythm(1, 14px) 0 rhythm(1, 14px) 0;
+}
+
+h1.flat, h2.h1.flat, h3.h1.flat, h4.h1.flat, p.h1.flat, div.h1.flat, span.h1.flat {
+  @extend h1;
+  margin: rhythm(0,41px) 0 rhythm(0, 41px) 0;
+}
+
+h2.flat, h1.h2.flat, h3.h2.flat, h4.h2.flat, p.h2.flat, div.h2.flat, span.h2.flat {
+  @extend h2;
+  margin: rhythm(0, 35px) 0 rhythm(0, 35px) 0;
+}
+
+h3.flat, h1.h3.flat, h2.h3.flat, h4.h3.flat, p.h3.flat, div.h3.flat, span.h3.flat {
+  @extend h3;
+  margin: rhythm(0, 29px) 0 rhythm(0, 29px) 0;
+}
+
+h4.flat, h1.h4.flat, h2.h4.flat, h3.h4.flat, p.h4.flat, div.h4.flat, span.h4.flat {
+  @extend h4;
+  margin: rhythm(0, 24px) 0 rhythm(0, 24px) 0;
+}
+
+p, h1.p.flat, h2.p.flat, h3.p.flat, h4.p.flat, div.p.flat, span.p.flat {
+  @extend p;
+  margin: rhythm(0, 16px) 0 rhythm(0, 16px) 0;
+}
+
+// Minor Third scale 1.200
+// For reference, mixin does not accept em
+// 2.074em  =  41px
+// 1.728em  =  35px
+// 1.44em   =  29px
+// 1.2em    =  24px
+// 1em      =  16px
+
+// h1 {
+//   @include adjust-font-size-to(41px);
+//   margin: rhythm(0,41px) 0 rhythm(1, 41px) 0;
+//   letter-spacing:-0.05em;
+//   font-color: #FFF;
+// }
+
+// h2 {
+//   @include adjust-font-size-to(35px);
+//   margin: rhythm(1, 35px) 0 rhythm(1, 35px) 0;
+//   letter-spacing:-0.04em;
+// }
+
+// h3 {
+//   @include adjust-font-size-to(29px);
+//   margin: rhythm(1, 29px) 0 rhythm(1, 29px) 0;
+//   letter-spacing:-0.03em;
+// }
+
+// h4 {
+//   @include adjust-font-size-to(24px);
+//   margin: rhythm(1, 24px) 0 rhythm(1, 24px) 0;
+//   letter-spacing:-0.02em;
+// }
+
+// p {
+//   margin: rhythm(1, 16px) 0 rhythm(1, 16px) 0;
+//   letter-spacing:-0.01em;
+// }

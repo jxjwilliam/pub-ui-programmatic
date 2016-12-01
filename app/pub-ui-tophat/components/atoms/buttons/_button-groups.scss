@@ -1,0 +1,38 @@
+/*doc
+---
+title: Button Groups
+name: button-groups
+category: Atoms
+parent: buttons
+---
+<small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; <span class="label alert">Needs to be implemented</span>
+</small>
+
+To make button groups, simply wrap them in a `.button-group` `<div>`.
+
+```html_example
+<div class="button-group">
+  <button class="button">Apples</button>
+  <button class="button">Oranges</button>
+  <button class="button">Watermelons</button>
+</div>
+```
+
+*/
+
+
+// REDO -- Button styles need to be modified under this class so that the buttons are nudged up against each other in a button bar. The outer corners should use $border-radius to keep consistency.
+
+.button-group {
+  button:first-child {
+    margin: 0 5px 0 0;
+  }
+  button:nth-child(n+2) {
+    margin: 0 5px;
+  }
+  button:last-child {
+    margin: 0 0 0 5px;
+  }
+}

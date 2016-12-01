@@ -1,0 +1,15 @@
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
+bower_components
+.idea/
+.DS_Store
+log/nodejs.log
+Gemfile.lock
+npm-debug.log
+nohup.out
+lib/config/config.local.json
+test*.js
+dist.packageitup

@@ -1,0 +1,18 @@
+[{
+ "hello": "Hello",
+ "world":"World",
+ "language":"English"
+},
+{"hello": "Que Tal",
+ "world": "Mundo",
+ "language": "Spanish"
+},
+{"hello": "Bonjour tout",
+ "world": "Monde",
+ "language": "French"
+},
+{"hello": "Hailo",
+ "world": "Varlda",
+ "language": "Hindi"
+}
+]

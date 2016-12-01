@@ -1,0 +1,67 @@
+@import "../images/icons";
+
+/*doc
+---
+title: Checkboxes
+name: checkbox
+category: Atoms
+parent: forms
+---
+
+Use `<form>` to wrap an `<input>` and make sure the `id` and `for` match.
+
+```html_example
+	<form>
+		<input type="checkbox" id="checkbox1" name="checkbox1" />
+		<label for="checkbox1"><span></span>My sick-nasty checkbox</label>
+	</form>
+```
+*/
+
+// RESOURCES
+// Adjacent sibling selectors
+// http://www.w3.org/community/webed/wiki/Advanced_CSS_selectors#Adjacent_sibling_selector
+// Generated content using :before and :after
+// http://www.w3.org/community/webed/wiki/Advanced_CSS_selectors#Generated_content_using_:before_and_:after
+// Font Awesome Unicode for icons
+// http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css
+
+// select all checkboxes inside a <form>, and hide them
+form input[type="checkbox"] {
+	display: none;
+}
+// after the span immediately adjacent to the checkbox, insert checkbox from Font Awesome
+form input[type="checkbox"] + label span:after {
+	// .fa
+	font-family: FontAwesome;
+	content: "\f096";
+	padding-right: 10px;
+	font-size: 2em;
+	color: $light-gray;
+}
+// if checkbox element is checked, insert a checked checkbox in the span
+form input[type="checkbox"]:checked + label span:after {
+	// .fa
+	font-family: FontAwesome;
+	content: "\f046";
+	padding-right: 5px;
+	font-size: 2em;
+	color: $primary-color;
+}
+// align the hidden checkbox and span so that the Font Awesome icon inserted into the span
+// appears directly in front of the checkbox element
+form input[type="checkbox"] + label span {
+	display: inline-block;
+	vertical-align: middle;
+}
+// Show a pointer cursor on hover
+// Disable selection highlighting when clicking on or around the element
+form input[type="checkbox"] + label {
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

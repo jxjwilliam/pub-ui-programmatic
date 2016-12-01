@@ -1,0 +1,40 @@
+/*doc
+---
+title: Wells
+name: wells
+category: Atoms
+---
+<small>
+    atoms/wells/_wells.scss<br>
+    last updated 9/11/14 &ndash; 
+</small>
+
+```html_example
+    <div class="inset primary-border">
+        <p class="flat">I am a well into which swells fell at the reckon of the bell, what a story to tell! Oh well.</p>
+    </div>
+```
+
+*/
+
+// Well
+.inset {
+  // @include border-radius($border-radius);
+  padding: 20px;
+  margin: 0;
+}
+
+.inset.primary-border {
+  @extend .inset;
+  border-right: 8px solid $primary-color;
+}
+.inset.secondary-border {
+  @extend .inset;
+  border-right: 8px solid $secondary-color;
+}
+
+.inset.info-bg {
+  @extend .inset;
+  border: none;
+  background-color: $info-color;
+}

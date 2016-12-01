@@ -1,0 +1,54 @@
+@import
+  "../../atoms/global/fonts",
+  "../../atoms/global/colors";
+
+
+/*doc
+---
+title: Omnibar
+name: omnibar
+category: Molecules
+---
+
+These are Omnibar.
+
+*/
+
+
+// 
+// OMNIBAR
+// 
+.nlp-bar {
+  background-color: #222;
+  height:55px;
+  // margin-top: -80px;
+  position: fixed;
+  transition-duration:300ms;
+  width: 100%;
+  z-index:1000;
+}
+.nlp-input {
+  background-color: #222;
+  color: #FFF;
+  font-family: $primary-font;
+  height: 25px;
+  width:2000px;
+  margin-top: 6px;
+}
+div.nlp-input { 
+  outline: 0;
+}
+.nlp-wrapper {
+  border-bottom: 3px solid $primary-color;
+  margin-top: 7px;
+  cursor: text;
+}
+.nlp-wrapper div[contentEditable=true]:empty:not(:focus):before{
+  content:attr(placeholder);
+  color: #555;
+}
+
+
+
+
+

@@ -1,0 +1,68 @@
+/*doc
+---
+title: Fonts
+name: font
+category: Atoms
+parent: global
+---
+<small>
+    atoms/global/_fonts.scss<br>
+    last updated 8/31/14
+</small>
+
+The official brand font is Helvetica Neue LT, which works well in print. However, for on screen and in our app, we use Open Sans as the system font for it's more humanistic feel. Designed specifically for screens and interfaces, it's open letterforms allow for better readability. We use Lato for numeric values for it's high contrast and fresh, modern and timeless feel. This gives our data a distinct and strong voice.
+
+There are two ways to use call our typefaces: CSS classes and Sass variables.
+
+Type            |   Name
+----------------|--------------------------------
+CSS class       |   `.primary-font`, `.data-font`
+Sass variable   |   `$primary-font`, `$data-font`
+-
+
+```html_example
+	<h1>Every ad. Every sales channel. Every screen. One platform.</h1>
+	<h1 class="data-font">845,349.00</h1>
+```
+<span class="fa fa-info"></span>&nbsp;&nbsp;For type scale and text styling, see [text](#text).
+*/
+
+
+
+// TYPOGRAPHY
+
+// Core fonts
+$primary-font: "Open Sans";
+$data-font: "Lato";
+$overlay-font: "Covered By Your Grace";
+
+.anti-aliasing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+}
+
+.primary-font {
+    @extend .anti-aliasing;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.data-font {
+    @extend .anti-aliasing;
+    font-family: 'Lato', sans-serif;
+}
+// A handwritten font for overlays
+.overlay-font {
+    @extend .anti-aliasing;
+    font-family: "Covered By Your Grace";
+}
+
+$bold: 700;
+$xbold: 800;
+$light: 300;
+$regular: 400;
+
+
+
+html {
+  font-family: $primary-font;
+}

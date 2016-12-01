@@ -1,0 +1,28 @@
+<h1><code ng:non-bindable="">pmApiTable</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="pmapitable-page"><p>Call any PubMatic API and display the results in a UX compliant HTML table.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;pm-api-table
+       api-endpoint="{string}"
+       method="{string}"
+       field-list="{string}"&gt;
+&lt;/pm-api-table&gt;</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>apiEndpoint</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="pmapitable-page"><p>PubMatic API Endpoint (REST) called to populate the data table.</p>
+</div></td></tr><tr><td>method</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="pmapitable-page"><p>API CRUD method used for call (GET, POST, PUT, PATCH)</p>
+</div></td></tr><tr><td>fieldList</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="pmapitable-page"><p>Comma delimited list fields returned by the API that will display in the data table.</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="pmapitable-page"><p>Call <a href='www.google.com'>Inventory API</a> and display XYZ in the data table.
+<pre class="prettyprint linenums">
+   &lt;pm-api-table
+      endpoint="inventory"
+      method="GET"
+      displayfields="api,endpoint,method,description"&gt;
+   &lt;/pm-api-table&gt;
+</pre>
+</div></div>
+</div>

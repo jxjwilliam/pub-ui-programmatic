@@ -1,0 +1,80 @@
+@import "../text/text";
+
+/*doc
+---
+title: Data Counter
+name: data-counter
+category: Atoms
+parent: tables
+---
+<small>
+    atoms/tables/_data-counter.scss<br>
+    last updated 8/31/14 &ndash; 
+</small>
+
+When you need a headline counter, this is the jam to use. Add `.alert` to a `<td>` to make it red for negative values.
+
+```html_example
+<div class="data-counter-group">
+  <div class="data-counter">
+    <table>
+      <tbody>
+        <tr>
+          <td>Remaining<br>Dimensions</td>
+          <td class="alert">-2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-counter">
+    <table>
+      <tbody>
+        <tr>
+          <td>Remaining<br>Dimensions</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="clearfix"></div>
+```
+*/
+
+// DATA COUNTER
+.data-counter {
+	// border-bottom: 1px solid $light-gray;
+    // Label styling
+    td:first-child {
+    	line-height: 1.1em;
+    	padding: 3px 5px 3px 0px;
+      color: $gray;
+      font-size: .9em;
+      letter-spacing: -0.02em;
+      vertical-align: middle;
+    }
+    // Number styling
+    td:last-child {
+    	font-family: $data-font;
+    	font-size: 3em;
+    	vertical-align: middle;
+    	padding: 3px 0px 3px 5px;
+    }
+}
+// For groups of counters
+.data-counter-group {
+    div {
+	   display: inline-block;
+    }
+    div:first-child {
+        margin: 0px 10px 0px 0px;
+    }
+    div:nth-child(n+2) {
+        margin: 0 10px;
+    }
+    div:last-child {
+        margin: 0 0 0 10px;
+    }
+}
+
+

@@ -1,0 +1,29 @@
+<div ng-controller="choiceCtrl">
+    <pm-application-page
+            page-title="Manage Offers"
+            subtitle=""
+            description="">
+
+        <pm-id-offers-form></pm-id-offers-form>
+
+        <div pm-backplate="header">
+            <pm-button
+                    labels="{{labels}}"
+                    routes="{{routes}}">
+            </pm-button>
+            <div clearfix></div>
+        </div>
+
+        <pm-api-table
+                endpoint={{offersApiString}}
+                method="GET"
+                search="search offers"
+                baseobject="items"
+                showlinks="true"
+                objectdisplayfields={{objectdisplayfields}}
+                objectdisplaylabels={{objectdisplaylabels}}
+               pagesize="10">
+        </pm-api-table>
+
+    </pm-application-page>
+</div>

@@ -1,0 +1,370 @@
+<!--HTML View Template for the API enabled data block HTML element -->
+<style>
+
+    [container] {
+        margin: 200px;
+        text-align: center;
+    }
+
+    [row~="half"] {
+        width: 48%;
+        float: left;
+    }
+
+    [row~="half"]:last-child {
+        padding-right: 0;
+        float: right;
+    }
+
+    [row~="half"]::after {
+        clear: both;
+    }
+
+    [section-name] {
+        font-size: 19px;
+        margin-top: 0;
+    }
+
+    [label-description-list] {
+        font-size: 13px;
+    }
+
+    [label-description-list] li > span {
+        font-weight: bold;
+    }
+
+    [label-description-list] p {
+        margin-bottom: 10px;
+    }
+
+    [pm-panel] {
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+
+    [pm-panel] p {
+        font-size: 13px;
+        line-height: 1.25em;
+    }
+
+    [pm-panel~="description-list"] {
+
+    }
+
+    [pm-panel~="select"] {
+        padding: 0;
+    }
+
+    [pm-panel~="select"] input[type="checkbox"] {
+        display: inherit;
+    }
+
+    [pm-panel~="select"] table * {
+        border: 0;
+    }
+
+    [pm-panel~="select"] table {
+        margin-bottom: 0;
+    }
+
+    [pm-panel~="select"] table tr {
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    [pm-panel~="select"] table td {
+        padding: 20px;
+    }
+
+    [pm-panel-header] {
+        border-bottom: 1px solid #ebebeb;
+        margin-bottom: 10px;
+    }
+
+    [filter-field] [toggles~="full-width"] {
+        width: auto;
+        margin-right: 20px;
+    }
+
+    [filter-field] [toggles~="full-width"] label {
+        width: auto;
+    }
+
+</style>
+
+<div class="row">
+    <div class="small-12 columns">
+        <div product-definition="{{panelView}}">
+            <a close-button class="fa fa-times" ng-click="cancel()"></a>
+
+            <!-- Main Title and Icon -->
+            <div slide-header>
+                <div header-top>
+                    <div header-info="icon">
+                        <div class="panel-icon">
+                            <i class="fa fa-cube"></i>
+                        </div>
+                    </div>
+                    <div header-info="name">
+                        <h2>{{screenTitle}}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Main content body -->
+            <div slide-container>
+                <!-- FORM -->
+                <form name="form" ng-disabled="true">
+                    <!-- SELECT OFFER CHANNEL -->
+                    <div form-section-name>
+                        <h2>Select Offer Channel</h2>
+                    </div>
+                    <div filter-section novalidate>
+                        <div row>
+                            <div filter-label>
+                                <label>Channel:</label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles="full-width" id="offer_pmp">
+                                        <input type="checkbox"
+                                               ng-model="pmp_checked"
+                                               name="pmp_checked"
+                                               ng-click="itemSelected('/offers/pmp/add')"/>
+                                        <label>
+                                            <p>Private Marketplace</p>
+                                        </label>
+                                    </div>
+                                    <div toggles="full-width" id="offer_amg">
+                                        <input type="checkbox"
+                                               ng-model="ag_checked"
+                                               name="amg_checked"
+                                               ng-click="itemSelected('/offers/ag/add')"/>
+                                        <label>
+                                            <p>Automated Guaranteed</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SELECT PRODUCT -->
+                    <div form-section-name>
+                        <h2>Select Product</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <!-- Left column (multi-select) -->
+                            <div row="half">
+                                <multi-select
+                                        input-model="productOffersList"
+                                        button-label="name"
+                                        item-label="name"
+                                        selection-mode="single"
+                                        helper-elements="FILTER"
+                                        tick-property="ticked"
+                                        output-model="selectedVerticals"
+                                        on-item-click="selectProductItem(item)"
+                                        default-label="Select Product">
+                                </multi-select>
+                            </div>
+                            <!-- Right column (info panel) -->
+                            <div row="half">
+                                <div ng-show="!detailsRowToggle"
+                                     style="">
+                                    <p style="font-size: 14px;font-weight: bold;">Select An Automated Guaranteed Demand
+                                        Partner.</p>
+                                </div>
+                                <div pm-panel="description-list" ng-show="detailsRowToggle">
+                                    <div row pm-panel-header>
+                                        <h2 section-name>Your Selected Product</h2>
+                                    </div>
+                                    <div row ng-show="showAdServer" style="font-size: 12px;">
+                                        <span color="alert" bold
+                                              title="There are no ad tags mapped to this product, the product cannot be used for AG offers.">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            This product is not mapped to an ad server and therefore cannot be used for an AG offer.
+                                        </span>
+                                    </div>
+                                    <div row>
+                                        <ul label-description-list>
+                                            <li>
+                                                <span>Name:</span>
+
+                                                <p><span>{{chosenProduct.name}}</span></p>
+                                            </li>
+                                            <li>
+                                                <span>Description:</span>
+
+                                                <p><span>{{chosenProduct.description}}</span></p>
+                                            </li>
+                                            <li>
+                                                <span>Category:</span>
+
+
+                                                <p ng-if="!!chosenProduct.categoryMore"><span
+                                                        tooltip-html-unsafe="{{chosenProduct.categoryMore}}" class="has-tip">{{chosenProduct.category}}</span>
+                                                </p>
+
+                                                <p ng-if="!chosenProduct.categoryMore">
+                                                    <span>{{chosenProduct.category}}</span></p>
+                                            </li>
+                                            <li>
+                                                <span>Size:</span>
+
+                                                <p ng-if="!!chosenProduct.sizeMore"><span
+                                                        tooltip-html-unsafe="{{chosenProduct.sizeMore}}" class="has-tip">{{chosenProduct.size}}</span>
+
+                                                <p ng-if="!chosenProduct.sizeMore"><span>{{chosenProduct.size}}</span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <span>Position:</span>
+
+                                                <p><span>{{chosenProduct.position}}</span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--/ pm-panel -->
+                            </div>
+                            <!--/ .row -->
+                        </div>
+                        <!--/ row -->
+                    </div>
+                    <!--/ filter-section -->
+
+                    <!-- SELECT DEMAND PARTNERS -->
+                    <div form-section-name ng-show="partner_show">
+                        <h2>Select Automated Guaranteed Demand Partners
+                        </h2>
+                    </div>
+                    <div filter-section="last" ng-show="partner_show">
+                        <!-- Alert message -->
+                        <div row>
+                            <div pm-panel ng-show="partner_warning_show" style="background-color:lightgoldenrodyellow">
+
+                                <p style="padding: 10px">A Demand Partner you have selected is not fully compatible with
+                                    the product you
+                                    have selected. We'll need a few more details on the next screen to resolve
+                                    this.
+                                    <!--&nbsp;<a ng-href="help_partner">-->
+                                    <!--<i class="fa fa-question-circle" color="medium-gray"></i>-->
+                                    <!--</a>-->
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Table to display Guaranteed Demand Partners,  ng-init="media_ocean=true"  ng-disabled="media_ocean"-->
+                        <div row>
+                            <div pm-panel="select">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width: 10%;">
+                                            <div toggles>
+                                                <input type="checkbox"
+                                                       ng-model="media_ocean" ng-disabled="!media_ocean_flag"
+                                                       ng-click="partnerSelected($event)"
+                                                       id="media-ocean"
+                                                       name="media-ocean">
+                                            </div>
+                                        </td>
+                                        <td style="width:160px;">
+                                            <img ng-src="images/media_ocean.png" width="100" height="30"
+                                                 style="vertical-align: middle">
+                                        </td>
+                                        <td>
+                                            <div ng-show="partner_status_show">
+                                                <div ng-switch on="validateStatus">
+                                                    <div ng-switch-when="ERROR">
+                                                        <span color="alert" bold>
+                                                        <i class="fa fa-exclamation-circle"></i>
+                                                        Not Compatible
+                                                        </span>
+                                                    </div>
+                                                    <div ng-switch-when="WARN">
+                                                        <span style="color: orange" bold
+                                                              title="More details needed on next page to validate product">
+                                                            <i class="fa fa-exclamation-circle"></i>
+                                                            Partially Compatible
+                                                        </span>
+                                                    </div>
+                                                    <div ng-switch-when="OK">
+                                                        <span color="success" bold>
+                                                            <i class="fa fa-check-circle"></i>
+                                                            Fully Compatible
+                                                        </span>
+                                                    </div>
+                                                    <div ng-switch-default>
+                                                        <span color="alert" bold>
+                                                            <i class="fa fa-exclamation-circle"></i>
+                                                            Please select a Product to validate compatible
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #d3d3d3">
+                                        <td>
+                                            <input type="checkbox" readonly="readonly" disabled="disabled"
+                                                   ng-init="kantar_media=false"
+                                                   ng-model="kantar_media"
+                                                   ng-click="partnerSelected($event)"
+                                                   id="kantar-media" name="kantar-media">
+                                        </td>
+                                        <td>
+                                            <img ng-src="images/kantar_media.png" width="100" height="30"
+                                                 style="vertical-align: middle">
+                                        </td>
+                                        <td>
+                                            <div>
+                                            <span color="alert" bold>
+                                            Coming Soon
+                                            </span>
+                                            </div>
+                                            <!--<div ng-show="partner_kantar_show">-->
+                                            <!--<div ng-switch on="kantarFullySelect">-->
+                                            <!--<div ng-switch-when="NO">-->
+                                            <!--<span color="alert" bold>-->
+                                            <!--<i class="fa fa-exclamation-circle"></i>-->
+                                            <!--Please select a Product-->
+                                            <!--</span>-->
+                                            <!--</div>-->
+                                            <!--<div ng-switch-default>-->
+                                            <!--<span color="success" bold>-->
+                                            <!--<i class="fa fa-check-circle"></i>-->
+                                            <!--Fully Compatible-->
+                                            <!--</span>-->
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CANCEL/CONFIRM BUTTONS -->
+                    <div filter-section finish-line>
+                        <div finish-line-button-wrapper>
+                            <button finish-line-button="primary" class="create begin-offer" type="button"
+                                    ng-disabled="addDisabled" ng-click="submit_offers()">
+                                {{button_content}}
+                            </button>
+                            <button type="button" finish-line-button="secondary" ng-click="cancel()">Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /slide-container -->
+
+        </div>
+        <!--/ product-definition -->
+    </div>
+    <!--/ columns-12 -->
+</div>

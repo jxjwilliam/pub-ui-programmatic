@@ -1,0 +1,67 @@
+@import
+	"../global/colors";
+
+/*doc
+---
+title: Logos
+name: logo
+category: Atoms
+parent: images
+---
+<small>
+	atoms/images/_logo.scss<br>
+	last updated 8/31/14 &ndash;
+</small>
+
+For logos, we use SVG images with a fallback to PNG. Ensure that your SVG and PNG are the same dimensions.
+
+```html_example
+	<div class="logo-on-black">
+		<img src="../images/logos/pubmatic-logo-inverse-blackbg.svg" onerror="this.src=../images/logos/pubmatic-logo-inverse-blackbg.png"/>
+	</div>
+	<div class="logo-on-blue">
+		<img src="../images/logos/pubmatic-logo-inverse-bluebg.svg" onerror="this.src=../images/logos/pubmatic-logo-inverse-bluebg.png"/>
+	</div>
+	<div class="logo-on-white">
+		<img src="../images/logos/pubmatic-logo-master.svg" onerror="this.src=../images/logos/pubmatic-logo-master.png"/>
+	</div>
+```
+
+##Resizing Logos
+
+Since SVG files are vector, you can resize them without any degradation. For production, ensure you are also creating same-sized fallback PNGs.
+
+```html_example
+	<img src="../images/logos/pubmatic-logo-master.svg" />
+	<br><br>
+	<img src="../images/logos/pubmatic-logo-master.svg" style="width:250px" />
+	<br><br>
+	<img src="../images/logos/pubmatic-logo-master.svg" style="width:400px" />
+```
+
+*/
+
+
+// LOGOS
+
+.pubmatic-logo-header {
+	margin: 12px 0 0 15px;
+	z-index: 3000;
+	height: 34px;
+	width: 218px;
+
+}
+// padding around the logo
+$blockpad: 25px;
+
+.logo-on-black {
+	padding: $blockpad;
+	background-color: $black;
+}
+.logo-on-blue {
+	padding: $blockpad;
+	background-color: $primary-color;
+}
+.logo-on-white {
+	padding: $blockpad;
+}

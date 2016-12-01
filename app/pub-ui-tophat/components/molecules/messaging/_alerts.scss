@@ -1,0 +1,98 @@
+@import
+	"../../atoms/global/variables",
+	"../../atoms/global/colors";
+
+/*doc
+---
+title: Alerts
+name: alerts
+category: Molecules
+parent: messaging
+---
+
+```html_example
+	<div class="alert-box">
+		<p class="flat">
+			Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+		</p>
+	</div>
+```
+
+You can color-code the alert boxes by adding classes for background color and text color.
+
+```html_example
+	<div class="alert-box info-bg">
+        <p class="flat"><span class="h4 primary title"><i class="fa fa-info-circle"></i> Pro tip</span> Drag and drop dimensions in the same list to <a>reorder nesting</a> of tabular data or between <a>visible and invisible buckets</a>.
+        </p>
+    </div>
+
+	<div class="alert-box alert-bg">
+		<p class="flat">
+			Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+		</p>
+	</div>
+
+	<div class="alert-box warning-bg">
+		<p class="flat">
+			Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+		</p>
+	</div>
+
+	<div class="alert-box yield-bg">
+		<p class="flat">
+			Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+		</p>
+	</div>
+
+	<div class="alert-box success-bg">
+		<p class="flat">
+			Cras in lacus enim. Maecenas lectus erat, vulputate sed nibh vitae, accumsan imperdiet ipsum. Nam in leo massa. Integer sed lectus felis. Quisque nisi dolor, bibendum vitae scelerisque nec, fringilla in mauris.
+		</p>
+	</div>
+```
+
+*/
+
+
+// ALERT BOX 
+.alert-box {
+  @include border-radius($border-radius);
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+.alert-box p {
+	line-height: 1.25em;
+}
+.alert-box span.title {
+	padding: 0 20px 0 10px;
+}
+// Alertbox colors
+.alert-box.info-bg {
+	background-color: $info-color;
+	color: $black;
+}
+.alert-box.alert-bg {
+	border: 4px solid lighten($alert-color,25%);
+	color: $white;
+}
+.alert-box.warning-bg {
+	border: 4px solid lighten($warning-color,25%);
+	color: $white;
+}
+.alert-box.yield-bg {
+	border: 4px solid lighten($yield-color,25%);
+	color: $black;
+}
+.alert-box.success-bg {
+	border: 4px solid lighten($success-color,25%);
+	color: $white;
+}
+
+
+
+
+
+
+
+

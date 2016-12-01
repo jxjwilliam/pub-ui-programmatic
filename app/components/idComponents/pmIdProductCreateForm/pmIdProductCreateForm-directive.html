@@ -1,0 +1,500 @@
+<!-- HTML View Template for the API enabled data block HTML element -->
+
+<style>
+[container] {
+    margin: 200px;
+    text-align: center;
+}
+[ad-unit-submit] input[type="button"]{
+    float: right;
+    margin-right:50px;
+}
+</style>
+<div class="row">
+    <div class="small-12 columns">
+
+        <!-- <div id="product-definition" ng-class="{'sliding-panel off-screen' : !productOpen, 'sliding-panel open' : productOpen}">  -->
+        <div product-definition="{{panelView}}">
+            <a close-button class="fa fa-times" ng-click="cancel()"></a>
+            <div slide-header>
+                <div header-top>
+                    <div header-info="icon">
+                        <div class="panel-icon">
+                            <i class="fa fa-cube"></i>
+                        </div>
+                    </div>
+                    <div header-info="name">
+                        <h2>{{screenTitle}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div slide-container>
+                <!--product creation form-->
+                <form name="form" novalidate>
+                    <!-- BASIC DETAILS SECTION -->
+                    <div id="error-container" filter-section ng-show="hasErrors" error-container>
+                        <div row>
+                            <label>Please fix the following errors:</label>
+                        </div>
+                        <div filter-field>
+                            <label>
+                                <ul errors>
+                                    <li ng-repeat="errorMessage in serverErrors"> {{ errorMessage }}</li>
+                                </ul>
+                            </label>
+                        </div>
+                    </div>
+                    <div form-section-name>
+                        <h2>Enter Product Details</h2>
+                    </div>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label required>Product Name
+                                    <span asterisk>*</span> :
+                                </label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" ng-maxlength="250" placeholder="Site Name-Placement-Section" name="product-name" ng-model="productName" required="" ng-class="{'error-input': requiredFields.name}" ng-change="productNameChange()">
+                                <label ng-show="requiredFields.name" class="error-message"><i class="fa fa-warning"></i>Product name should contain 1 to 250 characters & should not contain &#43;&#124;&#33;&#40;&#41;&#123;&#125;&#91;&#93;&#60;&#62;&#37;&#94;&#34;&#126;&#42;&#63;&#58;&#59;&#64; these characters.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Description:</label>
+                            </div>
+                            <div filter-field>
+                                <input type="text" placeholder="Enter description" name="product-description" ng-model="productDescription" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label required>Publisher Category
+                                    <i asterisk>*</i> :
+                                </label>
+                            </div>
+                            <div filter-field class="product-category">
+                                <span ng-class="{'error-input': requiredFields.productCategory}" style="display:block;">
+                                    <multi-select max-labels="2" ng-class="{'error-input': requiredFields.productCategory}" input-model="allVerticals" button-label="name" item-label="name" tick-property="ticked" output-model="selectedVerticals" default-label="Select Categories" on-open="openProductCategory()" on-close="closeProductCategory()" on-item-click="productCategoryItemClick(item)" on-blur="genericFilterFunction()" edit-mode="categoriesEditMode">
+                                    </multi-select>
+                                </span>
+                                <label ng-show="requiredFields.productCategory" class="error-message"><i class="fa fa-warning"></i> Select a Publisher Category.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label>Search Tags:</label>
+                            </div>
+                            <div filter-field>
+                                <tags-input placeholder="Separate tags with commas" name="product-tags" min-length="2" replace-spaces-with-dashes="false" ng-model="tagPills"></tags-input>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label required>Display Url
+                                    <i asterisk>*</i> :
+                                </label>
+                            </div>
+                            <div filter-field>
+                                <span id="tags-input" ng-class="{'error-input': requiredFields.siteName}">
+                                    <tags-input placeholder="Separate URLs with commas ( e.g. www.domain_name.com )" name="product-site-name" ng-model="siteNamePills" on-tag-added="onSiteNameAddedOrRemoved()" on-tag-removed="onSiteNameAddedOrRemoved()" required min-length="2" replace-spaces-with-dashes="false" />
+                                </span>
+                                <label ng-show="requiredFields.siteName" class="error-message"><i class="fa fa-warning"></i> Enter at least one Display URL.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--form row-->
+                    <div form-section-name>
+                        <h2>Select Ad Tags & Sections</h2>
+                    </div>
+                    <!--form row-->
+                    <section id="ad-tag-selection">
+                        <div form-section-name>
+                            <h3>Ad Tag Filters</h3>
+                        </div>
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Platform:</label>
+                                </div>
+                                <div filter-field>
+                                    <!-- this is new. each row of checkboxes needs to be inside a div row -->
+
+                                    <div row>
+                                        <div toggles ng-model="selectedPlatforms" ng-repeat="item in allProductPlatforms" ng-change="platformChange(item)">
+                                            <input ng-model="item.ticked" type="checkbox" name="{{item.name}}" value="{{item.id}}" ng-change="platformChange(item)" />
+                                            <label for="{{item.name}}">
+                                                <p>{{item.name}}</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!--<label ng-show="atLeastOneError.platform" class="error-message"><i class="fa fa-warning"></i> At least one Platform should be selected.</label>-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Ad Format:</label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <div toggles>
+                                            <input type="checkbox" ng-model="isBannerChecked" name="product-adFormats-banner" ng-true-value="true" ng-false-value="false" ng-change="adFormatsChange(false)" />
+                                            <label>
+                                                <p>Banner</p>
+                                            </label>
+                                        </div>
+                                        <div toggles>
+                                            <input type="checkbox" ng-model="isVideoChecked" name="product-adFormats-video" ng-true-value="true" ng-false-value="false" ng-change="adFormatsChange(false)" />
+                                            <label>
+                                                <p>Video</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <!-- shown when "video" is chosen in ad format -->
+                        <section ng-show="showVideoFilters == true">
+                            <div form-section-name>
+                                <h3>Video Filters</h3>
+                            </div>
+                            <div filter-section>
+                                <div row>
+                                    <div filter-label>
+                                        <label>Companion ads:</label>
+                                    </div>
+                                    <div filter-field>
+                                        <div row>
+                                            <div toggles>
+                                                <input type="checkbox" name="product-campanionAds" ng-model="isCompanionAdsYes" ng-change="companionAdsChange(false)">
+                                                <label>
+                                                    <p>Yes</p>
+                                                </label>
+                                            </div>
+                                            <div toggles>
+                                                <input type="checkbox" name="product-campanionAds" ng-model="isCompanionAdsNo" ng-change="companionAdsChange(false)">
+                                                <label>
+                                                    <p>No</p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--form row-->
+                            <div filter-section>
+                                <div row>
+                                    <div filter-label>
+                                        <label>VAST:</label>
+                                    </div>
+                                    <div filter-field>
+                                        <div row>
+                                            <div toggles ng-model="selectedVastVersions" ng-repeat="item in allVastProtocols" ng-change="vastVersionsChange(item,false)">
+                                                <input type="checkbox" name="{{item.name}}" value="{{item.id}}" ng-change="vastVersionsChange(item,false)" ng-model="item.ticked" />
+                                                <label for="{{item.name}}">
+                                                    <p>{{item.name}}</p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--form row-->
+                            <div filter-section>
+                                <div row>
+                                    <div filter-label>
+                                        <label>Ad Duration:</label>
+                                    </div>
+                                    <div filter-field="half">
+                                        <input pm-input-number type="text" placeholder="Min Ad Duration (Seconds)" name="product-ad-duration" ng-model="minAdDuration" ng-blur="adDurationChange(false)" min="0" />
+                                    </div>
+                                    <div filter-field="half">
+                                        <input pm-input-number type="text" placeholder="Max Ad Duration (Seconds)" name="product-ad-duration" ng-model="maxAdDuration" ng-blur="adDurationChange(false)" min="0" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--form row-->
+                            <div filter-section>
+                                <div row>
+                                    <div filter-label>
+                                        <label>VPAID Compliance:</label>
+                                    </div>
+                                    <div filter-field>
+                                        <div row>
+                                            <div toggles ng-model="selectedVpaidCompliance" ng-repeat="item in allVpaidCompliance">
+                                                <input type="checkbox" name="{{item.name}}" value="{{item.id}}" ng-change="vPaidComplianceChange(item,false)" ng-model="item.ticked" />
+                                                <label for="{{item.name}}">
+                                                    <p>{{item.name}}</p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--form row-->
+                        </section>
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Ad Placement/Position:</label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <div toggles ng-model="selectedAdFoldPlacements" ng-repeat="item in allAdFoldPlacements" ng-change="adPlacementChange(item,false)">
+                                            <input type="checkbox" name="{{item.name}}" value="{{item.id}}" ng-change="adPlacementChange(item,false)" ng-model="item.ticked" />
+                                            <label for="{{item.name}}">
+                                                <p>{{item.name}}</p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!--                                    <label ng-show="atLeastOneError.vastVersion" class="error-message"><i class="fa fa-warning"></i> At least one VAST version should be selected.</label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Ad Sizes:</label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <!-- <div toggles>
+                                            <input type="radio" name="adsize-selection" value="any" ng-model="multiSelectDefaults.adSizes">
+                                            <label>
+                                                <p>Any</p>
+                                            </label>
+                                        </div>
+                                        <div toggles>
+                                            <input type="radio" name="adsize-selection" value="select" ng-model="multiSelectDefaults.adSizes">
+                                            <label>
+                                                <p>Select</p>
+                                            </label>
+                                        </div> -->
+                                        <div class="filter-field">
+                                            <multi-select max-labels="2" input-model="allAdSizes" button-label="name" item-label="name" tick-property="ticked" on-item-click="adSizesItemClick(item)" use-api-search="yes" on-search="adSizesSearch(searchFilter)" output-model="selectedAdSizes" default-label="All AdSizes" on-blur="genericFilterFunction()" on-open="openAdSizes()" on-close="genericFilterFunction()" edit-mode="adSizesEditMode" filter-button-clicked="adSizeFilterButtonClick()">
+                                            </multi-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label required>Sites
+                                        <i asterisk>*</i> :
+                                    </label>
+                                </div>
+                                <div filter-field>
+                                    <div row>
+                                        <div toggles>
+                                            <input type="radio" name="sites-selection" value="any" ng-model="multiSelectDefaults.sites" ng-disabled="isAnyEnabled.sites!==true">
+                                            <label>
+                                                <p>Any</p>
+                                            </label>
+                                        </div>
+                                        <div toggles>
+                                            <input type="radio" name="sites-selection" value="select" ng-model="multiSelectDefaults.sites">
+                                            <label>
+                                                <p>Select</p>
+                                            </label>
+                                        </div>
+                                        <div class="filter-field" clear ng-show="multiSelectDefaults.sites==='select'">
+                                            <span ng-class="{'error-input': requiredFields.sites}">
+                                                <multi-select max-labels="2" input-model="publisherSites" button-label="name" item-label="name" tick-property="ticked" on-item-click="publisherSitesItemClick(item)" use-api-search="yes" on-search="sitesSearch(searchFilter)" output-model="selectedSites" default-label="{{defaultLabel.sites}}" on-blur="genericFilterFunction()" on-close="genericFilterFunction()" edit-mode="sitesEditMode" clear-selection="clearSiteSelection" filter-button-clicked="sitesFilterButtonClick()">
+                                                </multi-select>
+                                            </span>
+                                            <label ng-show="requiredFields.sites" class="error-message"><i class="fa fa-warning"></i> Select at least one Site.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <label ng-show="atLeastOneError.vpaidComplianceVersion" class="error-message"><i class="fa fa-warning"></i>Atleast one VPAID version should be selected.</label>-->
+                            </div>
+                        </div>
+                        <!--form row-->
+                    </section>
+                    <div filter-section>
+                        <div row>
+                            <div filter-label>
+                                <label required>Ad Tags
+                                    <i asterisk>*</i> :
+                                </label>
+                            </div>
+                            <div filter-field>
+                                <div row>
+                                    <div toggles>
+                                        <input type="radio" name="adtags-selection" value="any" ng-model="multiSelectDefaults.adTags" ng-disabled="isAnyEnabled.adTags !==true ">
+                                        <label>
+                                            <p>Any</p>
+                                        </label>
+                                    </div>
+                                    <div toggles>
+                                        <input type="radio" name="adtags-selection" value="select" ng-model="multiSelectDefaults.adTags">
+                                        <label>
+                                            <p>Select</p>
+                                        </label>
+                                    </div>
+                                    <div class="adTagsCountDiv">
+                                        <label style="font-size: 13px;font-weight:bold;" class="{{allPublisherAdTags.length === 0 ? 'error-message' : 'info-message'}}"> {{allPublisherAdTags.length === 0 ? "No " : allPublisherAdTags.length === 1000 ? "More Than " + allPublisherAdTags.length : "Total " + allPublisherAdTags.length }} Ad Tags Available</label>
+                                    </div>
+                                    <div class="filter-field" clear ng-show="multiSelectDefaults.adTags==='select'">
+                                        <span ng-class="{'error-input': requiredFields.adTags}">
+                                            <multi-select max-labels="2" input-model="publisherAdTagsList" button-label="name" item-label="name" tick-property="ticked" output-model="selectedAdTags" default-label="{{defaultLabel.adTags}}" on-item-click="validateForm()" edit-mode="adTagsEditMode" clear-selection="clearAdTagsSelection" use-api-search="yes" on-search="adTagsSearch(searchFilter)">
+                                            </multi-select>
+                                        </span>
+                                    </div>
+                                    <div filter-field ng-show="requiredFields.adTags">
+                                        <label  class="error-message"><i class="fa fa-warning"></i> Select at least one Ad Tag.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+                        <div filter-section>
+                            <div row>
+                                <div filter-label>
+                                    <label>Sections:</label>
+                                </div>
+                                <div class="filter-field">
+                                    <multi-select max-labels="2" input-model="publisherSections" button-label="name" item-label="name" tick-property="ticked" output-model="selectedSections" default-label="Select Sections" on-open="openSections()" edit-mode="sectionsEditMode">
+                                    </multi-select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+
+                        <section ng-show="agEnabled === true">
+                            <div form-section-name>
+                                <h3>Select Ad Server</h3>
+                            </div>
+                            <div filter-section>
+                                <div row>
+                                    <div filter-label>
+                                        <label>Ad server <span class="compHTMLElement help_IconElement" title="Pre configured for each publisher"></span>:</label>
+                                    </div>
+                                    <div class="filter-field">
+                                        {{adServerInventory.adServerConfId}} 
+                                    </div>
+                                </div>
+                            </div>
+                            <!--form row-->
+                            <section id="ad-tag-selection">
+                                <div filter-section>
+                                    <div row>
+                                        <div filter-label>
+                                            <label>Inventory Type:</label>
+                                        </div>
+                                        <div filter-field>
+                                            <div row>
+                                                <div toggles>
+                                                    <input type="radio" ng-model="adServerInventory.iuType" name="inventory-type" value="1" ng-change="validateAdServer()"/>
+                                                    <label>
+                                                        <p>Ad Unit</p>
+                                                    </label>
+                                                </div>
+                                                <div toggles>
+                                                    <input type="radio" ng-model="adServerInventory.iuType" name="inventory-type" value="2" ng-change="validateAdServer()"/>
+                                                    <label>
+                                                        <p>Placement</p>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--form row-->
+                                <div filter-section>
+                                    <div row>
+                                        <div filter-label>
+                                            <label>Inventory ID:</label>
+                                        </div>
+                                        <div filter-field>
+                                            <div row>
+                                                <input type="text" ng-maxlength="250" placeholder="Inventory id" name="inventory-id" ng-model="adServerInventory.externalId" ng-change="validateAdServer()" >
+                                                <label ng-show="!isValidAdServer" class="error-message"><i class="fa fa-warning"></i>The entered ID is not a valid Inventory ID</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--form row-->
+                                <!-- Not needed since using on-change
+                                <div filter-section>
+                                    <div row>
+                                        <div row>
+                                            <div ad-unit-submit>
+                                                <input type="button" value="Validate Ad Server" ng-click="validateAdServer()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                            </section>
+                        </section>
+
+                        <!-- form padding at the end -->
+                        <div filter-section="last">
+                            <div row>
+                                <div row>
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                        <!--form row-->
+
+
+
+
+
+
+
+
+                        <div filter-section finish-line>
+                            <div finish-line-button-wrapper>
+                                <input type="button" finish-line-button="primary" ng-click="createOrUpdate()" class="createFormButton" value="{{buttonTitle}}">
+                                <input type="button" class="cancelFormButton" finish-line-button="secondary" ng-click="cancel()" value="Cancel">
+                            </div>
+                        </div>
+                </form>
+                <!--end product creation form -->
+                </div>
+                <!--end slide container-->
+            </div>
+            <!--END PRODUCT DEFINITION SLIDER-->
+        </div>
+        <!-- end class="small-12 columns" -->
+    </div>
+    <!-- end <div class="row"> -->
+
+    <!--
+<div ng-if="response =='error'">
+    <br/>
+    <div class="alert-box success-bg">
+        <i class="fa fa-gear"></i> Please be patient.  This information is not yet available</span>
+    </div>
+</div>
+
+<div ng-if="response =='waiting'">
+    <div class="spinner-container">
+        <span class="fa fa-gear fa-spin fa-2x"></span><p class="flat">Loading<p/>
+    </div>
+</div>
+-->

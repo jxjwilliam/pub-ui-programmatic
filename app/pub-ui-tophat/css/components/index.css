@@ -1,0 +1,35 @@
+/*doc
+---
+name: Intro
+category: Intro
+---
+
+#Welcome
+
+TopHat is an experimental-stage component library that makes it easy to build new PubMatic apps. How easy you ask? You didn't ask? Well I'm here to tell you. <b>In less than 15 minutes.</b>
+
+
+
+structured around concept of atomic design organized as the following
+
+atoms
+molecules
+organisms
+templates
+pages
+
+method of organization allows placing logic around each element, creating intelligent behaviors. This is the first step towards a <em>programmatic interface</em>.
+
+
+
+
+
+
+
+
+
+
+[hologram](http://github.com/trulia/hologram).
+
+
+*/

@@ -1,0 +1,29 @@
+<div ng-controller="amgCtrl">
+    <pm-application-page
+            page-title="Manage Offers"
+            subtitle=""
+            description="">
+
+        <pm-id-ag-create-form></pm-id-ag-create-form>
+
+        <div pm-backplate="header">
+            <pm-button
+                    labels="{{labels}}"
+                    routes="{{routes}}">
+            </pm-button>
+            <div clearfix></div>
+        </div>
+
+        <pm-api-table
+                endpoint={{offersApiString}}
+                method="GET"
+                search="search offers"
+                baseobject="items"
+                showlinks="true"
+                objectdisplayfields={{objectdisplayfields}}
+                objectdisplaylabels={{objectdisplaylabels}}
+               pagesize="10">
+        </pm-api-table>
+
+    </pm-application-page>
+</div>

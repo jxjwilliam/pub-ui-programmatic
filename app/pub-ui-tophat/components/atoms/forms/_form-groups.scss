@@ -1,0 +1,104 @@
+/*doc
+---
+title: Form Groups
+name: form-groups
+category: Atoms
+parent: forms
+---
+<small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; <span class="label yield">A cleaner clearfix solution should be implemented</span>
+</small>
+
+Remember to place your form elements inside `<form>` to have them auto-styled, then place your form elements into a group so they become buds. Make sure you add `<div class="clearfix"></div>` after a form group to clear the float.
+
+```html_example
+
+<div class="form-group left">
+	<form>
+		<input type="text" name="supBro" placeholder="Sup bro?">
+	</form>
+	<form>
+		<span class="dropdown">
+		<select>
+			<option>Just chilliiiin'</option>
+			<option>Word up</option>
+		</select>
+		</span>
+	</form>
+	<form>
+		<span class="dropdown">
+		<select>
+			<option>Just chilliiiin'</option>
+			<option>Word up</option>
+		</select>
+		</span>
+	</form>
+</div>
+<div class="clearfix"></div>
+```
+
+<br>
+
+Add `.left` or `.right` to align the form group on either side.
+
+```html_example
+<div class="form-group right">
+	<form>
+		<span class="dropdown">
+			<select>
+			    <option value='' disabled selected >5 Rappers</option>
+			    <option value='0'>Immortal Technique</option>
+			    <option value='1'>Black Thought</option>
+			    <option value='2'>Big K.R.I.T.</option>
+			    <option value='3'>Black Milk</option>
+			    <option value='4'>Jeru Tha Damaja</option>
+			</select>
+		</span>
+	</form>
+	<form>
+		<span class="dropdown">
+			<select>
+			    <option value='' disabled selected >5 Things</option>
+			    <option value='0'>Vegetables</option>
+			    <option value='1'>Congregations</option>
+			    <option value='1'>Waiting Rooms</option>
+			    <option value='1'>Terra Cotta Pots</option>
+			    <option value='1'>El Caminos</option>
+			</select>
+		</span>
+	</form>
+	<form>
+		<input type="text" name="placeholder" placeholder="Type something">
+	</form>
+</div>
+<div class="clearfix"></div>
+```
+
+*/
+
+// Form groups add padding between each input or select, while keeping it flush to the side margins
+.form-group.left {
+	form {
+		float: left;
+	}
+	form:first-child {             // flush left for first element
+		margin: 0 5px 0 0;
+	}
+	form:nth-child(n+2) {          // padding on both sides for elements 2+
+		margin:0 5px;
+	}
+	form:last-child {              // flush right for last element
+		margin: 0 0 0 5px;
+	}
+}
+// Float this sucker right
+.form-group.right {
+	@extend .form-group.left;
+	form {
+		float: right;
+	}
+}
+
+
+

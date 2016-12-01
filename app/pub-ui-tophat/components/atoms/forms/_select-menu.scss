@@ -1,0 +1,190 @@
+@import 
+  "../global/colors",
+  "../global/variables";
+
+/*doc
+---
+title: Select Menu
+name: select-menu
+category: Atoms
+parent: forms
+---
+<small>
+    atoms/text/_text.scss<br>
+    last updated 9/11/14 &ndash; <span class="label alert">Need to fix .expand</span>
+</small>
+
+Below snippet is for a simple dropdown.
+
+```html_example
+  <form>
+    <span class="dropdown">
+        <select>
+            <option>Rabbit-out-of-hat-trick</option>
+            <option>I-know-your-card-trick</option>
+            <option>Get-sawed-in-half-trick</option>
+            <option>Something-big-disappears-trick</option>
+            <option>My-thumb-in-two-parts-trick</option>
+        </select>
+    </span>
+  </form>
+```
+
+```html_example
+  <form>
+    <label>
+      Top 5 magic tricks
+      <span class="dropdown label-left">
+          <select>
+              <option>Rabbit-out-of-hat-trick</option>
+              <option>I-know-your-card-trick</option>
+              <option>Get-sawed-in-half-trick</option>
+              <option>Something-big-disappears-trick</option>
+              <option>My-thumb-in-two-parts-trick</option>
+          </select>
+      </span>
+    </label>
+
+    <br><br>
+
+    <label>
+      <span class="dropdown label-right">
+          <select>
+              <option>Rabbit-out-of-hat-trick</option>
+              <option>I-know-your-card-trick</option>
+              <option>Get-sawed-in-half-trick</option>
+              <option>Something-big-disappears-trick</option>
+              <option>My-thumb-in-two-parts-trick</option>
+          </select>
+      </span>
+      Top 5 magic tricks
+    </label>
+
+    <br><br>
+
+    <label>
+      Top 5 magic tricks
+      <span class="dropdown label-right expand">
+          <select>
+              <option>Rabbit-out-of-hat-trick</option>
+              <option>I-know-your-card-trick</option>
+              <option>Get-sawed-in-half-trick</option>
+              <option>Something-big-disappears-trick</option>
+              <option>My-thumb-in-two-parts-trick</option>
+          </select>
+      </span>
+    </label>
+  </form>
+```
+
+*/
+
+form label span {
+  // Disable select highlight
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+form span select {
+    font-size: inherit;   /* inherit size from .dropdown */
+    padding: .5em;        /* add some space*/
+    cursor:pointer;
+    // margin: 0;         /* remove default margins */
+}
+// dropdown background full
+form span select {
+    background-color: #FFF;
+}
+
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    .dropdown {
+        @include border-radius($border-radius);
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        border: 4px solid $light-gray;
+        font-size: 1em;
+        line-height: 1em;
+    }
+    .dropdown:hover {
+      border: 4px solid $primary-color;
+      transition: all 0.15s ease;
+    }
+    // Set margin between label on the left
+    .dropdown.label-left {
+      float: none;
+      margin-left: 10px;
+    }
+    .dropdown.label-right {
+      float: none;
+      margin-right: 10px;
+    }
+    // Width of dropdown text right
+    form span select {
+        padding-right: 2.5em;
+        border: 0;
+        @include border-radius(3px);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;    
+    }
+    .dropdown::before,
+    .dropdown::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+    // dropdown arrow
+    .dropdown::after {
+        content: "\25BC";
+        height: 1em;
+        font-size: .625em;
+        line-height: 1;
+        right: 1.2em;
+        top: 50%; margin-top: -.5em;
+    }
+    // dropdown arrow background left
+    .dropdown::before {
+        width: 2em;
+        right: 0; top: 0; bottom: 0;
+        @include border-corner-radius(top, left, 0);
+        @include border-corner-radius(right, bottom, 3px);
+    }
+    form span select[disabled] {
+        color: rgba(0,0,0,.3);
+    }
+    .dropdown.disabled::after {
+        color: rgba(0,0,0,.1);
+    }
+    // dropdown arrow background
+    .dropdown::before {
+        top: .5em; bottom: .5em;
+        background-color: #FFF;
+        border-left: 2px solid rgba(0,0,0,.1);
+    }
+    // dropdown arrow
+    .dropdown::after {
+        color: rgba(0,0,0,.9);
+    }
+    // FF temp fix
+    @-moz-document url-prefix() {
+        .dropdown__select             { padding-right: .9em }
+        .dropdown--large .dropdown__select { padding-right: 1.3em }
+        .dropdown--small .dropdown__select { padding-right: .5em }
+    }
+}
+
+// Unused sizing classes
+.dropdown.large {
+    font-size: 1.5em;
+}
+.dropdown.small {
+    font-size: .7em;
+}
